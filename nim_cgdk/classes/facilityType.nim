@@ -1,7 +1,7 @@
 from nesm import serializable
 
 serializable:
-  type FacilityType* = enum
+  type FacilityType* {.size: 1, pure.} = enum
     CONTROL_CENTER = 0
     VEHICLE_FACTORY = 1
-    UNKNOWN = 127
+    UNKNOWN = 255

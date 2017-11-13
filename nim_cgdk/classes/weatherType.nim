@@ -1,8 +1,8 @@
 from nesm import serializable
 
 serializable:
-  type WeatherType* = enum
+  type WeatherType* {.pure, size: 1.} = enum
     CLEAR = 0
     CLOUD = 1
     RAIN = 2
-    UNKNOWN = 127
+    UNKNOWN = 255
