@@ -9,5 +9,5 @@ bin           = @["nim_cgdk/runner"]
 # Dependencies
 
 requires "nim >= 0.17.3"
-requires "nesm"
+requires "nesm#451f23d"
 
