@@ -1,11 +1,14 @@
 from nesm import serializable
+from game import CachedFlag
 import facilityType
 import vehicleType
 
 serializable:
   type Facility* = object
-    case exists*: bool
-    of true:
+    case flag*: CachedFlag
+    of FromId:
+      sourceId*: int64
+    of Exists:
       id*: int64
       theType*: FacilityType
       ownerPlayerId*: int64

@@ -7,7 +7,7 @@ from posix import TCP_NODELAY, IPPROTO_TCP
 from nesm import toSerializable, serializable
 from model import ActionType, Facility, FacilityType, Game, Move, Player,
                   PlayerContext, TerrainType, Vehicle, VehicleType,
-                  VehicleUpdate, WeatherType, World, PlayerType
+                  VehicleUpdate, WeatherType, World, CachedFlag
 from model import serialize, deserialize
 when defined(errortrace):
   include check
@@ -57,23 +57,22 @@ else:
       Weathers = seq[seq[WeatherType]]
       OptionalLen = int32
 
-
-
 type
   Client* = tuple
     socket: Socket
     stream: SocketStream
-    previousPlayers: Table[int64, Player]
+    playersCache: Table[int64, Player]
     terrainCache: seq[seq[TerrainType]]
     weatherCache: seq[seq[WeatherType]]
-    facilitiesCache: seq[Facility]
+    facilitiesCache: Table[int64, Facility]
 
 proc newClient*(address: string, port: Natural): Client =
   result.socket = newSocket()
   result.socket.getFd().setSockOptInt(IPPROTO_TCP, TCP_NODELAY, 1)
   result.socket.connect(address, Port(port), 1000)
   result.stream = newSocketStream(result.socket)
-  result.previousPlayers = initTable[int64, Player](16)
+  result.playersCache = initTable[int64, Player](16)
+  result.facilitiesCache = initTable[int64, Facility](16)
 
 proc startConversation*(self: Client, token: string,
                         protoVer: int32): Game =
@@ -89,15 +88,27 @@ proc startConversation*(self: Client, token: string,
   assert(gameContext.kind == MessageType.GAME_CONTEXT)
   return gameContext.game
 
-proc deserializePlayer(self: var Client): Player =
-  result = Player.deserialize(self.stream)
-
+proc readCachedObject[T](stream: Stream, cache: var Table[int64, T]): T =
+  result = T.deserialize(stream)
   if result.flag == FromId:
-    result = self.previousPlayers[result.sourceId]
+    result = cache[result.sourceId]
   else:
-    self.previousPlayers[result.id] = result
+    cache[result.id] = result
 
-proc readTheSeq[T](stream: Stream, cache: seq[T] = nil): seq[T] =
+proc readCachedObjSeq[T](stream: Stream, cache: var Table[int64, T]): seq[T] =
+  let plen = OptionalLen.deserialize(stream)
+  if plen < 0:
+    result = newSeq[T](len(cache))
+    var i = 0
+    for v in cache.values():
+      result[i] = v
+      i += 1
+  else:
+    result = newSeq[T](plen)
+    for i in 0..<plen:
+      result[i] = readCachedObject[T](stream, cache)
+
+proc readSeq[T](stream: Stream, cache: seq[T] = nil): seq[T] =
   let oplen = OptionalLen.deserialize(stream)
   if oplen < 0:
     result = cache
@@ -111,8 +122,9 @@ proc getPlayerContext*(self: var Client): PlayerContext =
   if kind == MessageType.GAME_OVER:
     return PlayerContext(exists: false)
   assert(kind == MessageType.PLAYER_CONTEXT)
-  result.exists = PlayerType.deserialize(self.stream) == Exists
-  result.player = self.deserializePlayer()
+  result.exists = CachedFlag.deserialize(self.stream) == Exists
+  result.player = readCachedObject(self.stream, self.playersCache)
+
   let wh = WorldHead.deserialize(self.stream)
   result.world.exists = wh.exists
   if wh.exists:
@@ -120,27 +132,16 @@ proc getPlayerContext*(self: var Client): PlayerContext =
     result.world.tickCount = wh.tickCount
     result.world.width = wh.width
     result.world.height = wh.height
-    let plen = OptionalLen.deserialize(self.stream)
-    if plen < 0:
-      result.world.players = newSeq[Player](len(self.previousPlayers))
-      var i = 0
-      for v in self.previousPlayers.values():
-        result.world.players[i] = v
-        i += 1
-    else:
-      result.world.players = newSeq[Player](plen)
-      for i in 0..<plen:
-        result.world.players[i] = self.deserializePlayer()
-    result.world.newVehicles = readTheSeq[Vehicle](self.stream)
-    result.world.vehicleUpdates = readTheSeq[VehicleUpdate](self.stream)
+    result.world.players = readCachedObjSeq(self.stream, self.playersCache)
+    result.world.newVehicles = readSeq[Vehicle](self.stream)
+    result.world.vehicleUpdates = readSeq[VehicleUpdate](self.stream)
     if len(self.terrainCache) == 0:
       self.terrainCache = Terrains.deserialize(self.stream)
     if len(self.weatherCache) == 0:
       self.weatherCache = Weathers.deserialize(self.stream)
     result.world.weatherByCellXY = self.weatherCache
     result.world.terrainByCellXY = self.terrainCache
-    self.facilitiesCache = readTheSeq[Facility](self.stream, self.facilitiesCache)
-    result.world.facilities = self.facilitiesCache
+    result.world.facilities = readCachedObjSeq(self.stream, self.facilitiesCache)
 
 proc doMove*(self: Client, move: Move) =
   let moveMessage = Message(kind: MessageType.MOVE, move: move)

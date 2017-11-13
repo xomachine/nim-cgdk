@@ -1,4 +1,5 @@
 from nesm import serializable
+import game
 import player
 import facility
 import vehicle

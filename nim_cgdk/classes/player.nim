@@ -1,13 +1,10 @@
 from nesm import serializable
+from game import CachedFlag
 
 serializable:
   type
-    PlayerType* = enum
-      None = 0,
-      Exists = 1,
-      FromId = 127
     Player* = object
-      case flag*: PlayerType
+      case flag*: CachedFlag
       of Exists:
         id*: int64
         me*: bool

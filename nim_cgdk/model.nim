@@ -19,9 +19,9 @@ export Facility
 export FacilityType
 export Unit
 export CircularUnit
-export Game
+export Game, CachedFlag
 export Move
-export Player, PlayerType
+export Player
 export PlayerContext
 export TerrainType
 export Vehicle

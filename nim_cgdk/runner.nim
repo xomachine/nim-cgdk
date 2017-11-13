@@ -2,7 +2,7 @@ from client import Client, newClient, startConversation, getPlayerContext,
                    doMove, close
 from os import paramCount, paramStr
 from strutils import parseInt
-from model import Move, PlayerType, ActionType, VehicleType
+from model import Move, CachedFlag, ActionType, VehicleType
 from mystrategy import move
 
 var rpClient: Client
@@ -26,7 +26,8 @@ try:
     var themove = Move(exists: true, action: ActionType.NONE, group:0, left:0,
                        top: 0, right: 0, bottom: 0, x: 0, y: 0, angle: 0,
                        factor: 0, maxSpeed: 0, maxAngularSpeed: 0,
-                       vehicleType: VehicleType.UNKNOWN, facilityId: -1)
+                       vehicleType: VehicleType.UNKNOWN, facilityId: -1,
+                       vehicleId: -1)
     move(player, context.world, game, themove)
     rpClient.doMove(themove)
 finally:
