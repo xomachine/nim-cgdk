@@ -3,7 +3,12 @@ from tables import Table, `[]`, `[]=`, initTable, len, values
 from utils.socketstream import newSocketStream, SocketStream
 from net import Port, Socket, newSocket, connect, getFd, close
 from nativesockets import setSockOptInt
-from posix import TCP_NODELAY, IPPROTO_TCP
+when defined(posix):
+  from posix import TCP_NODELAY, IPPROTO_TCP
+else:
+  # Temporary workaroud since nims stdlib has no such a constants
+  const TCP_NODELAY = 1
+  const IPPROTO_TCP = 6
 from nesm import toSerializable, serializable
 from model import ActionType, Facility, FacilityType, Game, Move, Player,
                   PlayerContext, TerrainType, Vehicle, VehicleType,
