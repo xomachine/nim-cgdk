@@ -1,4 +1,3 @@
 @echo off
 
-nimble make &> compilation.log
-
+nimble make 2> compilation.log
