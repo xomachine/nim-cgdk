@@ -11,3 +11,11 @@ bin           = @["nim_cgdk/runner"]
 requires "nim >= 0.17.3"
 requires "nesm#451f23d"
 
+from ospaths import `/`
+task make, "Compile the strategy":
+  let curdir = thisDir()
+  withDir("nim_cgdk"):
+    exec("nim c --hint[XDeclaredButNotUsed]:off -o:" & toExe(curdir / "MyStrategy") & " runner.nim")
+task clean, "Wipe compilation data":
+  rmDir(nimcacheDir())
+  rmFile(thisDir() / toExe("MyStrategy"))
