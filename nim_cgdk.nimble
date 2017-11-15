@@ -38,3 +38,7 @@ task make, "Compile the strategy":
 task clean, "Wipe compilation data":
   rmDir(thisDir() / srcDirName / nimcacheDir())
   rmFile(thisDir() / toExe("MyStrategy"))
+
+task fullclean, "Wipe compilation and codegeneration data":
+  exec("nimble clean")
+  rmFile(generatedFile)
