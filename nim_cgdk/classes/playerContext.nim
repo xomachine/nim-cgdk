@@ -1,17 +1,9 @@
-from nesm import serializable
-import game
-import player
-import vehicle
-import vehicleUpdate
-import facility
-import weatherType
-import terrainType
-import world
+from player import Player
+from world import World
 
-serializable:
-  type PlayerContext* = object
-    case exists*: bool
-    of true:
-      player*: Player
-      world*: World
-    else: discard
+type PlayerContext* = object
+  case exists*: bool
+  of true:
+    player*: Player
+    world*: World
+  else: discard

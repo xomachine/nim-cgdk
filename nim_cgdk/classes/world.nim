@@ -1,28 +1,26 @@
-from nesm import serializable
-import game
-import player
-import facility
-import vehicle
-import vehicleUpdate
-import vehicleType
-import terrainType
-import weatherType
+from game import CachedFlag
+from player import Player
+from vehicle import Vehicle
+from vehicleUpdate import VehicleUpdate
+from terrainType import TerrainType
+from weatherType import WeatherType
+from facility import Facility
 
-serializable:
-  type World* = object
-    case exists*: bool
-    of true:
-      tickIndex*: int32
-      tickCount*: int32
-      width*: float64
-      height*: float64
-      players*: seq[Player]
-      newVehicles*: seq[Vehicle]
-      vehicleUpdates*: seq[VehicleUpdate]
-      terrainByCellXY*: seq[seq[TerrainType]]
-      weatherByCellXY*: seq[seq[WeatherType]]
-      facilities*: seq[Facility]
-    else: discard
+
+type World* = object
+  case exists*: bool
+  of true:
+    tickIndex*: int32
+    tickCount*: int32
+    width*: float64
+    height*: float64
+    players*: seq[Player]
+    newVehicles*: seq[Vehicle]
+    vehicleUpdates*: seq[VehicleUpdate]
+    terrainByCellXY*: seq[seq[TerrainType]]
+    weatherByCellXY*: seq[seq[WeatherType]]
+    facilities*: seq[Facility]
+  else: discard
 
 proc getMyPlayer*(self: World): Player =
   for player in self.players:

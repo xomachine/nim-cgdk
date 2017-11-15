@@ -9,58 +9,80 @@ else:
   # Temporary workaroud since nims stdlib has no such a constants
   const TCP_NODELAY = 1
   const IPPROTO_TCP = 6
-from nesm import toSerializable, serializable
 from model import ActionType, Facility, FacilityType, Game, Move, Player,
                   PlayerContext, TerrainType, Vehicle, VehicleType,
                   VehicleUpdate, WeatherType, World, CachedFlag
-from model import serialize, deserialize
-when defined(errortrace):
-  include check
+type
+  MessageType {.pure.} = enum
+    UNKNOWN = 0
+    GAME_OVER = 1
+    AUTHENTICATION_TOKEN = 2
+    TEAM_SIZE = 3
+    PROTOCOL_VERSION = 4
+    GAME_CONTEXT = 5
+    PLAYER_CONTEXT = 6
+    MOVE = 7
+  Message = object
+    case kind: MessageType
+    of MessageType.AUTHENTICATION_TOKEN:
+      token: string
+    of MessageType.PROTOCOL_VERSION:
+      version: int32
+    of MessageType.TEAM_SIZE:
+      size: int32
+    of MessageType.GAME_CONTEXT:
+      game: Game
+    of MessageType.MOVE:
+      move: Move
+    of MessageType.PLAYER_CONTEXT:
+      playerContext: PlayerContext
+    else:
+      discard
+  WorldHead = object
+    case exists: bool
+    of true:
+      tickIndex: int32
+      tickCount: int32
+      width: float64
+      height: float64
+    else: discard
+  WorldTail = object
+    newVehicles: seq[Vehicle]
+    vehicleUpdates: seq[VehicleUpdate]
+    #terrainByCellXY: seq[seq[TerrainType]]
+    #weatherByCellXY: seq[seq[WeatherType]]
+    #facilities: seq[Facility]
+  Terrains = seq[seq[TerrainType]]
+  Weathers = seq[seq[WeatherType]]
+  OptionalLen = int32
+
+when defined(nodeps):
+  from streams import writeData, readData, newStringStream
+  from endians import swapEndian16, swapEndian32, swapEndian64
+  include utils.generated
 else:
-  serializable:
-    type
-      MessageType {.pure.} = enum
-        UNKNOWN = 0
-        GAME_OVER = 1
-        AUTHENTICATION_TOKEN = 2
-        TEAM_SIZE = 3
-        PROTOCOL_VERSION = 4
-        GAME_CONTEXT = 5
-        PLAYER_CONTEXT = 6
-        MOVE = 7
-      Message = object
-        case kind: MessageType
-        of MessageType.AUTHENTICATION_TOKEN:
-          token: string
-        of MessageType.PROTOCOL_VERSION:
-          version: int32
-        of MessageType.TEAM_SIZE:
-          size: int32
-        of MessageType.GAME_CONTEXT:
-          game: Game
-        of MessageType.MOVE:
-          move: Move
-        of MessageType.PLAYER_CONTEXT:
-          playerContext: PlayerContext
-        else:
-          discard
-      WorldHead = object
-        case exists: bool
-        of true:
-          tickIndex: int32
-          tickCount: int32
-          width: float64
-          height: float64
-        else: discard
-      WorldTail = object
-        newVehicles: seq[Vehicle]
-        vehicleUpdates: seq[VehicleUpdate]
-        #terrainByCellXY: seq[seq[TerrainType]]
-        #weatherByCellXY: seq[seq[WeatherType]]
-        #facilities: seq[Facility]
-      Terrains = seq[seq[TerrainType]]
-      Weathers = seq[seq[WeatherType]]
-      OptionalLen = int32
+  from nesm import toSerializable
+  toSerializable(ActionType, size: 1)
+  toSerializable(TerrainType, size: 1)
+  toSerializable(WeatherType, size: 1)
+  toSerializable(VehicleType, size: 1)
+  toSerializable(CachedFlag, size: 1)
+  toSerializable(FacilityType, size: 1)
+  toSerializable(Game)
+  toSerializable(Move)
+  toSerializable(VehicleUpdate)
+  toSerializable(Vehicle)
+  toSerializable(Facility)
+  toSerializable(Player)
+  toSerializable(World)
+  toSerializable(PlayerContext)
+  toSerializable(WorldHead)
+  toSerializable(WorldTail)
+  toSerializable(Terrains)
+  toSerializable(Weathers)
+  toSerializable(MessageType)
+  toSerializable(Message)
+  toSerializable(OptionalLen, size: 1)
 
 type
   Client* = tuple

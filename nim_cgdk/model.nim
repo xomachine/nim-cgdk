@@ -29,7 +29,6 @@ export VehicleType
 export VehicleUpdate
 export WeatherType
 export World
-export serialize, deserialize
 export getDistanceTo, getDistanceToUnit, getSquaredDistanceTo
 export update, getMyPlayer, getOpponentPlayer
 
