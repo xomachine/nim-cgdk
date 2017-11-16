@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rm -rf nimcache
+nimble clean
 rm compilation.log

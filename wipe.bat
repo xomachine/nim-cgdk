@@ -1,4 +1,4 @@
 @echo off
 
-rd /s /q nimcache
+nimble clean
 del compilation.log
