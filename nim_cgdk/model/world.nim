@@ -1,9 +1,9 @@
 from game import CachedFlag
 from player import Player
 from vehicle import Vehicle
-from vehicleUpdate import VehicleUpdate
-from terrainType import TerrainType
-from weatherType import WeatherType
+from vehicle_update import VehicleUpdate
+from terrain_type import TerrainType
+from weather_type import WeatherType
 from facility import Facility
 
 

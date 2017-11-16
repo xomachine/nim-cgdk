@@ -1,6 +1,6 @@
 from strutils import `%`
-from vehicleType import VehicleType 
-from vehicleUpdate import VehicleUpdate 
+from vehicle_type import VehicleType 
+from vehicle_update import VehicleUpdate 
 
 type Vehicle* = object
   case exists*: bool

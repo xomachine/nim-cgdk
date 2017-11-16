@@ -1,6 +1,6 @@
 from game import CachedFlag
-from facilityType import FacilityType
-from vehicleType import VehicleType
+from facility_type import FacilityType
+from vehicle_type import VehicleType
 
 type Facility* = object
   case flag*: CachedFlag

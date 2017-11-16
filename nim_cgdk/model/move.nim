@@ -1,5 +1,5 @@
-from vehicleType import VehicleType
-from actionType import ActionType
+from vehicle_type import VehicleType
+from action_type import ActionType
 
 type Move* = object
   case exists*: bool

@@ -1,15 +1,15 @@
-proc size(obj238006: ActionType): Natural =
+proc size(obj235006: ActionType): Natural =
   1
 
-proc serialize(obj238007: ActionType; thestream: Stream) =
-  thestream.writeData(obj238007.unsafeAddr, 1)
+proc serialize(obj235007: ActionType; thestream: Stream) =
+  thestream.writeData(obj235007.unsafeAddr, 1)
 
-proc serialize(obj238011: ActionType): string =
-  let ss238013 = newStringStream()
-  serialize(obj238011, ss238013)
-  ss238013.data
+proc serialize(obj235011: ActionType): string =
+  let ss235013 = newStringStream()
+  serialize(obj235011, ss235013)
+  ss235013.data
 
-proc deserialize(a238009: typedesc[ActionType]; thestream: Stream): ActionType =
+proc deserialize(a235009: typedesc[ActionType]; thestream: Stream): ActionType =
   assert(1 ==
       thestream.readData(result.unsafeAddr, 1),
          "Stream was not provided enough data")
@@ -18,18 +18,18 @@ proc deserialize(a238009: typedesc[ActionType]; thestream: Stream): ActionType =
     raise newException(ValueError, "Enum value is out of range: " &
         $(result) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  NONE = 0, CLEAR_AND_SELECT = 1, ADD_TO_SELECTION = 2, DESELECT = 3, ASSIGN = 4, DISMISS = 5,\x0A  DISBAND = 6, MOVE = 7, ROTATE = 8, SCALE = 9, SETUP_VEHICLE_PRODUCTION = 10,\x0A  TACTICAL_NUCLEAR_STRIKE = 11, UNKNOWN = 255")
-proc size(obj238038: TerrainType): Natural =
+proc size(obj235038: TerrainType): Natural =
   1
 
-proc serialize(obj238039: TerrainType; thestream: Stream) =
-  thestream.writeData(obj238039.unsafeAddr, 1)
+proc serialize(obj235039: TerrainType; thestream: Stream) =
+  thestream.writeData(obj235039.unsafeAddr, 1)
 
-proc serialize(obj238043: TerrainType): string =
-  let ss238045 = newStringStream()
-  serialize(obj238043, ss238045)
-  ss238045.data
+proc serialize(obj235043: TerrainType): string =
+  let ss235045 = newStringStream()
+  serialize(obj235043, ss235045)
+  ss235045.data
 
-proc deserialize(a238041: typedesc[TerrainType]; thestream: Stream): TerrainType =
+proc deserialize(a235041: typedesc[TerrainType]; thestream: Stream): TerrainType =
   assert(1 ==
       thestream.readData(result.unsafeAddr, 1),
          "Stream was not provided enough data")
@@ -38,18 +38,18 @@ proc deserialize(a238041: typedesc[TerrainType]; thestream: Stream): TerrainType
     raise newException(ValueError, "Enum value is out of range: " &
         $(result) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  PLAIN = 0, SWAMP = 1, FOREST = 2, UNKNOWN = 255")
-proc size(obj238070: WeatherType): Natural =
+proc size(obj235070: WeatherType): Natural =
   1
 
-proc serialize(obj238071: WeatherType; thestream: Stream) =
-  thestream.writeData(obj238071.unsafeAddr, 1)
+proc serialize(obj235071: WeatherType; thestream: Stream) =
+  thestream.writeData(obj235071.unsafeAddr, 1)
 
-proc serialize(obj238075: WeatherType): string =
-  let ss238077 = newStringStream()
-  serialize(obj238075, ss238077)
-  ss238077.data
+proc serialize(obj235075: WeatherType): string =
+  let ss235077 = newStringStream()
+  serialize(obj235075, ss235077)
+  ss235077.data
 
-proc deserialize(a238073: typedesc[WeatherType]; thestream: Stream): WeatherType =
+proc deserialize(a235073: typedesc[WeatherType]; thestream: Stream): WeatherType =
   assert(1 ==
       thestream.readData(result.unsafeAddr, 1),
          "Stream was not provided enough data")
@@ -58,18 +58,18 @@ proc deserialize(a238073: typedesc[WeatherType]; thestream: Stream): WeatherType
     raise newException(ValueError, "Enum value is out of range: " &
         $(result) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  CLEAR = 0, CLOUD = 1, RAIN = 2, UNKNOWN = 255")
-proc size(obj238102: VehicleType): Natural =
+proc size(obj235102: VehicleType): Natural =
   1
 
-proc serialize(obj238103: VehicleType; thestream: Stream) =
-  thestream.writeData(obj238103.unsafeAddr, 1)
+proc serialize(obj235103: VehicleType; thestream: Stream) =
+  thestream.writeData(obj235103.unsafeAddr, 1)
 
-proc serialize(obj238107: VehicleType): string =
-  let ss238109 = newStringStream()
-  serialize(obj238107, ss238109)
-  ss238109.data
+proc serialize(obj235107: VehicleType): string =
+  let ss235109 = newStringStream()
+  serialize(obj235107, ss235109)
+  ss235109.data
 
-proc deserialize(a238105: typedesc[VehicleType]; thestream: Stream): VehicleType =
+proc deserialize(a235105: typedesc[VehicleType]; thestream: Stream): VehicleType =
   assert(1 ==
       thestream.readData(result.unsafeAddr, 1),
          "Stream was not provided enough data")
@@ -78,18 +78,18 @@ proc deserialize(a238105: typedesc[VehicleType]; thestream: Stream): VehicleType
     raise newException(ValueError, "Enum value is out of range: " &
         $(result) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  ARRV = 0, FIGHTER = 1, HELICOPTER = 2, IFV = 3, TANK = 4, UNKNOWN = 255")
-proc size(obj238134: CachedFlag): Natural =
+proc size(obj235134: CachedFlag): Natural =
   1
 
-proc serialize(obj238135: CachedFlag; thestream: Stream) =
-  thestream.writeData(obj238135.unsafeAddr, 1)
+proc serialize(obj235135: CachedFlag; thestream: Stream) =
+  thestream.writeData(obj235135.unsafeAddr, 1)
 
-proc serialize(obj238139: CachedFlag): string =
-  let ss238141 = newStringStream()
-  serialize(obj238139, ss238141)
-  ss238141.data
+proc serialize(obj235139: CachedFlag): string =
+  let ss235141 = newStringStream()
+  serialize(obj235139, ss235141)
+  ss235141.data
 
-proc deserialize(a238137: typedesc[CachedFlag]; thestream: Stream): CachedFlag =
+proc deserialize(a235137: typedesc[CachedFlag]; thestream: Stream): CachedFlag =
   assert(1 ==
       thestream.readData(result.unsafeAddr, 1),
          "Stream was not provided enough data")
@@ -98,18 +98,18 @@ proc deserialize(a238137: typedesc[CachedFlag]; thestream: Stream): CachedFlag =
     raise newException(ValueError, "Enum value is out of range: " &
         $(result) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  None = 0, Exists = 1, FromId = 127")
-proc size(obj238166: FacilityType): Natural =
+proc size(obj235166: FacilityType): Natural =
   1
 
-proc serialize(obj238167: FacilityType; thestream: Stream) =
-  thestream.writeData(obj238167.unsafeAddr, 1)
+proc serialize(obj235167: FacilityType; thestream: Stream) =
+  thestream.writeData(obj235167.unsafeAddr, 1)
 
-proc serialize(obj238171: FacilityType): string =
-  let ss238173 = newStringStream()
-  serialize(obj238171, ss238173)
-  ss238173.data
+proc serialize(obj235171: FacilityType): string =
+  let ss235173 = newStringStream()
+  serialize(obj235171, ss235173)
+  ss235173.data
 
-proc deserialize(a238169: typedesc[FacilityType]; thestream: Stream): FacilityType =
+proc deserialize(a235169: typedesc[FacilityType]; thestream: Stream): FacilityType =
   assert(1 ==
       thestream.readData(result.unsafeAddr, 1),
          "Stream was not provided enough data")
@@ -118,9 +118,9 @@ proc deserialize(a238169: typedesc[FacilityType]; thestream: Stream): FacilityTy
     raise newException(ValueError, "Enum value is out of range: " &
         $(result) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  CONTROL_CENTER = 0, VEHICLE_FACTORY = 1, UNKNOWN = 255")
-proc size(obj238200: Game): Natural =
+proc size(obj235200: Game): Natural =
   result += 1
-  case obj238200.exists
+  case obj235200.exists
   of true:
     result += 8
     result += 4
@@ -221,127 +221,127 @@ proc size(obj238200: Game): Natural =
     result += 0
   result += 0
 
-proc serialize(obj238201: Game; thestream: Stream) =
+proc serialize(obj235201: Game; thestream: Stream) =
   discard
-  var tmp238199 = obj238201.exists
-  thestream.writeData(tmp238199.unsafeAddr, 1)
-  case obj238201.exists
+  var tmp235199 = obj235201.exists
+  thestream.writeData(tmp235199.unsafeAddr, 1)
+  case obj235201.exists
   of true:
     discard
-    thestream.writeData(obj238201.randomSeed.unsafeAddr, 8)
-    thestream.writeData(obj238201.tickCount.unsafeAddr, 4)
-    thestream.writeData(obj238201.worldWidth.unsafeAddr, 8)
-    thestream.writeData(obj238201.worldHeight.unsafeAddr, 8)
-    thestream.writeData(obj238201.fogOfWarEnabled.unsafeAddr, 1)
-    thestream.writeData(obj238201.victoryScore.unsafeAddr, 4)
-    thestream.writeData(obj238201.facilityCaptureScore.unsafeAddr, 4)
-    thestream.writeData(obj238201.vehicleEliminationScore.unsafeAddr, 4)
-    thestream.writeData(obj238201.actionDetectionInterval.unsafeAddr, 4)
-    thestream.writeData(obj238201.baseActionCount.unsafeAddr, 4)
-    thestream.writeData(obj238201.additionalActionCountPerControlCenter.unsafeAddr,
+    thestream.writeData(obj235201.randomSeed.unsafeAddr, 8)
+    thestream.writeData(obj235201.tickCount.unsafeAddr, 4)
+    thestream.writeData(obj235201.worldWidth.unsafeAddr, 8)
+    thestream.writeData(obj235201.worldHeight.unsafeAddr, 8)
+    thestream.writeData(obj235201.fogOfWarEnabled.unsafeAddr, 1)
+    thestream.writeData(obj235201.victoryScore.unsafeAddr, 4)
+    thestream.writeData(obj235201.facilityCaptureScore.unsafeAddr, 4)
+    thestream.writeData(obj235201.vehicleEliminationScore.unsafeAddr, 4)
+    thestream.writeData(obj235201.actionDetectionInterval.unsafeAddr, 4)
+    thestream.writeData(obj235201.baseActionCount.unsafeAddr, 4)
+    thestream.writeData(obj235201.additionalActionCountPerControlCenter.unsafeAddr,
                         4)
-    thestream.writeData(obj238201.maxUnitGroup.unsafeAddr, 4)
-    thestream.writeData(obj238201.terrainWeatherMapColumnCount.unsafeAddr, 4)
-    thestream.writeData(obj238201.terrainWeatherMapRowCount.unsafeAddr, 4)
-    thestream.writeData(obj238201.plainTerrainVisionFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.plainTerrainStealthFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.plainTerrainSpeedFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.swampTerrainVisionFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.swampTerrainStealthFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.swampTerrainSpeedFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.forestTerrainVisionFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.forestTerrainStealthFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.forestTerrainSpeedFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.clearWeatherVisionFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.clearWeatherStealthFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.clearWeatherSpeedFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.cloudWeatherVisionFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.cloudWeatherStealthFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.cloudWeatherSpeedFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.rainWeatherVisionFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.rainWeatherStealthFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.rainWeatherSpeedFactor.unsafeAddr, 8)
-    thestream.writeData(obj238201.vehicleRadius.unsafeAddr, 8)
-    thestream.writeData(obj238201.tankDurability.unsafeAddr, 4)
-    thestream.writeData(obj238201.tankSpeed.unsafeAddr, 8)
-    thestream.writeData(obj238201.tankVisionRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.tankGroundAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.tankAerialAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.tankGroundDamage.unsafeAddr, 4)
-    thestream.writeData(obj238201.tankAerialDamage.unsafeAddr, 4)
-    thestream.writeData(obj238201.tankGroundDefence.unsafeAddr, 4)
-    thestream.writeData(obj238201.tankAerialDefence.unsafeAddr, 4)
-    thestream.writeData(obj238201.tankAttackCooldownTicks.unsafeAddr, 4)
-    thestream.writeData(obj238201.tankProductionCost.unsafeAddr, 4)
-    thestream.writeData(obj238201.ifvDurability.unsafeAddr, 4)
-    thestream.writeData(obj238201.ifvSpeed.unsafeAddr, 8)
-    thestream.writeData(obj238201.ifvVisionRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.ifvGroundAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.ifvAerialAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.ifvGroundDamage.unsafeAddr, 4)
-    thestream.writeData(obj238201.ifvAerialDamage.unsafeAddr, 4)
-    thestream.writeData(obj238201.ifvGroundDefence.unsafeAddr, 4)
-    thestream.writeData(obj238201.ifvAerialDefence.unsafeAddr, 4)
-    thestream.writeData(obj238201.ifvAttackCooldownTicks.unsafeAddr, 4)
-    thestream.writeData(obj238201.ifvProductionCost.unsafeAddr, 4)
-    thestream.writeData(obj238201.arrvDurability.unsafeAddr, 4)
-    thestream.writeData(obj238201.arrvSpeed.unsafeAddr, 8)
-    thestream.writeData(obj238201.arrvVisionRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.arrvGroundDefence.unsafeAddr, 4)
-    thestream.writeData(obj238201.arrvAerialDefence.unsafeAddr, 4)
-    thestream.writeData(obj238201.arrvProductionCost.unsafeAddr, 4)
-    thestream.writeData(obj238201.arrvRepairRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.arrvRepairSpeed.unsafeAddr, 8)
-    thestream.writeData(obj238201.helicopterDurability.unsafeAddr, 4)
-    thestream.writeData(obj238201.helicopterSpeed.unsafeAddr, 8)
-    thestream.writeData(obj238201.helicopterVisionRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.helicopterGroundAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.helicopterAerialAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.helicopterGroundDamage.unsafeAddr, 4)
-    thestream.writeData(obj238201.helicopterAerialDamage.unsafeAddr, 4)
-    thestream.writeData(obj238201.helicopterGroundDefence.unsafeAddr, 4)
-    thestream.writeData(obj238201.helicopterAerialDefence.unsafeAddr, 4)
-    thestream.writeData(obj238201.helicopterAttackCooldownTicks.unsafeAddr, 4)
-    thestream.writeData(obj238201.helicopterProductionCost.unsafeAddr, 4)
-    thestream.writeData(obj238201.fighterDurability.unsafeAddr, 4)
-    thestream.writeData(obj238201.fighterSpeed.unsafeAddr, 8)
-    thestream.writeData(obj238201.fighterVisionRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.fighterGroundAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.fighterAerialAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj238201.fighterGroundDamage.unsafeAddr, 4)
-    thestream.writeData(obj238201.fighterAerialDamage.unsafeAddr, 4)
-    thestream.writeData(obj238201.fighterGroundDefence.unsafeAddr, 4)
-    thestream.writeData(obj238201.fighterAerialDefence.unsafeAddr, 4)
-    thestream.writeData(obj238201.fighterAttackCooldownTicks.unsafeAddr, 4)
-    thestream.writeData(obj238201.fighterProductionCost.unsafeAddr, 4)
-    thestream.writeData(obj238201.maxFacilityCapturePoint32s.unsafeAddr, 8)
-    thestream.writeData(obj238201.facilityCapturePoint32sPerVehiclePerTick.unsafeAddr,
+    thestream.writeData(obj235201.maxUnitGroup.unsafeAddr, 4)
+    thestream.writeData(obj235201.terrainWeatherMapColumnCount.unsafeAddr, 4)
+    thestream.writeData(obj235201.terrainWeatherMapRowCount.unsafeAddr, 4)
+    thestream.writeData(obj235201.plainTerrainVisionFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.plainTerrainStealthFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.plainTerrainSpeedFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.swampTerrainVisionFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.swampTerrainStealthFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.swampTerrainSpeedFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.forestTerrainVisionFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.forestTerrainStealthFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.forestTerrainSpeedFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.clearWeatherVisionFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.clearWeatherStealthFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.clearWeatherSpeedFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.cloudWeatherVisionFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.cloudWeatherStealthFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.cloudWeatherSpeedFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.rainWeatherVisionFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.rainWeatherStealthFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.rainWeatherSpeedFactor.unsafeAddr, 8)
+    thestream.writeData(obj235201.vehicleRadius.unsafeAddr, 8)
+    thestream.writeData(obj235201.tankDurability.unsafeAddr, 4)
+    thestream.writeData(obj235201.tankSpeed.unsafeAddr, 8)
+    thestream.writeData(obj235201.tankVisionRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.tankGroundAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.tankAerialAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.tankGroundDamage.unsafeAddr, 4)
+    thestream.writeData(obj235201.tankAerialDamage.unsafeAddr, 4)
+    thestream.writeData(obj235201.tankGroundDefence.unsafeAddr, 4)
+    thestream.writeData(obj235201.tankAerialDefence.unsafeAddr, 4)
+    thestream.writeData(obj235201.tankAttackCooldownTicks.unsafeAddr, 4)
+    thestream.writeData(obj235201.tankProductionCost.unsafeAddr, 4)
+    thestream.writeData(obj235201.ifvDurability.unsafeAddr, 4)
+    thestream.writeData(obj235201.ifvSpeed.unsafeAddr, 8)
+    thestream.writeData(obj235201.ifvVisionRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.ifvGroundAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.ifvAerialAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.ifvGroundDamage.unsafeAddr, 4)
+    thestream.writeData(obj235201.ifvAerialDamage.unsafeAddr, 4)
+    thestream.writeData(obj235201.ifvGroundDefence.unsafeAddr, 4)
+    thestream.writeData(obj235201.ifvAerialDefence.unsafeAddr, 4)
+    thestream.writeData(obj235201.ifvAttackCooldownTicks.unsafeAddr, 4)
+    thestream.writeData(obj235201.ifvProductionCost.unsafeAddr, 4)
+    thestream.writeData(obj235201.arrvDurability.unsafeAddr, 4)
+    thestream.writeData(obj235201.arrvSpeed.unsafeAddr, 8)
+    thestream.writeData(obj235201.arrvVisionRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.arrvGroundDefence.unsafeAddr, 4)
+    thestream.writeData(obj235201.arrvAerialDefence.unsafeAddr, 4)
+    thestream.writeData(obj235201.arrvProductionCost.unsafeAddr, 4)
+    thestream.writeData(obj235201.arrvRepairRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.arrvRepairSpeed.unsafeAddr, 8)
+    thestream.writeData(obj235201.helicopterDurability.unsafeAddr, 4)
+    thestream.writeData(obj235201.helicopterSpeed.unsafeAddr, 8)
+    thestream.writeData(obj235201.helicopterVisionRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.helicopterGroundAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.helicopterAerialAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.helicopterGroundDamage.unsafeAddr, 4)
+    thestream.writeData(obj235201.helicopterAerialDamage.unsafeAddr, 4)
+    thestream.writeData(obj235201.helicopterGroundDefence.unsafeAddr, 4)
+    thestream.writeData(obj235201.helicopterAerialDefence.unsafeAddr, 4)
+    thestream.writeData(obj235201.helicopterAttackCooldownTicks.unsafeAddr, 4)
+    thestream.writeData(obj235201.helicopterProductionCost.unsafeAddr, 4)
+    thestream.writeData(obj235201.fighterDurability.unsafeAddr, 4)
+    thestream.writeData(obj235201.fighterSpeed.unsafeAddr, 8)
+    thestream.writeData(obj235201.fighterVisionRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.fighterGroundAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.fighterAerialAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj235201.fighterGroundDamage.unsafeAddr, 4)
+    thestream.writeData(obj235201.fighterAerialDamage.unsafeAddr, 4)
+    thestream.writeData(obj235201.fighterGroundDefence.unsafeAddr, 4)
+    thestream.writeData(obj235201.fighterAerialDefence.unsafeAddr, 4)
+    thestream.writeData(obj235201.fighterAttackCooldownTicks.unsafeAddr, 4)
+    thestream.writeData(obj235201.fighterProductionCost.unsafeAddr, 4)
+    thestream.writeData(obj235201.maxFacilityCapturePoint32s.unsafeAddr, 8)
+    thestream.writeData(obj235201.facilityCapturePoint32sPerVehiclePerTick.unsafeAddr,
                         8)
-    thestream.writeData(obj238201.facilityWidth.unsafeAddr, 8)
-    thestream.writeData(obj238201.facilityHeight.unsafeAddr, 8)
-    thestream.writeData(obj238201.base_tactical_nuclear_strike_cooldown.unsafeAddr,
+    thestream.writeData(obj235201.facilityWidth.unsafeAddr, 8)
+    thestream.writeData(obj235201.facilityHeight.unsafeAddr, 8)
+    thestream.writeData(obj235201.base_tactical_nuclear_strike_cooldown.unsafeAddr,
                         4)
-    thestream.writeData(obj238201.tactical_nuclear_strike_cooldown_decrease_per_control_center.unsafeAddr,
+    thestream.writeData(obj235201.tactical_nuclear_strike_cooldown_decrease_per_control_center.unsafeAddr,
                         4)
-    thestream.writeData(obj238201.max_tactical_nuclear_strike_damage.unsafeAddr,
+    thestream.writeData(obj235201.max_tactical_nuclear_strike_damage.unsafeAddr,
                         8)
-    thestream.writeData(obj238201.tactical_nuclear_strike_radius.unsafeAddr, 8)
-    thestream.writeData(obj238201.tactical_nuclear_strike_delay.unsafeAddr, 4)
+    thestream.writeData(obj235201.tactical_nuclear_strike_radius.unsafeAddr, 8)
+    thestream.writeData(obj235201.tactical_nuclear_strike_delay.unsafeAddr, 4)
   else:
     discard
 
-proc serialize(obj238205: Game): string =
-  let ss238207 = newStringStream()
-  serialize(obj238205, ss238207)
-  ss238207.data
+proc serialize(obj235205: Game): string =
+  let ss235207 = newStringStream()
+  serialize(obj235205, ss235207)
+  ss235207.data
 
-proc deserialize(a238203: typedesc[Game]; thestream: Stream): Game =
+proc deserialize(a235203: typedesc[Game]; thestream: Stream): Game =
   discard
-  var tmp238199: type(result.exists)
+  var tmp235199: type(result.exists)
   assert(1 ==
-      thestream.readData(tmp238199.unsafeAddr, 1),
+      thestream.readData(tmp235199.unsafeAddr, 1),
          "Stream was not provided enough data")
-  result.exists = tmp238199
+  result.exists = tmp235199
   case result.exists
   of true:
     discard
@@ -629,9 +629,9 @@ proc deserialize(a238203: typedesc[Game]; thestream: Stream): Game =
            "Stream was not provided enough data")
   else:
     discard
-proc size(obj239400: Move): Natural =
+proc size(obj236400: Move): Natural =
   result += 1
-  case obj239400.exists
+  case obj236400.exists
   of true:
     result += 1
     result += 4
@@ -653,43 +653,43 @@ proc size(obj239400: Move): Natural =
     result += 0
   result += 0
 
-proc serialize(obj239401: Move; thestream: Stream) =
+proc serialize(obj236401: Move; thestream: Stream) =
   discard
-  var tmp239399 = obj239401.exists
-  thestream.writeData(tmp239399.unsafeAddr, 1)
-  case obj239401.exists
+  var tmp236399 = obj236401.exists
+  thestream.writeData(tmp236399.unsafeAddr, 1)
+  case obj236401.exists
   of true:
     discard
-    thestream.writeData(obj239401.action.unsafeAddr, 1)
-    thestream.writeData(obj239401.group.unsafeAddr, 4)
-    thestream.writeData(obj239401.left.unsafeAddr, 8)
-    thestream.writeData(obj239401.top.unsafeAddr, 8)
-    thestream.writeData(obj239401.right.unsafeAddr, 8)
-    thestream.writeData(obj239401.bottom.unsafeAddr, 8)
-    thestream.writeData(obj239401.x.unsafeAddr, 8)
-    thestream.writeData(obj239401.y.unsafeAddr, 8)
-    thestream.writeData(obj239401.angle.unsafeAddr, 8)
-    thestream.writeData(obj239401.factor.unsafeAddr, 8)
-    thestream.writeData(obj239401.maxSpeed.unsafeAddr, 8)
-    thestream.writeData(obj239401.maxAngularSpeed.unsafeAddr, 8)
-    thestream.writeData(obj239401.vehicleType.unsafeAddr, 1)
-    thestream.writeData(obj239401.facilityId.unsafeAddr, 8)
-    thestream.writeData(obj239401.vehicleId.unsafeAddr, 8)
+    thestream.writeData(obj236401.action.unsafeAddr, 1)
+    thestream.writeData(obj236401.group.unsafeAddr, 4)
+    thestream.writeData(obj236401.left.unsafeAddr, 8)
+    thestream.writeData(obj236401.top.unsafeAddr, 8)
+    thestream.writeData(obj236401.right.unsafeAddr, 8)
+    thestream.writeData(obj236401.bottom.unsafeAddr, 8)
+    thestream.writeData(obj236401.x.unsafeAddr, 8)
+    thestream.writeData(obj236401.y.unsafeAddr, 8)
+    thestream.writeData(obj236401.angle.unsafeAddr, 8)
+    thestream.writeData(obj236401.factor.unsafeAddr, 8)
+    thestream.writeData(obj236401.maxSpeed.unsafeAddr, 8)
+    thestream.writeData(obj236401.maxAngularSpeed.unsafeAddr, 8)
+    thestream.writeData(obj236401.vehicleType.unsafeAddr, 1)
+    thestream.writeData(obj236401.facilityId.unsafeAddr, 8)
+    thestream.writeData(obj236401.vehicleId.unsafeAddr, 8)
   else:
     discard
 
-proc serialize(obj239405: Move): string =
-  let ss239407 = newStringStream()
-  serialize(obj239405, ss239407)
-  ss239407.data
+proc serialize(obj236405: Move): string =
+  let ss236407 = newStringStream()
+  serialize(obj236405, ss236407)
+  ss236407.data
 
-proc deserialize(a239403: typedesc[Move]; thestream: Stream): Move =
+proc deserialize(a236403: typedesc[Move]; thestream: Stream): Move =
   discard
-  var tmp239399: type(result.exists)
+  var tmp236399: type(result.exists)
   assert(1 ==
-      thestream.readData(tmp239399.unsafeAddr, 1),
+      thestream.readData(tmp236399.unsafeAddr, 1),
          "Stream was not provided enough data")
-  result.exists = tmp239399
+  result.exists = tmp236399
   case result.exists
   of true:
     discard
@@ -750,9 +750,9 @@ proc deserialize(a239403: typedesc[Move]; thestream: Stream): Move =
            "Stream was not provided enough data")
   else:
     discard
-proc size(obj239653: VehicleUpdate): Natural =
+proc size(obj236653: VehicleUpdate): Natural =
   result += 1
-  case obj239653.exists
+  case obj236653.exists
   of true:
     result += 8
     result += 8
@@ -760,45 +760,45 @@ proc size(obj239653: VehicleUpdate): Natural =
     result += 4
     result += 4
     result += 1
-    result += 4 + len(obj239653.groups) * 4
+    result += 4 + len(obj236653.groups) * 4
     result += 0
   else:
     result += 0
   result += 0
 
-proc serialize(obj239654: VehicleUpdate; thestream: Stream) =
+proc serialize(obj236654: VehicleUpdate; thestream: Stream) =
   discard
-  var tmp239651 = obj239654.exists
-  thestream.writeData(tmp239651.unsafeAddr, 1)
-  case obj239654.exists
+  var tmp236651 = obj236654.exists
+  thestream.writeData(tmp236651.unsafeAddr, 1)
+  case obj236654.exists
   of true:
     discard
-    thestream.writeData(obj239654.id.unsafeAddr, 8)
-    thestream.writeData(obj239654.x.unsafeAddr, 8)
-    thestream.writeData(obj239654.y.unsafeAddr, 8)
-    thestream.writeData(obj239654.durability.unsafeAddr, 4)
-    thestream.writeData(obj239654.remainingAttackCooldownTicks.unsafeAddr, 4)
-    thestream.writeData(obj239654.selected.unsafeAddr, 1)
-    var length239652 = len(obj239654.groups)
-    thestream.writeData(length239652.unsafeAddr, 4)
-    if len(obj239654.groups) > 0:
-      thestream.writeData(obj239654.groups[0].unsafeAddr, len(obj239654.groups) *
+    thestream.writeData(obj236654.id.unsafeAddr, 8)
+    thestream.writeData(obj236654.x.unsafeAddr, 8)
+    thestream.writeData(obj236654.y.unsafeAddr, 8)
+    thestream.writeData(obj236654.durability.unsafeAddr, 4)
+    thestream.writeData(obj236654.remainingAttackCooldownTicks.unsafeAddr, 4)
+    thestream.writeData(obj236654.selected.unsafeAddr, 1)
+    var length236652 = len(obj236654.groups)
+    thestream.writeData(length236652.unsafeAddr, 4)
+    if len(obj236654.groups) > 0:
+      thestream.writeData(obj236654.groups[0].unsafeAddr, len(obj236654.groups) *
           4)
   else:
     discard
 
-proc serialize(obj239658: VehicleUpdate): string =
-  let ss239660 = newStringStream()
-  serialize(obj239658, ss239660)
-  ss239660.data
+proc serialize(obj236658: VehicleUpdate): string =
+  let ss236660 = newStringStream()
+  serialize(obj236658, ss236660)
+  ss236660.data
 
-proc deserialize(a239656: typedesc[VehicleUpdate]; thestream: Stream): VehicleUpdate =
+proc deserialize(a236656: typedesc[VehicleUpdate]; thestream: Stream): VehicleUpdate =
   discard
-  var tmp239651: type(result.exists)
+  var tmp236651: type(result.exists)
   assert(1 ==
-      thestream.readData(tmp239651.unsafeAddr, 1),
+      thestream.readData(tmp236651.unsafeAddr, 1),
          "Stream was not provided enough data")
-  result.exists = tmp239651
+  result.exists = tmp236651
   case result.exists
   of true:
     discard
@@ -820,20 +820,20 @@ proc deserialize(a239656: typedesc[VehicleUpdate]; thestream: Stream): VehicleUp
     assert(1 ==
         thestream.readData(result.selected.unsafeAddr, 1),
            "Stream was not provided enough data")
-    var length239652: int32
+    var length236652: int32
     assert(4 ==
-        thestream.readData(length239652.unsafeAddr, 4),
+        thestream.readData(length236652.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result.groups = newSeq[int32](length239652)
+    result.groups = newSeq[int32](length236652)
     if len(result.groups) > 0:
       assert(len(result.groups) * 4 ==
           thestream.readData(result.groups[0].unsafeAddr, len(result.groups) *
           4), "Stream was not provided enough data")
   else:
     discard
-proc size(obj239847: Vehicle): Natural =
+proc size(obj236847: Vehicle): Natural =
   result += 1
-  case obj239847.exists
+  case obj236847.exists
   of true:
     result += 8
     result += 8
@@ -858,62 +858,62 @@ proc size(obj239847: Vehicle): Natural =
     result += 1
     result += 1
     result += 1
-    result += 4 + len(obj239847.groups) * 4
+    result += 4 + len(obj236847.groups) * 4
     result += 0
   else:
     result += 0
   result += 0
 
-proc serialize(obj239848: Vehicle; thestream: Stream) =
+proc serialize(obj236848: Vehicle; thestream: Stream) =
   discard
-  var tmp239845 = obj239848.exists
-  thestream.writeData(tmp239845.unsafeAddr, 1)
-  case obj239848.exists
+  var tmp236845 = obj236848.exists
+  thestream.writeData(tmp236845.unsafeAddr, 1)
+  case obj236848.exists
   of true:
     discard
-    thestream.writeData(obj239848.id.unsafeAddr, 8)
-    thestream.writeData(obj239848.x.unsafeAddr, 8)
-    thestream.writeData(obj239848.y.unsafeAddr, 8)
-    thestream.writeData(obj239848.radius.unsafeAddr, 8)
-    thestream.writeData(obj239848.player_id.unsafeAddr, 8)
-    thestream.writeData(obj239848.durability.unsafeAddr, 4)
-    thestream.writeData(obj239848.maxDurability.unsafeAddr, 4)
-    thestream.writeData(obj239848.maxSpeed.unsafeAddr, 8)
-    thestream.writeData(obj239848.visionRange.unsafeAddr, 8)
-    thestream.writeData(obj239848.squaredVisionRange.unsafeAddr, 8)
-    thestream.writeData(obj239848.groundAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj239848.squaredGroundAttachRange.unsafeAddr, 8)
-    thestream.writeData(obj239848.aerialAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj239848.squaredAerialAttackRange.unsafeAddr, 8)
-    thestream.writeData(obj239848.groundDamage.unsafeAddr, 4)
-    thestream.writeData(obj239848.aerialDamage.unsafeAddr, 4)
-    thestream.writeData(obj239848.groundDefence.unsafeAddr, 4)
-    thestream.writeData(obj239848.aerialDefence.unsafeAddr, 4)
-    thestream.writeData(obj239848.attackCooldownTicks.unsafeAddr, 4)
-    thestream.writeData(obj239848.remainingAttackCooldownTicks.unsafeAddr, 4)
-    thestream.writeData(obj239848.thetype.unsafeAddr, 1)
-    thestream.writeData(obj239848.aerial.unsafeAddr, 1)
-    thestream.writeData(obj239848.selected.unsafeAddr, 1)
-    var length239846 = len(obj239848.groups)
-    thestream.writeData(length239846.unsafeAddr, 4)
-    if len(obj239848.groups) > 0:
-      thestream.writeData(obj239848.groups[0].unsafeAddr, len(obj239848.groups) *
+    thestream.writeData(obj236848.id.unsafeAddr, 8)
+    thestream.writeData(obj236848.x.unsafeAddr, 8)
+    thestream.writeData(obj236848.y.unsafeAddr, 8)
+    thestream.writeData(obj236848.radius.unsafeAddr, 8)
+    thestream.writeData(obj236848.player_id.unsafeAddr, 8)
+    thestream.writeData(obj236848.durability.unsafeAddr, 4)
+    thestream.writeData(obj236848.maxDurability.unsafeAddr, 4)
+    thestream.writeData(obj236848.maxSpeed.unsafeAddr, 8)
+    thestream.writeData(obj236848.visionRange.unsafeAddr, 8)
+    thestream.writeData(obj236848.squaredVisionRange.unsafeAddr, 8)
+    thestream.writeData(obj236848.groundAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj236848.squaredGroundAttachRange.unsafeAddr, 8)
+    thestream.writeData(obj236848.aerialAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj236848.squaredAerialAttackRange.unsafeAddr, 8)
+    thestream.writeData(obj236848.groundDamage.unsafeAddr, 4)
+    thestream.writeData(obj236848.aerialDamage.unsafeAddr, 4)
+    thestream.writeData(obj236848.groundDefence.unsafeAddr, 4)
+    thestream.writeData(obj236848.aerialDefence.unsafeAddr, 4)
+    thestream.writeData(obj236848.attackCooldownTicks.unsafeAddr, 4)
+    thestream.writeData(obj236848.remainingAttackCooldownTicks.unsafeAddr, 4)
+    thestream.writeData(obj236848.thetype.unsafeAddr, 1)
+    thestream.writeData(obj236848.aerial.unsafeAddr, 1)
+    thestream.writeData(obj236848.selected.unsafeAddr, 1)
+    var length236846 = len(obj236848.groups)
+    thestream.writeData(length236846.unsafeAddr, 4)
+    if len(obj236848.groups) > 0:
+      thestream.writeData(obj236848.groups[0].unsafeAddr, len(obj236848.groups) *
           4)
   else:
     discard
 
-proc serialize(obj239852: Vehicle): string =
-  let ss239854 = newStringStream()
-  serialize(obj239852, ss239854)
-  ss239854.data
+proc serialize(obj236852: Vehicle): string =
+  let ss236854 = newStringStream()
+  serialize(obj236852, ss236854)
+  ss236854.data
 
-proc deserialize(a239850: typedesc[Vehicle]; thestream: Stream): Vehicle =
+proc deserialize(a236850: typedesc[Vehicle]; thestream: Stream): Vehicle =
   discard
-  var tmp239845: type(result.exists)
+  var tmp236845: type(result.exists)
   assert(1 ==
-      thestream.readData(tmp239845.unsafeAddr, 1),
+      thestream.readData(tmp236845.unsafeAddr, 1),
          "Stream was not provided enough data")
-  result.exists = tmp239845
+  result.exists = tmp236845
   case result.exists
   of true:
     discard
@@ -991,20 +991,20 @@ proc deserialize(a239850: typedesc[Vehicle]; thestream: Stream): Vehicle =
     assert(1 ==
         thestream.readData(result.selected.unsafeAddr, 1),
            "Stream was not provided enough data")
-    var length239846: int32
+    var length236846: int32
     assert(4 ==
-        thestream.readData(length239846.unsafeAddr, 4),
+        thestream.readData(length236846.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result.groups = newSeq[int32](length239846)
+    result.groups = newSeq[int32](length236846)
     if len(result.groups) > 0:
       assert(len(result.groups) * 4 ==
           thestream.readData(result.groups[0].unsafeAddr, len(result.groups) *
           4), "Stream was not provided enough data")
   else:
     discard
-proc size(obj240244: Facility): Natural =
+proc size(obj237244: Facility): Natural =
   result += 1
-  case obj240244.flag
+  case obj237244.flag
   of FromId:
     result += 8
     result += 0
@@ -1022,44 +1022,44 @@ proc size(obj240244: Facility): Natural =
     result += 0
   result += 0
 
-proc serialize(obj240245: Facility; thestream: Stream) =
+proc serialize(obj237245: Facility; thestream: Stream) =
   discard
-  var tmp240243 = obj240245.flag
-  thestream.writeData(tmp240243.unsafeAddr, 1)
-  case obj240245.flag
+  var tmp237243 = obj237245.flag
+  thestream.writeData(tmp237243.unsafeAddr, 1)
+  case obj237245.flag
   of FromId:
     discard
-    thestream.writeData(obj240245.sourceId.unsafeAddr, 8)
+    thestream.writeData(obj237245.sourceId.unsafeAddr, 8)
   of Exists:
     discard
-    thestream.writeData(obj240245.id.unsafeAddr, 8)
-    thestream.writeData(obj240245.theType.unsafeAddr, 1)
-    thestream.writeData(obj240245.ownerPlayerId.unsafeAddr, 8)
-    thestream.writeData(obj240245.left.unsafeAddr, 8)
-    thestream.writeData(obj240245.top.unsafeAddr, 8)
-    thestream.writeData(obj240245.capturePoints.unsafeAddr, 8)
-    thestream.writeData(obj240245.vehicleType.unsafeAddr, 1)
-    thestream.writeData(obj240245.productionProgress.unsafeAddr, 4)
+    thestream.writeData(obj237245.id.unsafeAddr, 8)
+    thestream.writeData(obj237245.theType.unsafeAddr, 1)
+    thestream.writeData(obj237245.ownerPlayerId.unsafeAddr, 8)
+    thestream.writeData(obj237245.left.unsafeAddr, 8)
+    thestream.writeData(obj237245.top.unsafeAddr, 8)
+    thestream.writeData(obj237245.capturePoints.unsafeAddr, 8)
+    thestream.writeData(obj237245.vehicleType.unsafeAddr, 1)
+    thestream.writeData(obj237245.productionProgress.unsafeAddr, 4)
   else:
     discard
 
-proc serialize(obj240249: Facility): string =
-  let ss240251 = newStringStream()
-  serialize(obj240249, ss240251)
-  ss240251.data
+proc serialize(obj237249: Facility): string =
+  let ss237251 = newStringStream()
+  serialize(obj237249, ss237251)
+  ss237251.data
 
-proc deserialize(a240247: typedesc[Facility]; thestream: Stream): Facility =
+proc deserialize(a237247: typedesc[Facility]; thestream: Stream): Facility =
   discard
-  var tmp240243: type(result.flag)
+  var tmp237243: type(result.flag)
   assert(1 ==
-      thestream.readData(tmp240243.unsafeAddr, 1),
+      thestream.readData(tmp237243.unsafeAddr, 1),
          "Stream was not provided enough data")
-  if $(tmp240243) ==
-      $(ord(tmp240243)) & " (invalid data!)":
+  if $(tmp237243) ==
+      $(ord(tmp237243)) & " (invalid data!)":
     raise newException(ValueError, "Enum value is out of range: " &
-        $(tmp240243) & "\x0ACorrect values are:\x0A" &
+        $(tmp237243) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  None = 0, Exists = 1, FromId = 127")
-  result.flag = tmp240243
+  result.flag = tmp237243
   case result.flag
   of FromId:
     discard
@@ -1104,9 +1104,9 @@ proc deserialize(a240247: typedesc[Facility]; thestream: Stream): Facility =
            "Stream was not provided enough data")
   else:
     discard
-proc size(obj240433: Player): Natural =
+proc size(obj237433: Player): Natural =
   result += 1
-  case obj240433.flag
+  case obj237433.flag
   of Exists:
     result += 8
     result += 1
@@ -1126,47 +1126,47 @@ proc size(obj240433: Player): Natural =
     result += 0
   result += 0
 
-proc serialize(obj240434: Player; thestream: Stream) =
+proc serialize(obj237434: Player; thestream: Stream) =
   discard
-  var tmp240432 = obj240434.flag
-  thestream.writeData(tmp240432.unsafeAddr, 1)
-  case obj240434.flag
+  var tmp237432 = obj237434.flag
+  thestream.writeData(tmp237432.unsafeAddr, 1)
+  case obj237434.flag
   of Exists:
     discard
-    thestream.writeData(obj240434.id.unsafeAddr, 8)
-    thestream.writeData(obj240434.me.unsafeAddr, 1)
-    thestream.writeData(obj240434.strategyCrashed.unsafeAddr, 1)
-    thestream.writeData(obj240434.score.unsafeAddr, 4)
-    thestream.writeData(obj240434.remainingActionCooldownTicks.unsafeAddr, 4)
-    thestream.writeData(obj240434.remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+    thestream.writeData(obj237434.id.unsafeAddr, 8)
+    thestream.writeData(obj237434.me.unsafeAddr, 1)
+    thestream.writeData(obj237434.strategyCrashed.unsafeAddr, 1)
+    thestream.writeData(obj237434.score.unsafeAddr, 4)
+    thestream.writeData(obj237434.remainingActionCooldownTicks.unsafeAddr, 4)
+    thestream.writeData(obj237434.remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                         4)
-    thestream.writeData(obj240434.next_nuclear_strike_vehicle_id.unsafeAddr, 8)
-    thestream.writeData(obj240434.next_nuclear_strike_tick_index.unsafeAddr, 4)
-    thestream.writeData(obj240434.next_nuclear_strike_x.unsafeAddr, 8)
-    thestream.writeData(obj240434.next_nuclear_strike_y.unsafeAddr, 8)
+    thestream.writeData(obj237434.next_nuclear_strike_vehicle_id.unsafeAddr, 8)
+    thestream.writeData(obj237434.next_nuclear_strike_tick_index.unsafeAddr, 4)
+    thestream.writeData(obj237434.next_nuclear_strike_x.unsafeAddr, 8)
+    thestream.writeData(obj237434.next_nuclear_strike_y.unsafeAddr, 8)
   of FromId:
     discard
-    thestream.writeData(obj240434.sourceId.unsafeAddr, 8)
+    thestream.writeData(obj237434.sourceId.unsafeAddr, 8)
   else:
     discard
 
-proc serialize(obj240438: Player): string =
-  let ss240440 = newStringStream()
-  serialize(obj240438, ss240440)
-  ss240440.data
+proc serialize(obj237438: Player): string =
+  let ss237440 = newStringStream()
+  serialize(obj237438, ss237440)
+  ss237440.data
 
-proc deserialize(a240436: typedesc[Player]; thestream: Stream): Player =
+proc deserialize(a237436: typedesc[Player]; thestream: Stream): Player =
   discard
-  var tmp240432: type(result.flag)
+  var tmp237432: type(result.flag)
   assert(1 ==
-      thestream.readData(tmp240432.unsafeAddr, 1),
+      thestream.readData(tmp237432.unsafeAddr, 1),
          "Stream was not provided enough data")
-  if $(tmp240432) ==
-      $(ord(tmp240432)) & " (invalid data!)":
+  if $(tmp237432) ==
+      $(ord(tmp237432)) & " (invalid data!)":
     raise newException(ValueError, "Enum value is out of range: " &
-        $(tmp240432) & "\x0ACorrect values are:\x0A" &
+        $(tmp237432) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  None = 0, Exists = 1, FromId = 127")
-  result.flag = tmp240432
+  result.flag = tmp237432
   case result.flag
   of Exists:
     discard
@@ -1207,18 +1207,18 @@ proc deserialize(a240436: typedesc[Player]; thestream: Stream): Player =
            "Stream was not provided enough data")
   else:
     discard
-proc size(obj240662: World): Natural =
+proc size(obj237662: World): Natural =
   result += 1
-  case obj240662.exists
+  case obj237662.exists
   of true:
     result += 4
     result += 4
     result += 8
     result += 8
-    for index240647 in 0 ..<
-        (len(obj240662.players)):
+    for index237647 in 0 ..<
+        (len(obj237662.players)):
       result += 1
-      case obj240662.players[index240647].flag
+      case obj237662.players[index237647].flag
       of Exists:
         result += 8
         result += 1
@@ -1238,10 +1238,10 @@ proc size(obj240662: World): Natural =
         result += 0
       result += 0
     result += 4
-    for index240649 in 0 ..<
-        (len(obj240662.newVehicles)):
+    for index237649 in 0 ..<
+        (len(obj237662.newVehicles)):
       result += 1
-      case obj240662.newVehicles[index240649].exists
+      case obj237662.newVehicles[index237649].exists
       of true:
         result += 8
         result += 8
@@ -1268,16 +1268,16 @@ proc size(obj240662: World): Natural =
         result += 1
         result +=
             4 +
-            len(obj240662.newVehicles[index240649].groups) * 4
+            len(obj237662.newVehicles[index237649].groups) * 4
         result += 0
       else:
         result += 0
       result += 0
     result += 4
-    for index240651 in 0 ..<
-        (len(obj240662.vehicleUpdates)):
+    for index237651 in 0 ..<
+        (len(obj237662.vehicleUpdates)):
       result += 1
-      case obj240662.vehicleUpdates[index240651].exists
+      case obj237662.vehicleUpdates[index237651].exists
       of true:
         result += 8
         result += 8
@@ -1287,28 +1287,28 @@ proc size(obj240662: World): Natural =
         result += 1
         result +=
             4 +
-            len(obj240662.vehicleUpdates[index240651].groups) * 4
+            len(obj237662.vehicleUpdates[index237651].groups) * 4
         result += 0
       else:
         result += 0
       result += 0
     result += 4
-    for index240655 in 0 ..<
-        (len(obj240662.terrainByCellXY)):
+    for index237655 in 0 ..<
+        (len(obj237662.terrainByCellXY)):
       result +=
           4 +
-          len(obj240662.terrainByCellXY[index240655]) * 1
+          len(obj237662.terrainByCellXY[index237655]) * 1
     result += 4
-    for index240659 in 0 ..<
-        (len(obj240662.weatherByCellXY)):
+    for index237659 in 0 ..<
+        (len(obj237662.weatherByCellXY)):
       result +=
           4 +
-          len(obj240662.weatherByCellXY[index240659]) * 1
+          len(obj237662.weatherByCellXY[index237659]) * 1
     result += 4
-    for index240661 in 0 ..<
-        (len(obj240662.facilities)):
+    for index237661 in 0 ..<
+        (len(obj237662.facilities)):
       result += 1
-      case obj240662.facilities[index240661].flag
+      case obj237662.facilities[index237661].flag
       of FromId:
         result += 8
         result += 0
@@ -1331,201 +1331,201 @@ proc size(obj240662: World): Natural =
     result += 0
   result += 0
 
-proc serialize(obj240663: World; thestream: Stream) =
+proc serialize(obj237663: World; thestream: Stream) =
   discard
-  var tmp240645 = obj240663.exists
-  thestream.writeData(tmp240645.unsafeAddr, 1)
-  case obj240663.exists
+  var tmp237645 = obj237663.exists
+  thestream.writeData(tmp237645.unsafeAddr, 1)
+  case obj237663.exists
   of true:
     discard
-    thestream.writeData(obj240663.tickIndex.unsafeAddr, 4)
-    thestream.writeData(obj240663.tickCount.unsafeAddr, 4)
-    thestream.writeData(obj240663.width.unsafeAddr, 8)
-    thestream.writeData(obj240663.height.unsafeAddr, 8)
-    var length240646 = len(obj240663.players)
-    thestream.writeData(length240646.unsafeAddr, 4)
-    for index240647 in 0 ..<
-        (len(obj240663.players)):
+    thestream.writeData(obj237663.tickIndex.unsafeAddr, 4)
+    thestream.writeData(obj237663.tickCount.unsafeAddr, 4)
+    thestream.writeData(obj237663.width.unsafeAddr, 8)
+    thestream.writeData(obj237663.height.unsafeAddr, 8)
+    var length237646 = len(obj237663.players)
+    thestream.writeData(length237646.unsafeAddr, 4)
+    for index237647 in 0 ..<
+        (len(obj237663.players)):
       discard
-      var tmp240432 = obj240663.players[index240647].flag
-      thestream.writeData(tmp240432.unsafeAddr, 1)
-      case obj240663.players[index240647].flag
+      var tmp237432 = obj237663.players[index237647].flag
+      thestream.writeData(tmp237432.unsafeAddr, 1)
+      case obj237663.players[index237647].flag
       of Exists:
         discard
-        thestream.writeData(obj240663.players[index240647].id.unsafeAddr, 8)
-        thestream.writeData(obj240663.players[index240647].me.unsafeAddr, 1)
-        thestream.writeData(obj240663.players[index240647].strategyCrashed.unsafeAddr,
+        thestream.writeData(obj237663.players[index237647].id.unsafeAddr, 8)
+        thestream.writeData(obj237663.players[index237647].me.unsafeAddr, 1)
+        thestream.writeData(obj237663.players[index237647].strategyCrashed.unsafeAddr,
                             1)
-        thestream.writeData(obj240663.players[index240647].score.unsafeAddr, 4)
-        thestream.writeData(obj240663.players[index240647].remainingActionCooldownTicks.unsafeAddr,
+        thestream.writeData(obj237663.players[index237647].score.unsafeAddr, 4)
+        thestream.writeData(obj237663.players[index237647].remainingActionCooldownTicks.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.players[index240647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+        thestream.writeData(obj237663.players[index237647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.players[index240647].next_nuclear_strike_vehicle_id.unsafeAddr,
+        thestream.writeData(obj237663.players[index237647].next_nuclear_strike_vehicle_id.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.players[index240647].next_nuclear_strike_tick_index.unsafeAddr,
+        thestream.writeData(obj237663.players[index237647].next_nuclear_strike_tick_index.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.players[index240647].next_nuclear_strike_x.unsafeAddr,
+        thestream.writeData(obj237663.players[index237647].next_nuclear_strike_x.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.players[index240647].next_nuclear_strike_y.unsafeAddr,
+        thestream.writeData(obj237663.players[index237647].next_nuclear_strike_y.unsafeAddr,
                             8)
       of FromId:
         discard
-        thestream.writeData(obj240663.players[index240647].sourceId.unsafeAddr, 8)
+        thestream.writeData(obj237663.players[index237647].sourceId.unsafeAddr, 8)
       else:
         discard
-    var length240648 = len(obj240663.newVehicles)
-    thestream.writeData(length240648.unsafeAddr, 4)
-    for index240649 in 0 ..<
-        (len(obj240663.newVehicles)):
+    var length237648 = len(obj237663.newVehicles)
+    thestream.writeData(length237648.unsafeAddr, 4)
+    for index237649 in 0 ..<
+        (len(obj237663.newVehicles)):
       discard
-      var tmp239845 = obj240663.newVehicles[index240649].exists
-      thestream.writeData(tmp239845.unsafeAddr, 1)
-      case obj240663.newVehicles[index240649].exists
+      var tmp236845 = obj237663.newVehicles[index237649].exists
+      thestream.writeData(tmp236845.unsafeAddr, 1)
+      case obj237663.newVehicles[index237649].exists
       of true:
         discard
-        thestream.writeData(obj240663.newVehicles[index240649].id.unsafeAddr, 8)
-        thestream.writeData(obj240663.newVehicles[index240649].x.unsafeAddr, 8)
-        thestream.writeData(obj240663.newVehicles[index240649].y.unsafeAddr, 8)
-        thestream.writeData(obj240663.newVehicles[index240649].radius.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].id.unsafeAddr, 8)
+        thestream.writeData(obj237663.newVehicles[index237649].x.unsafeAddr, 8)
+        thestream.writeData(obj237663.newVehicles[index237649].y.unsafeAddr, 8)
+        thestream.writeData(obj237663.newVehicles[index237649].radius.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.newVehicles[index240649].player_id.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].player_id.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.newVehicles[index240649].durability.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].durability.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.newVehicles[index240649].maxDurability.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].maxDurability.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.newVehicles[index240649].maxSpeed.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].maxSpeed.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.newVehicles[index240649].visionRange.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].visionRange.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.newVehicles[index240649].squaredVisionRange.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].squaredVisionRange.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.newVehicles[index240649].groundAttackRange.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].groundAttackRange.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.newVehicles[index240649].squaredGroundAttachRange.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].squaredGroundAttachRange.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.newVehicles[index240649].aerialAttackRange.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].aerialAttackRange.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.newVehicles[index240649].squaredAerialAttackRange.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].squaredAerialAttackRange.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.newVehicles[index240649].groundDamage.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].groundDamage.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.newVehicles[index240649].aerialDamage.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].aerialDamage.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.newVehicles[index240649].groundDefence.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].groundDefence.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.newVehicles[index240649].aerialDefence.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].aerialDefence.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.newVehicles[index240649].attackCooldownTicks.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].attackCooldownTicks.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.newVehicles[index240649].remainingAttackCooldownTicks.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].remainingAttackCooldownTicks.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.newVehicles[index240649].thetype.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].thetype.unsafeAddr,
                             1)
-        thestream.writeData(obj240663.newVehicles[index240649].aerial.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].aerial.unsafeAddr,
                             1)
-        thestream.writeData(obj240663.newVehicles[index240649].selected.unsafeAddr,
+        thestream.writeData(obj237663.newVehicles[index237649].selected.unsafeAddr,
                             1)
-        var length239846 = len(obj240663.newVehicles[index240649].groups)
-        thestream.writeData(length239846.unsafeAddr, 4)
-        if len(obj240663.newVehicles[index240649].groups) > 0:
-          thestream.writeData(obj240663.newVehicles[index240649].groups[0].unsafeAddr, len(
-              obj240663.newVehicles[index240649].groups) * 4)
+        var length236846 = len(obj237663.newVehicles[index237649].groups)
+        thestream.writeData(length236846.unsafeAddr, 4)
+        if len(obj237663.newVehicles[index237649].groups) > 0:
+          thestream.writeData(obj237663.newVehicles[index237649].groups[0].unsafeAddr, len(
+              obj237663.newVehicles[index237649].groups) * 4)
       else:
         discard
-    var length240650 = len(obj240663.vehicleUpdates)
-    thestream.writeData(length240650.unsafeAddr, 4)
-    for index240651 in 0 ..<
-        (len(obj240663.vehicleUpdates)):
+    var length237650 = len(obj237663.vehicleUpdates)
+    thestream.writeData(length237650.unsafeAddr, 4)
+    for index237651 in 0 ..<
+        (len(obj237663.vehicleUpdates)):
       discard
-      var tmp239651 = obj240663.vehicleUpdates[index240651].exists
-      thestream.writeData(tmp239651.unsafeAddr, 1)
-      case obj240663.vehicleUpdates[index240651].exists
+      var tmp236651 = obj237663.vehicleUpdates[index237651].exists
+      thestream.writeData(tmp236651.unsafeAddr, 1)
+      case obj237663.vehicleUpdates[index237651].exists
       of true:
         discard
-        thestream.writeData(obj240663.vehicleUpdates[index240651].id.unsafeAddr,
+        thestream.writeData(obj237663.vehicleUpdates[index237651].id.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.vehicleUpdates[index240651].x.unsafeAddr, 8)
-        thestream.writeData(obj240663.vehicleUpdates[index240651].y.unsafeAddr, 8)
-        thestream.writeData(obj240663.vehicleUpdates[index240651].durability.unsafeAddr,
+        thestream.writeData(obj237663.vehicleUpdates[index237651].x.unsafeAddr, 8)
+        thestream.writeData(obj237663.vehicleUpdates[index237651].y.unsafeAddr, 8)
+        thestream.writeData(obj237663.vehicleUpdates[index237651].durability.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.vehicleUpdates[index240651].remainingAttackCooldownTicks.unsafeAddr,
+        thestream.writeData(obj237663.vehicleUpdates[index237651].remainingAttackCooldownTicks.unsafeAddr,
                             4)
-        thestream.writeData(obj240663.vehicleUpdates[index240651].selected.unsafeAddr,
+        thestream.writeData(obj237663.vehicleUpdates[index237651].selected.unsafeAddr,
                             1)
-        var length239652 = len(obj240663.vehicleUpdates[index240651].groups)
-        thestream.writeData(length239652.unsafeAddr, 4)
-        if len(obj240663.vehicleUpdates[index240651].groups) > 0:
-          thestream.writeData(obj240663.vehicleUpdates[index240651].groups[0].unsafeAddr, len(
-              obj240663.vehicleUpdates[index240651].groups) *
+        var length236652 = len(obj237663.vehicleUpdates[index237651].groups)
+        thestream.writeData(length236652.unsafeAddr, 4)
+        if len(obj237663.vehicleUpdates[index237651].groups) > 0:
+          thestream.writeData(obj237663.vehicleUpdates[index237651].groups[0].unsafeAddr, len(
+              obj237663.vehicleUpdates[index237651].groups) *
               4)
       else:
         discard
-    var length240652 = len(obj240663.terrainByCellXY)
-    thestream.writeData(length240652.unsafeAddr, 4)
-    for index240655 in 0 ..<
-        (len(obj240663.terrainByCellXY)):
-      var length240653 = len(obj240663.terrainByCellXY[index240655])
-      thestream.writeData(length240653.unsafeAddr, 4)
-      for index240654 in 0 ..<
-          (len(obj240663.terrainByCellXY[index240655])):
-        thestream.writeData(obj240663.terrainByCellXY[index240655][index240654].unsafeAddr,
+    var length237652 = len(obj237663.terrainByCellXY)
+    thestream.writeData(length237652.unsafeAddr, 4)
+    for index237655 in 0 ..<
+        (len(obj237663.terrainByCellXY)):
+      var length237653 = len(obj237663.terrainByCellXY[index237655])
+      thestream.writeData(length237653.unsafeAddr, 4)
+      for index237654 in 0 ..<
+          (len(obj237663.terrainByCellXY[index237655])):
+        thestream.writeData(obj237663.terrainByCellXY[index237655][index237654].unsafeAddr,
                             1)
-    var length240656 = len(obj240663.weatherByCellXY)
-    thestream.writeData(length240656.unsafeAddr, 4)
-    for index240659 in 0 ..<
-        (len(obj240663.weatherByCellXY)):
-      var length240657 = len(obj240663.weatherByCellXY[index240659])
-      thestream.writeData(length240657.unsafeAddr, 4)
-      for index240658 in 0 ..<
-          (len(obj240663.weatherByCellXY[index240659])):
-        thestream.writeData(obj240663.weatherByCellXY[index240659][index240658].unsafeAddr,
+    var length237656 = len(obj237663.weatherByCellXY)
+    thestream.writeData(length237656.unsafeAddr, 4)
+    for index237659 in 0 ..<
+        (len(obj237663.weatherByCellXY)):
+      var length237657 = len(obj237663.weatherByCellXY[index237659])
+      thestream.writeData(length237657.unsafeAddr, 4)
+      for index237658 in 0 ..<
+          (len(obj237663.weatherByCellXY[index237659])):
+        thestream.writeData(obj237663.weatherByCellXY[index237659][index237658].unsafeAddr,
                             1)
-    var length240660 = len(obj240663.facilities)
-    thestream.writeData(length240660.unsafeAddr, 4)
-    for index240661 in 0 ..<
-        (len(obj240663.facilities)):
+    var length237660 = len(obj237663.facilities)
+    thestream.writeData(length237660.unsafeAddr, 4)
+    for index237661 in 0 ..<
+        (len(obj237663.facilities)):
       discard
-      var tmp240243 = obj240663.facilities[index240661].flag
-      thestream.writeData(tmp240243.unsafeAddr, 1)
-      case obj240663.facilities[index240661].flag
+      var tmp237243 = obj237663.facilities[index237661].flag
+      thestream.writeData(tmp237243.unsafeAddr, 1)
+      case obj237663.facilities[index237661].flag
       of FromId:
         discard
-        thestream.writeData(obj240663.facilities[index240661].sourceId.unsafeAddr,
+        thestream.writeData(obj237663.facilities[index237661].sourceId.unsafeAddr,
                             8)
       of Exists:
         discard
-        thestream.writeData(obj240663.facilities[index240661].id.unsafeAddr, 8)
-        thestream.writeData(obj240663.facilities[index240661].theType.unsafeAddr,
+        thestream.writeData(obj237663.facilities[index237661].id.unsafeAddr, 8)
+        thestream.writeData(obj237663.facilities[index237661].theType.unsafeAddr,
                             1)
-        thestream.writeData(obj240663.facilities[index240661].ownerPlayerId.unsafeAddr,
+        thestream.writeData(obj237663.facilities[index237661].ownerPlayerId.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.facilities[index240661].left.unsafeAddr, 8)
-        thestream.writeData(obj240663.facilities[index240661].top.unsafeAddr, 8)
-        thestream.writeData(obj240663.facilities[index240661].capturePoints.unsafeAddr,
+        thestream.writeData(obj237663.facilities[index237661].left.unsafeAddr, 8)
+        thestream.writeData(obj237663.facilities[index237661].top.unsafeAddr, 8)
+        thestream.writeData(obj237663.facilities[index237661].capturePoints.unsafeAddr,
                             8)
-        thestream.writeData(obj240663.facilities[index240661].vehicleType.unsafeAddr,
+        thestream.writeData(obj237663.facilities[index237661].vehicleType.unsafeAddr,
                             1)
-        thestream.writeData(obj240663.facilities[index240661].productionProgress.unsafeAddr,
+        thestream.writeData(obj237663.facilities[index237661].productionProgress.unsafeAddr,
                             4)
       else:
         discard
   else:
     discard
 
-proc serialize(obj240667: World): string =
-  let ss240669 = newStringStream()
-  serialize(obj240667, ss240669)
-  ss240669.data
+proc serialize(obj237667: World): string =
+  let ss237669 = newStringStream()
+  serialize(obj237667, ss237669)
+  ss237669.data
 
-proc deserialize(a240665: typedesc[World]; thestream: Stream): World =
+proc deserialize(a237665: typedesc[World]; thestream: Stream): World =
   discard
-  var tmp240645: type(result.exists)
+  var tmp237645: type(result.exists)
   assert(1 ==
-      thestream.readData(tmp240645.unsafeAddr, 1),
+      thestream.readData(tmp237645.unsafeAddr, 1),
          "Stream was not provided enough data")
-  result.exists = tmp240645
+  result.exists = tmp237645
   case result.exists
   of true:
     discard
@@ -1541,338 +1541,338 @@ proc deserialize(a240665: typedesc[World]; thestream: Stream): World =
     assert(8 ==
         thestream.readData(result.height.unsafeAddr, 8),
            "Stream was not provided enough data")
-    var length240646: int32
+    var length237646: int32
     assert(4 ==
-        thestream.readData(length240646.unsafeAddr, 4),
+        thestream.readData(length237646.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result.players = newSeq[Player](length240646)
-    for index240647 in 0 ..<
+    result.players = newSeq[Player](length237646)
+    for index237647 in 0 ..<
         (len(result.players)):
       discard
-      var tmp240432: type(result.players[index240647].flag)
+      var tmp237432: type(result.players[index237647].flag)
       assert(1 ==
-          thestream.readData(tmp240432.unsafeAddr, 1),
+          thestream.readData(tmp237432.unsafeAddr, 1),
              "Stream was not provided enough data")
-      if $(tmp240432) ==
-          $(ord(tmp240432)) & " (invalid data!)":
+      if $(tmp237432) ==
+          $(ord(tmp237432)) & " (invalid data!)":
         raise newException(ValueError, "Enum value is out of range: " &
-            $(tmp240432) & "\x0ACorrect values are:\x0A" &
+            $(tmp237432) & "\x0ACorrect values are:\x0A" &
             "enum\x0A  None = 0, Exists = 1, FromId = 127")
-      result.players[index240647].flag = tmp240432
-      case result.players[index240647].flag
+      result.players[index237647].flag = tmp237432
+      case result.players[index237647].flag
       of Exists:
         discard
         assert(8 ==
-            thestream.readData(result.players[index240647].id.unsafeAddr, 8),
+            thestream.readData(result.players[index237647].id.unsafeAddr, 8),
                "Stream was not provided enough data")
         assert(1 ==
-            thestream.readData(result.players[index240647].me.unsafeAddr, 1),
+            thestream.readData(result.players[index237647].me.unsafeAddr, 1),
                "Stream was not provided enough data")
         assert(1 ==
-            thestream.readData(result.players[index240647].strategyCrashed.unsafeAddr,
+            thestream.readData(result.players[index237647].strategyCrashed.unsafeAddr,
                                1), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.players[index240647].score.unsafeAddr, 4),
+            thestream.readData(result.players[index237647].score.unsafeAddr, 4),
                "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.players[index240647].remainingActionCooldownTicks.unsafeAddr,
+            thestream.readData(result.players[index237647].remainingActionCooldownTicks.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.players[index240647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+            thestream.readData(result.players[index237647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.players[index240647].next_nuclear_strike_vehicle_id.unsafeAddr,
+            thestream.readData(result.players[index237647].next_nuclear_strike_vehicle_id.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.players[index240647].next_nuclear_strike_tick_index.unsafeAddr,
+            thestream.readData(result.players[index237647].next_nuclear_strike_tick_index.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.players[index240647].next_nuclear_strike_x.unsafeAddr,
+            thestream.readData(result.players[index237647].next_nuclear_strike_x.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.players[index240647].next_nuclear_strike_y.unsafeAddr,
+            thestream.readData(result.players[index237647].next_nuclear_strike_y.unsafeAddr,
                                8), "Stream was not provided enough data")
       of FromId:
         discard
         assert(8 ==
-            thestream.readData(result.players[index240647].sourceId.unsafeAddr, 8),
+            thestream.readData(result.players[index237647].sourceId.unsafeAddr, 8),
                "Stream was not provided enough data")
       else:
         discard
-    var length240648: int32
+    var length237648: int32
     assert(4 ==
-        thestream.readData(length240648.unsafeAddr, 4),
+        thestream.readData(length237648.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result.newVehicles = newSeq[Vehicle](length240648)
-    for index240649 in 0 ..<
+    result.newVehicles = newSeq[Vehicle](length237648)
+    for index237649 in 0 ..<
         (len(result.newVehicles)):
       discard
-      var tmp239845: type(result.newVehicles[index240649].exists)
+      var tmp236845: type(result.newVehicles[index237649].exists)
       assert(1 ==
-          thestream.readData(tmp239845.unsafeAddr, 1),
+          thestream.readData(tmp236845.unsafeAddr, 1),
              "Stream was not provided enough data")
-      result.newVehicles[index240649].exists = tmp239845
-      case result.newVehicles[index240649].exists
+      result.newVehicles[index237649].exists = tmp236845
+      case result.newVehicles[index237649].exists
       of true:
         discard
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].id.unsafeAddr, 8),
+            thestream.readData(result.newVehicles[index237649].id.unsafeAddr, 8),
                "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].x.unsafeAddr, 8),
+            thestream.readData(result.newVehicles[index237649].x.unsafeAddr, 8),
                "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].y.unsafeAddr, 8),
+            thestream.readData(result.newVehicles[index237649].y.unsafeAddr, 8),
                "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].radius.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].radius.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].player_id.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].player_id.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.newVehicles[index240649].durability.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].durability.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.newVehicles[index240649].maxDurability.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].maxDurability.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].maxSpeed.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].maxSpeed.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].visionRange.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].visionRange.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].squaredVisionRange.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].squaredVisionRange.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].groundAttackRange.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].groundAttackRange.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].squaredGroundAttachRange.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].squaredGroundAttachRange.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].aerialAttackRange.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].aerialAttackRange.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.newVehicles[index240649].squaredAerialAttackRange.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].squaredAerialAttackRange.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.newVehicles[index240649].groundDamage.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].groundDamage.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.newVehicles[index240649].aerialDamage.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].aerialDamage.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.newVehicles[index240649].groundDefence.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].groundDefence.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.newVehicles[index240649].aerialDefence.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].aerialDefence.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.newVehicles[index240649].attackCooldownTicks.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].attackCooldownTicks.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.newVehicles[index240649].remainingAttackCooldownTicks.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].remainingAttackCooldownTicks.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(1 ==
-            thestream.readData(result.newVehicles[index240649].thetype.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].thetype.unsafeAddr,
                                1), "Stream was not provided enough data")
-        if $(result.newVehicles[index240649].thetype) ==
-            $(ord(result.newVehicles[index240649].thetype)) &
+        if $(result.newVehicles[index237649].thetype) ==
+            $(ord(result.newVehicles[index237649].thetype)) &
             " (invalid data!)":
           raise newException(ValueError, "Enum value is out of range: " &
-              $(result.newVehicles[index240649].thetype) &
+              $(result.newVehicles[index237649].thetype) &
               "\x0ACorrect values are:\x0A" &
               "enum\x0A  ARRV = 0, FIGHTER = 1, HELICOPTER = 2, IFV = 3, TANK = 4, UNKNOWN = 255")
         assert(1 ==
-            thestream.readData(result.newVehicles[index240649].aerial.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].aerial.unsafeAddr,
                                1), "Stream was not provided enough data")
         assert(1 ==
-            thestream.readData(result.newVehicles[index240649].selected.unsafeAddr,
+            thestream.readData(result.newVehicles[index237649].selected.unsafeAddr,
                                1), "Stream was not provided enough data")
-        var length239846: int32
+        var length236846: int32
         assert(4 ==
-            thestream.readData(length239846.unsafeAddr, 4),
+            thestream.readData(length236846.unsafeAddr, 4),
                "Stream was not provided enough data")
-        result.newVehicles[index240649].groups = newSeq[int32](length239846)
-        if len(result.newVehicles[index240649].groups) > 0:
-          assert(len(result.newVehicles[index240649].groups) *
+        result.newVehicles[index237649].groups = newSeq[int32](length236846)
+        if len(result.newVehicles[index237649].groups) > 0:
+          assert(len(result.newVehicles[index237649].groups) *
               4 ==
-              thestream.readData(result.newVehicles[index240649].groups[0].unsafeAddr, len(
-              result.newVehicles[index240649].groups) * 4),
+              thestream.readData(result.newVehicles[index237649].groups[0].unsafeAddr, len(
+              result.newVehicles[index237649].groups) * 4),
                  "Stream was not provided enough data")
       else:
         discard
-    var length240650: int32
+    var length237650: int32
     assert(4 ==
-        thestream.readData(length240650.unsafeAddr, 4),
+        thestream.readData(length237650.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result.vehicleUpdates = newSeq[VehicleUpdate](length240650)
-    for index240651 in 0 ..<
+    result.vehicleUpdates = newSeq[VehicleUpdate](length237650)
+    for index237651 in 0 ..<
         (len(result.vehicleUpdates)):
       discard
-      var tmp239651: type(result.vehicleUpdates[index240651].exists)
+      var tmp236651: type(result.vehicleUpdates[index237651].exists)
       assert(1 ==
-          thestream.readData(tmp239651.unsafeAddr, 1),
+          thestream.readData(tmp236651.unsafeAddr, 1),
              "Stream was not provided enough data")
-      result.vehicleUpdates[index240651].exists = tmp239651
-      case result.vehicleUpdates[index240651].exists
+      result.vehicleUpdates[index237651].exists = tmp236651
+      case result.vehicleUpdates[index237651].exists
       of true:
         discard
         assert(8 ==
-            thestream.readData(result.vehicleUpdates[index240651].id.unsafeAddr,
+            thestream.readData(result.vehicleUpdates[index237651].id.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.vehicleUpdates[index240651].x.unsafeAddr, 8),
+            thestream.readData(result.vehicleUpdates[index237651].x.unsafeAddr, 8),
                "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.vehicleUpdates[index240651].y.unsafeAddr, 8),
+            thestream.readData(result.vehicleUpdates[index237651].y.unsafeAddr, 8),
                "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.vehicleUpdates[index240651].durability.unsafeAddr,
+            thestream.readData(result.vehicleUpdates[index237651].durability.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(4 ==
-            thestream.readData(result.vehicleUpdates[index240651].remainingAttackCooldownTicks.unsafeAddr,
+            thestream.readData(result.vehicleUpdates[index237651].remainingAttackCooldownTicks.unsafeAddr,
                                4), "Stream was not provided enough data")
         assert(1 ==
-            thestream.readData(result.vehicleUpdates[index240651].selected.unsafeAddr,
+            thestream.readData(result.vehicleUpdates[index237651].selected.unsafeAddr,
                                1), "Stream was not provided enough data")
-        var length239652: int32
+        var length236652: int32
         assert(4 ==
-            thestream.readData(length239652.unsafeAddr, 4),
+            thestream.readData(length236652.unsafeAddr, 4),
                "Stream was not provided enough data")
-        result.vehicleUpdates[index240651].groups = newSeq[int32](length239652)
-        if len(result.vehicleUpdates[index240651].groups) > 0:
-          assert(len(result.vehicleUpdates[index240651].groups) *
+        result.vehicleUpdates[index237651].groups = newSeq[int32](length236652)
+        if len(result.vehicleUpdates[index237651].groups) > 0:
+          assert(len(result.vehicleUpdates[index237651].groups) *
               4 ==
-              thestream.readData(result.vehicleUpdates[index240651].groups[0].unsafeAddr, len(
-              result.vehicleUpdates[index240651].groups) * 4),
+              thestream.readData(result.vehicleUpdates[index237651].groups[0].unsafeAddr, len(
+              result.vehicleUpdates[index237651].groups) * 4),
                  "Stream was not provided enough data")
       else:
         discard
-    var length240652: int32
+    var length237652: int32
     assert(4 ==
-        thestream.readData(length240652.unsafeAddr, 4),
+        thestream.readData(length237652.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result.terrainByCellXY = newSeq[seq[TerrainType]](length240652)
-    for index240655 in 0 ..<
+    result.terrainByCellXY = newSeq[seq[TerrainType]](length237652)
+    for index237655 in 0 ..<
         (len(result.terrainByCellXY)):
-      var length240653: int32
+      var length237653: int32
       assert(4 ==
-          thestream.readData(length240653.unsafeAddr, 4),
+          thestream.readData(length237653.unsafeAddr, 4),
              "Stream was not provided enough data")
-      result.terrainByCellXY[index240655] = newSeq[TerrainType](length240653)
-      for index240654 in 0 ..<
-          (len(result.terrainByCellXY[index240655])):
+      result.terrainByCellXY[index237655] = newSeq[TerrainType](length237653)
+      for index237654 in 0 ..<
+          (len(result.terrainByCellXY[index237655])):
         assert(1 ==
-            thestream.readData(result.terrainByCellXY[index240655][index240654].unsafeAddr,
+            thestream.readData(result.terrainByCellXY[index237655][index237654].unsafeAddr,
                                1), "Stream was not provided enough data")
-        if $(result.terrainByCellXY[index240655][index240654]) ==
-            $(ord(result.terrainByCellXY[index240655][index240654])) &
+        if $(result.terrainByCellXY[index237655][index237654]) ==
+            $(ord(result.terrainByCellXY[index237655][index237654])) &
             " (invalid data!)":
           raise newException(ValueError, "Enum value is out of range: " &
-              $(result.terrainByCellXY[index240655][index240654]) &
+              $(result.terrainByCellXY[index237655][index237654]) &
               "\x0ACorrect values are:\x0A" &
               "enum\x0A  PLAIN = 0, SWAMP = 1, FOREST = 2, UNKNOWN = 255")
-    var length240656: int32
+    var length237656: int32
     assert(4 ==
-        thestream.readData(length240656.unsafeAddr, 4),
+        thestream.readData(length237656.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result.weatherByCellXY = newSeq[seq[WeatherType]](length240656)
-    for index240659 in 0 ..<
+    result.weatherByCellXY = newSeq[seq[WeatherType]](length237656)
+    for index237659 in 0 ..<
         (len(result.weatherByCellXY)):
-      var length240657: int32
+      var length237657: int32
       assert(4 ==
-          thestream.readData(length240657.unsafeAddr, 4),
+          thestream.readData(length237657.unsafeAddr, 4),
              "Stream was not provided enough data")
-      result.weatherByCellXY[index240659] = newSeq[WeatherType](length240657)
-      for index240658 in 0 ..<
-          (len(result.weatherByCellXY[index240659])):
+      result.weatherByCellXY[index237659] = newSeq[WeatherType](length237657)
+      for index237658 in 0 ..<
+          (len(result.weatherByCellXY[index237659])):
         assert(1 ==
-            thestream.readData(result.weatherByCellXY[index240659][index240658].unsafeAddr,
+            thestream.readData(result.weatherByCellXY[index237659][index237658].unsafeAddr,
                                1), "Stream was not provided enough data")
-        if $(result.weatherByCellXY[index240659][index240658]) ==
-            $(ord(result.weatherByCellXY[index240659][index240658])) &
+        if $(result.weatherByCellXY[index237659][index237658]) ==
+            $(ord(result.weatherByCellXY[index237659][index237658])) &
             " (invalid data!)":
           raise newException(ValueError, "Enum value is out of range: " &
-              $(result.weatherByCellXY[index240659][index240658]) &
+              $(result.weatherByCellXY[index237659][index237658]) &
               "\x0ACorrect values are:\x0A" &
               "enum\x0A  CLEAR = 0, CLOUD = 1, RAIN = 2, UNKNOWN = 255")
-    var length240660: int32
+    var length237660: int32
     assert(4 ==
-        thestream.readData(length240660.unsafeAddr, 4),
+        thestream.readData(length237660.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result.facilities = newSeq[Facility](length240660)
-    for index240661 in 0 ..<
+    result.facilities = newSeq[Facility](length237660)
+    for index237661 in 0 ..<
         (len(result.facilities)):
       discard
-      var tmp240243: type(result.facilities[index240661].flag)
+      var tmp237243: type(result.facilities[index237661].flag)
       assert(1 ==
-          thestream.readData(tmp240243.unsafeAddr, 1),
+          thestream.readData(tmp237243.unsafeAddr, 1),
              "Stream was not provided enough data")
-      if $(tmp240243) ==
-          $(ord(tmp240243)) & " (invalid data!)":
+      if $(tmp237243) ==
+          $(ord(tmp237243)) & " (invalid data!)":
         raise newException(ValueError, "Enum value is out of range: " &
-            $(tmp240243) & "\x0ACorrect values are:\x0A" &
+            $(tmp237243) & "\x0ACorrect values are:\x0A" &
             "enum\x0A  None = 0, Exists = 1, FromId = 127")
-      result.facilities[index240661].flag = tmp240243
-      case result.facilities[index240661].flag
+      result.facilities[index237661].flag = tmp237243
+      case result.facilities[index237661].flag
       of FromId:
         discard
         assert(8 ==
-            thestream.readData(result.facilities[index240661].sourceId.unsafeAddr,
+            thestream.readData(result.facilities[index237661].sourceId.unsafeAddr,
                                8), "Stream was not provided enough data")
       of Exists:
         discard
         assert(8 ==
-            thestream.readData(result.facilities[index240661].id.unsafeAddr, 8),
+            thestream.readData(result.facilities[index237661].id.unsafeAddr, 8),
                "Stream was not provided enough data")
         assert(1 ==
-            thestream.readData(result.facilities[index240661].theType.unsafeAddr,
+            thestream.readData(result.facilities[index237661].theType.unsafeAddr,
                                1), "Stream was not provided enough data")
-        if $(result.facilities[index240661].theType) ==
-            $(ord(result.facilities[index240661].theType)) &
+        if $(result.facilities[index237661].theType) ==
+            $(ord(result.facilities[index237661].theType)) &
             " (invalid data!)":
           raise newException(ValueError, "Enum value is out of range: " &
-              $(result.facilities[index240661].theType) &
+              $(result.facilities[index237661].theType) &
               "\x0ACorrect values are:\x0A" &
               "enum\x0A  CONTROL_CENTER = 0, VEHICLE_FACTORY = 1, UNKNOWN = 255")
         assert(8 ==
-            thestream.readData(result.facilities[index240661].ownerPlayerId.unsafeAddr,
+            thestream.readData(result.facilities[index237661].ownerPlayerId.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.facilities[index240661].left.unsafeAddr, 8),
+            thestream.readData(result.facilities[index237661].left.unsafeAddr, 8),
                "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.facilities[index240661].top.unsafeAddr, 8),
+            thestream.readData(result.facilities[index237661].top.unsafeAddr, 8),
                "Stream was not provided enough data")
         assert(8 ==
-            thestream.readData(result.facilities[index240661].capturePoints.unsafeAddr,
+            thestream.readData(result.facilities[index237661].capturePoints.unsafeAddr,
                                8), "Stream was not provided enough data")
         assert(1 ==
-            thestream.readData(result.facilities[index240661].vehicleType.unsafeAddr,
+            thestream.readData(result.facilities[index237661].vehicleType.unsafeAddr,
                                1), "Stream was not provided enough data")
-        if $(result.facilities[index240661].vehicleType) ==
-            $(ord(result.facilities[index240661].vehicleType)) &
+        if $(result.facilities[index237661].vehicleType) ==
+            $(ord(result.facilities[index237661].vehicleType)) &
             " (invalid data!)":
           raise newException(ValueError, "Enum value is out of range: " &
-              $(result.facilities[index240661].vehicleType) &
+              $(result.facilities[index237661].vehicleType) &
               "\x0ACorrect values are:\x0A" &
               "enum\x0A  ARRV = 0, FIGHTER = 1, HELICOPTER = 2, IFV = 3, TANK = 4, UNKNOWN = 255")
         assert(4 ==
-            thestream.readData(result.facilities[index240661].productionProgress.unsafeAddr,
+            thestream.readData(result.facilities[index237661].productionProgress.unsafeAddr,
                                4), "Stream was not provided enough data")
       else:
         discard
   else:
     discard
-proc size(obj242279: PlayerContext): Natural =
+proc size(obj239279: PlayerContext): Natural =
   result += 1
-  case obj242279.exists
+  case obj239279.exists
   of true:
     result += 1
-    case obj242279.player.flag
+    case obj239279.player.flag
     of Exists:
       result += 8
       result += 1
@@ -1892,16 +1892,16 @@ proc size(obj242279: PlayerContext): Natural =
       result += 0
     result += 0
     result += 1
-    case obj242279.world.exists
+    case obj239279.world.exists
     of true:
       result += 4
       result += 4
       result += 8
       result += 8
-      for index240647 in 0 ..<
-          (len(obj242279.world.players)):
+      for index237647 in 0 ..<
+          (len(obj239279.world.players)):
         result += 1
-        case obj242279.world.players[index240647].flag
+        case obj239279.world.players[index237647].flag
         of Exists:
           result += 8
           result += 1
@@ -1921,10 +1921,10 @@ proc size(obj242279: PlayerContext): Natural =
           result += 0
         result += 0
       result += 4
-      for index240649 in 0 ..<
-          (len(obj242279.world.newVehicles)):
+      for index237649 in 0 ..<
+          (len(obj239279.world.newVehicles)):
         result += 1
-        case obj242279.world.newVehicles[index240649].exists
+        case obj239279.world.newVehicles[index237649].exists
         of true:
           result += 8
           result += 8
@@ -1951,16 +1951,16 @@ proc size(obj242279: PlayerContext): Natural =
           result += 1
           result +=
               4 +
-              len(obj242279.world.newVehicles[index240649].groups) * 4
+              len(obj239279.world.newVehicles[index237649].groups) * 4
           result += 0
         else:
           result += 0
         result += 0
       result += 4
-      for index240651 in 0 ..<
-          (len(obj242279.world.vehicleUpdates)):
+      for index237651 in 0 ..<
+          (len(obj239279.world.vehicleUpdates)):
         result += 1
-        case obj242279.world.vehicleUpdates[index240651].exists
+        case obj239279.world.vehicleUpdates[index237651].exists
         of true:
           result += 8
           result += 8
@@ -1970,28 +1970,28 @@ proc size(obj242279: PlayerContext): Natural =
           result += 1
           result +=
               4 +
-              len(obj242279.world.vehicleUpdates[index240651].groups) * 4
+              len(obj239279.world.vehicleUpdates[index237651].groups) * 4
           result += 0
         else:
           result += 0
         result += 0
       result += 4
-      for index240655 in 0 ..<
-          (len(obj242279.world.terrainByCellXY)):
+      for index237655 in 0 ..<
+          (len(obj239279.world.terrainByCellXY)):
         result +=
             4 +
-            len(obj242279.world.terrainByCellXY[index240655]) * 1
+            len(obj239279.world.terrainByCellXY[index237655]) * 1
       result += 4
-      for index240659 in 0 ..<
-          (len(obj242279.world.weatherByCellXY)):
+      for index237659 in 0 ..<
+          (len(obj239279.world.weatherByCellXY)):
         result +=
             4 +
-            len(obj242279.world.weatherByCellXY[index240659]) * 1
+            len(obj239279.world.weatherByCellXY[index237659]) * 1
       result += 4
-      for index240661 in 0 ..<
-          (len(obj242279.world.facilities)):
+      for index237661 in 0 ..<
+          (len(obj239279.world.facilities)):
         result += 1
-        case obj242279.world.facilities[index240661].flag
+        case obj239279.world.facilities[index237661].flag
         of FromId:
           result += 8
           result += 0
@@ -2018,227 +2018,227 @@ proc size(obj242279: PlayerContext): Natural =
     result += 0
   result += 0
 
-proc serialize(obj242280: PlayerContext; thestream: Stream) =
+proc serialize(obj239280: PlayerContext; thestream: Stream) =
   discard
-  var tmp242278 = obj242280.exists
-  thestream.writeData(tmp242278.unsafeAddr, 1)
-  case obj242280.exists
+  var tmp239278 = obj239280.exists
+  thestream.writeData(tmp239278.unsafeAddr, 1)
+  case obj239280.exists
   of true:
     discard
     discard
-    var tmp240432 = obj242280.player.flag
-    thestream.writeData(tmp240432.unsafeAddr, 1)
-    case obj242280.player.flag
+    var tmp237432 = obj239280.player.flag
+    thestream.writeData(tmp237432.unsafeAddr, 1)
+    case obj239280.player.flag
     of Exists:
       discard
-      thestream.writeData(obj242280.player.id.unsafeAddr, 8)
-      thestream.writeData(obj242280.player.me.unsafeAddr, 1)
-      thestream.writeData(obj242280.player.strategyCrashed.unsafeAddr, 1)
-      thestream.writeData(obj242280.player.score.unsafeAddr, 4)
-      thestream.writeData(obj242280.player.remainingActionCooldownTicks.unsafeAddr,
+      thestream.writeData(obj239280.player.id.unsafeAddr, 8)
+      thestream.writeData(obj239280.player.me.unsafeAddr, 1)
+      thestream.writeData(obj239280.player.strategyCrashed.unsafeAddr, 1)
+      thestream.writeData(obj239280.player.score.unsafeAddr, 4)
+      thestream.writeData(obj239280.player.remainingActionCooldownTicks.unsafeAddr,
                           4)
-      thestream.writeData(obj242280.player.remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+      thestream.writeData(obj239280.player.remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                           4)
-      thestream.writeData(obj242280.player.next_nuclear_strike_vehicle_id.unsafeAddr,
+      thestream.writeData(obj239280.player.next_nuclear_strike_vehicle_id.unsafeAddr,
                           8)
-      thestream.writeData(obj242280.player.next_nuclear_strike_tick_index.unsafeAddr,
+      thestream.writeData(obj239280.player.next_nuclear_strike_tick_index.unsafeAddr,
                           4)
-      thestream.writeData(obj242280.player.next_nuclear_strike_x.unsafeAddr, 8)
-      thestream.writeData(obj242280.player.next_nuclear_strike_y.unsafeAddr, 8)
+      thestream.writeData(obj239280.player.next_nuclear_strike_x.unsafeAddr, 8)
+      thestream.writeData(obj239280.player.next_nuclear_strike_y.unsafeAddr, 8)
     of FromId:
       discard
-      thestream.writeData(obj242280.player.sourceId.unsafeAddr, 8)
+      thestream.writeData(obj239280.player.sourceId.unsafeAddr, 8)
     else:
       discard
     discard
-    var tmp240645 = obj242280.world.exists
-    thestream.writeData(tmp240645.unsafeAddr, 1)
-    case obj242280.world.exists
+    var tmp237645 = obj239280.world.exists
+    thestream.writeData(tmp237645.unsafeAddr, 1)
+    case obj239280.world.exists
     of true:
       discard
-      thestream.writeData(obj242280.world.tickIndex.unsafeAddr, 4)
-      thestream.writeData(obj242280.world.tickCount.unsafeAddr, 4)
-      thestream.writeData(obj242280.world.width.unsafeAddr, 8)
-      thestream.writeData(obj242280.world.height.unsafeAddr, 8)
-      var length240646 = len(obj242280.world.players)
-      thestream.writeData(length240646.unsafeAddr, 4)
-      for index240647 in 0 ..<
-          (len(obj242280.world.players)):
+      thestream.writeData(obj239280.world.tickIndex.unsafeAddr, 4)
+      thestream.writeData(obj239280.world.tickCount.unsafeAddr, 4)
+      thestream.writeData(obj239280.world.width.unsafeAddr, 8)
+      thestream.writeData(obj239280.world.height.unsafeAddr, 8)
+      var length237646 = len(obj239280.world.players)
+      thestream.writeData(length237646.unsafeAddr, 4)
+      for index237647 in 0 ..<
+          (len(obj239280.world.players)):
         discard
-        var tmp240432 = obj242280.world.players[index240647].flag
-        thestream.writeData(tmp240432.unsafeAddr, 1)
-        case obj242280.world.players[index240647].flag
+        var tmp237432 = obj239280.world.players[index237647].flag
+        thestream.writeData(tmp237432.unsafeAddr, 1)
+        case obj239280.world.players[index237647].flag
         of Exists:
           discard
-          thestream.writeData(obj242280.world.players[index240647].id.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].id.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.players[index240647].me.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].me.unsafeAddr,
                               1)
-          thestream.writeData(obj242280.world.players[index240647].strategyCrashed.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].strategyCrashed.unsafeAddr,
                               1)
-          thestream.writeData(obj242280.world.players[index240647].score.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].score.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.players[index240647].remainingActionCooldownTicks.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].remainingActionCooldownTicks.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.players[index240647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.players[index240647].next_nuclear_strike_vehicle_id.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].next_nuclear_strike_vehicle_id.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.players[index240647].next_nuclear_strike_tick_index.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].next_nuclear_strike_tick_index.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.players[index240647].next_nuclear_strike_x.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].next_nuclear_strike_x.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.players[index240647].next_nuclear_strike_y.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].next_nuclear_strike_y.unsafeAddr,
                               8)
         of FromId:
           discard
-          thestream.writeData(obj242280.world.players[index240647].sourceId.unsafeAddr,
+          thestream.writeData(obj239280.world.players[index237647].sourceId.unsafeAddr,
                               8)
         else:
           discard
-      var length240648 = len(obj242280.world.newVehicles)
-      thestream.writeData(length240648.unsafeAddr, 4)
-      for index240649 in 0 ..<
-          (len(obj242280.world.newVehicles)):
+      var length237648 = len(obj239280.world.newVehicles)
+      thestream.writeData(length237648.unsafeAddr, 4)
+      for index237649 in 0 ..<
+          (len(obj239280.world.newVehicles)):
         discard
-        var tmp239845 = obj242280.world.newVehicles[index240649].exists
-        thestream.writeData(tmp239845.unsafeAddr, 1)
-        case obj242280.world.newVehicles[index240649].exists
+        var tmp236845 = obj239280.world.newVehicles[index237649].exists
+        thestream.writeData(tmp236845.unsafeAddr, 1)
+        case obj239280.world.newVehicles[index237649].exists
         of true:
           discard
-          thestream.writeData(obj242280.world.newVehicles[index240649].id.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].id.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].x.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].x.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].y.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].y.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].radius.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].radius.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].player_id.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].player_id.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].durability.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].durability.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.newVehicles[index240649].maxDurability.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].maxDurability.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.newVehicles[index240649].maxSpeed.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].maxSpeed.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].visionRange.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].visionRange.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].squaredVisionRange.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].squaredVisionRange.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].groundAttackRange.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].groundAttackRange.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].squaredGroundAttachRange.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].squaredGroundAttachRange.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].aerialAttackRange.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].aerialAttackRange.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].squaredAerialAttackRange.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].squaredAerialAttackRange.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.newVehicles[index240649].groundDamage.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].groundDamage.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.newVehicles[index240649].aerialDamage.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].aerialDamage.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.newVehicles[index240649].groundDefence.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].groundDefence.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.newVehicles[index240649].aerialDefence.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].aerialDefence.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.newVehicles[index240649].attackCooldownTicks.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].attackCooldownTicks.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.newVehicles[index240649].remainingAttackCooldownTicks.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].remainingAttackCooldownTicks.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.newVehicles[index240649].thetype.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].thetype.unsafeAddr,
                               1)
-          thestream.writeData(obj242280.world.newVehicles[index240649].aerial.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].aerial.unsafeAddr,
                               1)
-          thestream.writeData(obj242280.world.newVehicles[index240649].selected.unsafeAddr,
+          thestream.writeData(obj239280.world.newVehicles[index237649].selected.unsafeAddr,
                               1)
-          var length239846 = len(obj242280.world.newVehicles[index240649].groups)
-          thestream.writeData(length239846.unsafeAddr, 4)
-          if len(obj242280.world.newVehicles[index240649].groups) > 0:
-            thestream.writeData(obj242280.world.newVehicles[index240649].groups[
-                0].unsafeAddr, len(obj242280.world.newVehicles[index240649].groups) *
+          var length236846 = len(obj239280.world.newVehicles[index237649].groups)
+          thestream.writeData(length236846.unsafeAddr, 4)
+          if len(obj239280.world.newVehicles[index237649].groups) > 0:
+            thestream.writeData(obj239280.world.newVehicles[index237649].groups[
+                0].unsafeAddr, len(obj239280.world.newVehicles[index237649].groups) *
                 4)
         else:
           discard
-      var length240650 = len(obj242280.world.vehicleUpdates)
-      thestream.writeData(length240650.unsafeAddr, 4)
-      for index240651 in 0 ..<
-          (len(obj242280.world.vehicleUpdates)):
+      var length237650 = len(obj239280.world.vehicleUpdates)
+      thestream.writeData(length237650.unsafeAddr, 4)
+      for index237651 in 0 ..<
+          (len(obj239280.world.vehicleUpdates)):
         discard
-        var tmp239651 = obj242280.world.vehicleUpdates[index240651].exists
-        thestream.writeData(tmp239651.unsafeAddr, 1)
-        case obj242280.world.vehicleUpdates[index240651].exists
+        var tmp236651 = obj239280.world.vehicleUpdates[index237651].exists
+        thestream.writeData(tmp236651.unsafeAddr, 1)
+        case obj239280.world.vehicleUpdates[index237651].exists
         of true:
           discard
-          thestream.writeData(obj242280.world.vehicleUpdates[index240651].id.unsafeAddr,
+          thestream.writeData(obj239280.world.vehicleUpdates[index237651].id.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.vehicleUpdates[index240651].x.unsafeAddr,
+          thestream.writeData(obj239280.world.vehicleUpdates[index237651].x.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.vehicleUpdates[index240651].y.unsafeAddr,
+          thestream.writeData(obj239280.world.vehicleUpdates[index237651].y.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.vehicleUpdates[index240651].durability.unsafeAddr,
+          thestream.writeData(obj239280.world.vehicleUpdates[index237651].durability.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.vehicleUpdates[index240651].remainingAttackCooldownTicks.unsafeAddr,
+          thestream.writeData(obj239280.world.vehicleUpdates[index237651].remainingAttackCooldownTicks.unsafeAddr,
                               4)
-          thestream.writeData(obj242280.world.vehicleUpdates[index240651].selected.unsafeAddr,
+          thestream.writeData(obj239280.world.vehicleUpdates[index237651].selected.unsafeAddr,
                               1)
-          var length239652 = len(obj242280.world.vehicleUpdates[index240651].groups)
-          thestream.writeData(length239652.unsafeAddr, 4)
-          if len(obj242280.world.vehicleUpdates[index240651].groups) > 0:
-            thestream.writeData(obj242280.world.vehicleUpdates[index240651].groups[
-                0].unsafeAddr, len(obj242280.world.vehicleUpdates[index240651].groups) *
+          var length236652 = len(obj239280.world.vehicleUpdates[index237651].groups)
+          thestream.writeData(length236652.unsafeAddr, 4)
+          if len(obj239280.world.vehicleUpdates[index237651].groups) > 0:
+            thestream.writeData(obj239280.world.vehicleUpdates[index237651].groups[
+                0].unsafeAddr, len(obj239280.world.vehicleUpdates[index237651].groups) *
                 4)
         else:
           discard
-      var length240652 = len(obj242280.world.terrainByCellXY)
-      thestream.writeData(length240652.unsafeAddr, 4)
-      for index240655 in 0 ..<
-          (len(obj242280.world.terrainByCellXY)):
-        var length240653 = len(obj242280.world.terrainByCellXY[index240655])
-        thestream.writeData(length240653.unsafeAddr, 4)
-        for index240654 in 0 ..<
-            (len(obj242280.world.terrainByCellXY[index240655])):
-          thestream.writeData(obj242280.world.terrainByCellXY[index240655][index240654].unsafeAddr,
+      var length237652 = len(obj239280.world.terrainByCellXY)
+      thestream.writeData(length237652.unsafeAddr, 4)
+      for index237655 in 0 ..<
+          (len(obj239280.world.terrainByCellXY)):
+        var length237653 = len(obj239280.world.terrainByCellXY[index237655])
+        thestream.writeData(length237653.unsafeAddr, 4)
+        for index237654 in 0 ..<
+            (len(obj239280.world.terrainByCellXY[index237655])):
+          thestream.writeData(obj239280.world.terrainByCellXY[index237655][index237654].unsafeAddr,
                               1)
-      var length240656 = len(obj242280.world.weatherByCellXY)
-      thestream.writeData(length240656.unsafeAddr, 4)
-      for index240659 in 0 ..<
-          (len(obj242280.world.weatherByCellXY)):
-        var length240657 = len(obj242280.world.weatherByCellXY[index240659])
-        thestream.writeData(length240657.unsafeAddr, 4)
-        for index240658 in 0 ..<
-            (len(obj242280.world.weatherByCellXY[index240659])):
-          thestream.writeData(obj242280.world.weatherByCellXY[index240659][index240658].unsafeAddr,
+      var length237656 = len(obj239280.world.weatherByCellXY)
+      thestream.writeData(length237656.unsafeAddr, 4)
+      for index237659 in 0 ..<
+          (len(obj239280.world.weatherByCellXY)):
+        var length237657 = len(obj239280.world.weatherByCellXY[index237659])
+        thestream.writeData(length237657.unsafeAddr, 4)
+        for index237658 in 0 ..<
+            (len(obj239280.world.weatherByCellXY[index237659])):
+          thestream.writeData(obj239280.world.weatherByCellXY[index237659][index237658].unsafeAddr,
                               1)
-      var length240660 = len(obj242280.world.facilities)
-      thestream.writeData(length240660.unsafeAddr, 4)
-      for index240661 in 0 ..<
-          (len(obj242280.world.facilities)):
+      var length237660 = len(obj239280.world.facilities)
+      thestream.writeData(length237660.unsafeAddr, 4)
+      for index237661 in 0 ..<
+          (len(obj239280.world.facilities)):
         discard
-        var tmp240243 = obj242280.world.facilities[index240661].flag
-        thestream.writeData(tmp240243.unsafeAddr, 1)
-        case obj242280.world.facilities[index240661].flag
+        var tmp237243 = obj239280.world.facilities[index237661].flag
+        thestream.writeData(tmp237243.unsafeAddr, 1)
+        case obj239280.world.facilities[index237661].flag
         of FromId:
           discard
-          thestream.writeData(obj242280.world.facilities[index240661].sourceId.unsafeAddr,
+          thestream.writeData(obj239280.world.facilities[index237661].sourceId.unsafeAddr,
                               8)
         of Exists:
           discard
-          thestream.writeData(obj242280.world.facilities[index240661].id.unsafeAddr,
+          thestream.writeData(obj239280.world.facilities[index237661].id.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.facilities[index240661].theType.unsafeAddr,
+          thestream.writeData(obj239280.world.facilities[index237661].theType.unsafeAddr,
                               1)
-          thestream.writeData(obj242280.world.facilities[index240661].ownerPlayerId.unsafeAddr,
+          thestream.writeData(obj239280.world.facilities[index237661].ownerPlayerId.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.facilities[index240661].left.unsafeAddr,
+          thestream.writeData(obj239280.world.facilities[index237661].left.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.facilities[index240661].top.unsafeAddr,
+          thestream.writeData(obj239280.world.facilities[index237661].top.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.facilities[index240661].capturePoints.unsafeAddr,
+          thestream.writeData(obj239280.world.facilities[index237661].capturePoints.unsafeAddr,
                               8)
-          thestream.writeData(obj242280.world.facilities[index240661].vehicleType.unsafeAddr,
+          thestream.writeData(obj239280.world.facilities[index237661].vehicleType.unsafeAddr,
                               1)
-          thestream.writeData(obj242280.world.facilities[index240661].productionProgress.unsafeAddr,
+          thestream.writeData(obj239280.world.facilities[index237661].productionProgress.unsafeAddr,
                               4)
         else:
           discard
@@ -2247,32 +2247,32 @@ proc serialize(obj242280: PlayerContext; thestream: Stream) =
   else:
     discard
 
-proc serialize(obj242284: PlayerContext): string =
-  let ss242286 = newStringStream()
-  serialize(obj242284, ss242286)
-  ss242286.data
+proc serialize(obj239284: PlayerContext): string =
+  let ss239286 = newStringStream()
+  serialize(obj239284, ss239286)
+  ss239286.data
 
-proc deserialize(a242282: typedesc[PlayerContext]; thestream: Stream): PlayerContext =
+proc deserialize(a239282: typedesc[PlayerContext]; thestream: Stream): PlayerContext =
   discard
-  var tmp242278: type(result.exists)
+  var tmp239278: type(result.exists)
   assert(1 ==
-      thestream.readData(tmp242278.unsafeAddr, 1),
+      thestream.readData(tmp239278.unsafeAddr, 1),
          "Stream was not provided enough data")
-  result.exists = tmp242278
+  result.exists = tmp239278
   case result.exists
   of true:
     discard
     discard
-    var tmp240432: type(result.player.flag)
+    var tmp237432: type(result.player.flag)
     assert(1 ==
-        thestream.readData(tmp240432.unsafeAddr, 1),
+        thestream.readData(tmp237432.unsafeAddr, 1),
            "Stream was not provided enough data")
-    if $(tmp240432) ==
-        $(ord(tmp240432)) & " (invalid data!)":
+    if $(tmp237432) ==
+        $(ord(tmp237432)) & " (invalid data!)":
       raise newException(ValueError, "Enum value is out of range: " &
-          $(tmp240432) & "\x0ACorrect values are:\x0A" &
+          $(tmp237432) & "\x0ACorrect values are:\x0A" &
           "enum\x0A  None = 0, Exists = 1, FromId = 127")
-    result.player.flag = tmp240432
+    result.player.flag = tmp237432
     case result.player.flag
     of Exists:
       discard
@@ -2314,11 +2314,11 @@ proc deserialize(a242282: typedesc[PlayerContext]; thestream: Stream): PlayerCon
     else:
       discard
     discard
-    var tmp240645: type(result.world.exists)
+    var tmp237645: type(result.world.exists)
     assert(1 ==
-        thestream.readData(tmp240645.unsafeAddr, 1),
+        thestream.readData(tmp237645.unsafeAddr, 1),
            "Stream was not provided enough data")
-    result.world.exists = tmp240645
+    result.world.exists = tmp237645
     case result.world.exists
     of true:
       discard
@@ -2334,327 +2334,327 @@ proc deserialize(a242282: typedesc[PlayerContext]; thestream: Stream): PlayerCon
       assert(8 ==
           thestream.readData(result.world.height.unsafeAddr, 8),
              "Stream was not provided enough data")
-      var length240646: int32
+      var length237646: int32
       assert(4 ==
-          thestream.readData(length240646.unsafeAddr, 4),
+          thestream.readData(length237646.unsafeAddr, 4),
              "Stream was not provided enough data")
-      result.world.players = newSeq[Player](length240646)
-      for index240647 in 0 ..<
+      result.world.players = newSeq[Player](length237646)
+      for index237647 in 0 ..<
           (len(result.world.players)):
         discard
-        var tmp240432: type(result.world.players[index240647].flag)
+        var tmp237432: type(result.world.players[index237647].flag)
         assert(1 ==
-            thestream.readData(tmp240432.unsafeAddr, 1),
+            thestream.readData(tmp237432.unsafeAddr, 1),
                "Stream was not provided enough data")
-        if $(tmp240432) ==
-            $(ord(tmp240432)) & " (invalid data!)":
+        if $(tmp237432) ==
+            $(ord(tmp237432)) & " (invalid data!)":
           raise newException(ValueError, "Enum value is out of range: " &
-              $(tmp240432) & "\x0ACorrect values are:\x0A" &
+              $(tmp237432) & "\x0ACorrect values are:\x0A" &
               "enum\x0A  None = 0, Exists = 1, FromId = 127")
-        result.world.players[index240647].flag = tmp240432
-        case result.world.players[index240647].flag
+        result.world.players[index237647].flag = tmp237432
+        case result.world.players[index237647].flag
         of Exists:
           discard
           assert(8 ==
-              thestream.readData(result.world.players[index240647].id.unsafeAddr,
+              thestream.readData(result.world.players[index237647].id.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(1 ==
-              thestream.readData(result.world.players[index240647].me.unsafeAddr,
+              thestream.readData(result.world.players[index237647].me.unsafeAddr,
                                  1), "Stream was not provided enough data")
           assert(1 ==
-              thestream.readData(result.world.players[index240647].strategyCrashed.unsafeAddr,
+              thestream.readData(result.world.players[index237647].strategyCrashed.unsafeAddr,
                                  1), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.players[index240647].score.unsafeAddr,
+              thestream.readData(result.world.players[index237647].score.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.players[index240647].remainingActionCooldownTicks.unsafeAddr,
+              thestream.readData(result.world.players[index237647].remainingActionCooldownTicks.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.players[index240647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+              thestream.readData(result.world.players[index237647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.players[index240647].next_nuclear_strike_vehicle_id.unsafeAddr,
+              thestream.readData(result.world.players[index237647].next_nuclear_strike_vehicle_id.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.players[index240647].next_nuclear_strike_tick_index.unsafeAddr,
+              thestream.readData(result.world.players[index237647].next_nuclear_strike_tick_index.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.players[index240647].next_nuclear_strike_x.unsafeAddr,
+              thestream.readData(result.world.players[index237647].next_nuclear_strike_x.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.players[index240647].next_nuclear_strike_y.unsafeAddr,
+              thestream.readData(result.world.players[index237647].next_nuclear_strike_y.unsafeAddr,
                                  8), "Stream was not provided enough data")
         of FromId:
           discard
           assert(8 ==
-              thestream.readData(result.world.players[index240647].sourceId.unsafeAddr,
+              thestream.readData(result.world.players[index237647].sourceId.unsafeAddr,
                                  8), "Stream was not provided enough data")
         else:
           discard
-      var length240648: int32
+      var length237648: int32
       assert(4 ==
-          thestream.readData(length240648.unsafeAddr, 4),
+          thestream.readData(length237648.unsafeAddr, 4),
              "Stream was not provided enough data")
-      result.world.newVehicles = newSeq[Vehicle](length240648)
-      for index240649 in 0 ..<
+      result.world.newVehicles = newSeq[Vehicle](length237648)
+      for index237649 in 0 ..<
           (len(result.world.newVehicles)):
         discard
-        var tmp239845: type(result.world.newVehicles[index240649].exists)
+        var tmp236845: type(result.world.newVehicles[index237649].exists)
         assert(1 ==
-            thestream.readData(tmp239845.unsafeAddr, 1),
+            thestream.readData(tmp236845.unsafeAddr, 1),
                "Stream was not provided enough data")
-        result.world.newVehicles[index240649].exists = tmp239845
-        case result.world.newVehicles[index240649].exists
+        result.world.newVehicles[index237649].exists = tmp236845
+        case result.world.newVehicles[index237649].exists
         of true:
           discard
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].id.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].id.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].x.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].x.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].y.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].y.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].radius.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].radius.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].player_id.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].player_id.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.newVehicles[index240649].durability.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].durability.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.newVehicles[index240649].maxDurability.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].maxDurability.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].maxSpeed.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].maxSpeed.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].visionRange.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].visionRange.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].squaredVisionRange.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].squaredVisionRange.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].groundAttackRange.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].groundAttackRange.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].squaredGroundAttachRange.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].squaredGroundAttachRange.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].aerialAttackRange.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].aerialAttackRange.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.newVehicles[index240649].squaredAerialAttackRange.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].squaredAerialAttackRange.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.newVehicles[index240649].groundDamage.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].groundDamage.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.newVehicles[index240649].aerialDamage.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].aerialDamage.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.newVehicles[index240649].groundDefence.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].groundDefence.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.newVehicles[index240649].aerialDefence.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].aerialDefence.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.newVehicles[index240649].attackCooldownTicks.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].attackCooldownTicks.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.newVehicles[index240649].remainingAttackCooldownTicks.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].remainingAttackCooldownTicks.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(1 ==
-              thestream.readData(result.world.newVehicles[index240649].thetype.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].thetype.unsafeAddr,
                                  1), "Stream was not provided enough data")
-          if $(result.world.newVehicles[index240649].thetype) ==
-              $(ord(result.world.newVehicles[index240649].thetype)) &
+          if $(result.world.newVehicles[index237649].thetype) ==
+              $(ord(result.world.newVehicles[index237649].thetype)) &
               " (invalid data!)":
             raise newException(ValueError, "Enum value is out of range: " &
-                $(result.world.newVehicles[index240649].thetype) &
+                $(result.world.newVehicles[index237649].thetype) &
                 "\x0ACorrect values are:\x0A" &
                 "enum\x0A  ARRV = 0, FIGHTER = 1, HELICOPTER = 2, IFV = 3, TANK = 4, UNKNOWN = 255")
           assert(1 ==
-              thestream.readData(result.world.newVehicles[index240649].aerial.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].aerial.unsafeAddr,
                                  1), "Stream was not provided enough data")
           assert(1 ==
-              thestream.readData(result.world.newVehicles[index240649].selected.unsafeAddr,
+              thestream.readData(result.world.newVehicles[index237649].selected.unsafeAddr,
                                  1), "Stream was not provided enough data")
-          var length239846: int32
+          var length236846: int32
           assert(4 ==
-              thestream.readData(length239846.unsafeAddr, 4),
+              thestream.readData(length236846.unsafeAddr, 4),
                  "Stream was not provided enough data")
-          result.world.newVehicles[index240649].groups = newSeq[int32](length239846)
-          if len(result.world.newVehicles[index240649].groups) > 0:
-            assert(len(result.world.newVehicles[index240649].groups) *
+          result.world.newVehicles[index237649].groups = newSeq[int32](length236846)
+          if len(result.world.newVehicles[index237649].groups) > 0:
+            assert(len(result.world.newVehicles[index237649].groups) *
                 4 ==
-                thestream.readData(result.world.newVehicles[index240649].groups[
-                0].unsafeAddr, len(result.world.newVehicles[index240649].groups) *
+                thestream.readData(result.world.newVehicles[index237649].groups[
+                0].unsafeAddr, len(result.world.newVehicles[index237649].groups) *
                 4), "Stream was not provided enough data")
         else:
           discard
-      var length240650: int32
+      var length237650: int32
       assert(4 ==
-          thestream.readData(length240650.unsafeAddr, 4),
+          thestream.readData(length237650.unsafeAddr, 4),
              "Stream was not provided enough data")
-      result.world.vehicleUpdates = newSeq[VehicleUpdate](length240650)
-      for index240651 in 0 ..<
+      result.world.vehicleUpdates = newSeq[VehicleUpdate](length237650)
+      for index237651 in 0 ..<
           (len(result.world.vehicleUpdates)):
         discard
-        var tmp239651: type(result.world.vehicleUpdates[index240651].exists)
+        var tmp236651: type(result.world.vehicleUpdates[index237651].exists)
         assert(1 ==
-            thestream.readData(tmp239651.unsafeAddr, 1),
+            thestream.readData(tmp236651.unsafeAddr, 1),
                "Stream was not provided enough data")
-        result.world.vehicleUpdates[index240651].exists = tmp239651
-        case result.world.vehicleUpdates[index240651].exists
+        result.world.vehicleUpdates[index237651].exists = tmp236651
+        case result.world.vehicleUpdates[index237651].exists
         of true:
           discard
           assert(8 ==
-              thestream.readData(result.world.vehicleUpdates[index240651].id.unsafeAddr,
+              thestream.readData(result.world.vehicleUpdates[index237651].id.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.vehicleUpdates[index240651].x.unsafeAddr,
+              thestream.readData(result.world.vehicleUpdates[index237651].x.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.vehicleUpdates[index240651].y.unsafeAddr,
+              thestream.readData(result.world.vehicleUpdates[index237651].y.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.vehicleUpdates[index240651].durability.unsafeAddr,
+              thestream.readData(result.world.vehicleUpdates[index237651].durability.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(4 ==
-              thestream.readData(result.world.vehicleUpdates[index240651].remainingAttackCooldownTicks.unsafeAddr,
+              thestream.readData(result.world.vehicleUpdates[index237651].remainingAttackCooldownTicks.unsafeAddr,
                                  4), "Stream was not provided enough data")
           assert(1 ==
-              thestream.readData(result.world.vehicleUpdates[index240651].selected.unsafeAddr,
+              thestream.readData(result.world.vehicleUpdates[index237651].selected.unsafeAddr,
                                  1), "Stream was not provided enough data")
-          var length239652: int32
+          var length236652: int32
           assert(4 ==
-              thestream.readData(length239652.unsafeAddr, 4),
+              thestream.readData(length236652.unsafeAddr, 4),
                  "Stream was not provided enough data")
-          result.world.vehicleUpdates[index240651].groups = newSeq[int32](length239652)
-          if len(result.world.vehicleUpdates[index240651].groups) > 0:
-            assert(len(result.world.vehicleUpdates[index240651].groups) *
+          result.world.vehicleUpdates[index237651].groups = newSeq[int32](length236652)
+          if len(result.world.vehicleUpdates[index237651].groups) > 0:
+            assert(len(result.world.vehicleUpdates[index237651].groups) *
                 4 ==
-                thestream.readData(result.world.vehicleUpdates[index240651].groups[
-                0].unsafeAddr, len(result.world.vehicleUpdates[index240651].groups) *
+                thestream.readData(result.world.vehicleUpdates[index237651].groups[
+                0].unsafeAddr, len(result.world.vehicleUpdates[index237651].groups) *
                 4), "Stream was not provided enough data")
         else:
           discard
-      var length240652: int32
+      var length237652: int32
       assert(4 ==
-          thestream.readData(length240652.unsafeAddr, 4),
+          thestream.readData(length237652.unsafeAddr, 4),
              "Stream was not provided enough data")
-      result.world.terrainByCellXY = newSeq[seq[TerrainType]](length240652)
-      for index240655 in 0 ..<
+      result.world.terrainByCellXY = newSeq[seq[TerrainType]](length237652)
+      for index237655 in 0 ..<
           (len(result.world.terrainByCellXY)):
-        var length240653: int32
+        var length237653: int32
         assert(4 ==
-            thestream.readData(length240653.unsafeAddr, 4),
+            thestream.readData(length237653.unsafeAddr, 4),
                "Stream was not provided enough data")
-        result.world.terrainByCellXY[index240655] = newSeq[TerrainType](length240653)
-        for index240654 in 0 ..<
-            (len(result.world.terrainByCellXY[index240655])):
+        result.world.terrainByCellXY[index237655] = newSeq[TerrainType](length237653)
+        for index237654 in 0 ..<
+            (len(result.world.terrainByCellXY[index237655])):
           assert(1 ==
-              thestream.readData(result.world.terrainByCellXY[index240655][index240654].unsafeAddr,
+              thestream.readData(result.world.terrainByCellXY[index237655][index237654].unsafeAddr,
                                  1), "Stream was not provided enough data")
-          if $(result.world.terrainByCellXY[index240655][index240654]) ==
-              $(ord(result.world.terrainByCellXY[index240655][index240654])) &
+          if $(result.world.terrainByCellXY[index237655][index237654]) ==
+              $(ord(result.world.terrainByCellXY[index237655][index237654])) &
               " (invalid data!)":
             raise newException(ValueError, "Enum value is out of range: " &
-                $(result.world.terrainByCellXY[index240655][index240654]) &
+                $(result.world.terrainByCellXY[index237655][index237654]) &
                 "\x0ACorrect values are:\x0A" &
                 "enum\x0A  PLAIN = 0, SWAMP = 1, FOREST = 2, UNKNOWN = 255")
-      var length240656: int32
+      var length237656: int32
       assert(4 ==
-          thestream.readData(length240656.unsafeAddr, 4),
+          thestream.readData(length237656.unsafeAddr, 4),
              "Stream was not provided enough data")
-      result.world.weatherByCellXY = newSeq[seq[WeatherType]](length240656)
-      for index240659 in 0 ..<
+      result.world.weatherByCellXY = newSeq[seq[WeatherType]](length237656)
+      for index237659 in 0 ..<
           (len(result.world.weatherByCellXY)):
-        var length240657: int32
+        var length237657: int32
         assert(4 ==
-            thestream.readData(length240657.unsafeAddr, 4),
+            thestream.readData(length237657.unsafeAddr, 4),
                "Stream was not provided enough data")
-        result.world.weatherByCellXY[index240659] = newSeq[WeatherType](length240657)
-        for index240658 in 0 ..<
-            (len(result.world.weatherByCellXY[index240659])):
+        result.world.weatherByCellXY[index237659] = newSeq[WeatherType](length237657)
+        for index237658 in 0 ..<
+            (len(result.world.weatherByCellXY[index237659])):
           assert(1 ==
-              thestream.readData(result.world.weatherByCellXY[index240659][index240658].unsafeAddr,
+              thestream.readData(result.world.weatherByCellXY[index237659][index237658].unsafeAddr,
                                  1), "Stream was not provided enough data")
-          if $(result.world.weatherByCellXY[index240659][index240658]) ==
-              $(ord(result.world.weatherByCellXY[index240659][index240658])) &
+          if $(result.world.weatherByCellXY[index237659][index237658]) ==
+              $(ord(result.world.weatherByCellXY[index237659][index237658])) &
               " (invalid data!)":
             raise newException(ValueError, "Enum value is out of range: " &
-                $(result.world.weatherByCellXY[index240659][index240658]) &
+                $(result.world.weatherByCellXY[index237659][index237658]) &
                 "\x0ACorrect values are:\x0A" &
                 "enum\x0A  CLEAR = 0, CLOUD = 1, RAIN = 2, UNKNOWN = 255")
-      var length240660: int32
+      var length237660: int32
       assert(4 ==
-          thestream.readData(length240660.unsafeAddr, 4),
+          thestream.readData(length237660.unsafeAddr, 4),
              "Stream was not provided enough data")
-      result.world.facilities = newSeq[Facility](length240660)
-      for index240661 in 0 ..<
+      result.world.facilities = newSeq[Facility](length237660)
+      for index237661 in 0 ..<
           (len(result.world.facilities)):
         discard
-        var tmp240243: type(result.world.facilities[index240661].flag)
+        var tmp237243: type(result.world.facilities[index237661].flag)
         assert(1 ==
-            thestream.readData(tmp240243.unsafeAddr, 1),
+            thestream.readData(tmp237243.unsafeAddr, 1),
                "Stream was not provided enough data")
-        if $(tmp240243) ==
-            $(ord(tmp240243)) & " (invalid data!)":
+        if $(tmp237243) ==
+            $(ord(tmp237243)) & " (invalid data!)":
           raise newException(ValueError, "Enum value is out of range: " &
-              $(tmp240243) & "\x0ACorrect values are:\x0A" &
+              $(tmp237243) & "\x0ACorrect values are:\x0A" &
               "enum\x0A  None = 0, Exists = 1, FromId = 127")
-        result.world.facilities[index240661].flag = tmp240243
-        case result.world.facilities[index240661].flag
+        result.world.facilities[index237661].flag = tmp237243
+        case result.world.facilities[index237661].flag
         of FromId:
           discard
           assert(8 ==
-              thestream.readData(result.world.facilities[index240661].sourceId.unsafeAddr,
+              thestream.readData(result.world.facilities[index237661].sourceId.unsafeAddr,
                                  8), "Stream was not provided enough data")
         of Exists:
           discard
           assert(8 ==
-              thestream.readData(result.world.facilities[index240661].id.unsafeAddr,
+              thestream.readData(result.world.facilities[index237661].id.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(1 ==
-              thestream.readData(result.world.facilities[index240661].theType.unsafeAddr,
+              thestream.readData(result.world.facilities[index237661].theType.unsafeAddr,
                                  1), "Stream was not provided enough data")
-          if $(result.world.facilities[index240661].theType) ==
-              $(ord(result.world.facilities[index240661].theType)) &
+          if $(result.world.facilities[index237661].theType) ==
+              $(ord(result.world.facilities[index237661].theType)) &
               " (invalid data!)":
             raise newException(ValueError, "Enum value is out of range: " &
-                $(result.world.facilities[index240661].theType) &
+                $(result.world.facilities[index237661].theType) &
                 "\x0ACorrect values are:\x0A" &
                 "enum\x0A  CONTROL_CENTER = 0, VEHICLE_FACTORY = 1, UNKNOWN = 255")
           assert(8 ==
-              thestream.readData(result.world.facilities[index240661].ownerPlayerId.unsafeAddr,
+              thestream.readData(result.world.facilities[index237661].ownerPlayerId.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.facilities[index240661].left.unsafeAddr,
+              thestream.readData(result.world.facilities[index237661].left.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.facilities[index240661].top.unsafeAddr,
+              thestream.readData(result.world.facilities[index237661].top.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(8 ==
-              thestream.readData(result.world.facilities[index240661].capturePoints.unsafeAddr,
+              thestream.readData(result.world.facilities[index237661].capturePoints.unsafeAddr,
                                  8), "Stream was not provided enough data")
           assert(1 ==
-              thestream.readData(result.world.facilities[index240661].vehicleType.unsafeAddr,
+              thestream.readData(result.world.facilities[index237661].vehicleType.unsafeAddr,
                                  1), "Stream was not provided enough data")
-          if $(result.world.facilities[index240661].vehicleType) ==
-              $(ord(result.world.facilities[index240661].vehicleType)) &
+          if $(result.world.facilities[index237661].vehicleType) ==
+              $(ord(result.world.facilities[index237661].vehicleType)) &
               " (invalid data!)":
             raise newException(ValueError, "Enum value is out of range: " &
-                $(result.world.facilities[index240661].vehicleType) &
+                $(result.world.facilities[index237661].vehicleType) &
                 "\x0ACorrect values are:\x0A" &
                 "enum\x0A  ARRV = 0, FIGHTER = 1, HELICOPTER = 2, IFV = 3, TANK = 4, UNKNOWN = 255")
           assert(4 ==
-              thestream.readData(result.world.facilities[index240661].productionProgress.unsafeAddr,
+              thestream.readData(result.world.facilities[index237661].productionProgress.unsafeAddr,
                                  4), "Stream was not provided enough data")
         else:
           discard
@@ -2662,9 +2662,9 @@ proc deserialize(a242282: typedesc[PlayerContext]; thestream: Stream): PlayerCon
       discard
   else:
     discard
-proc size(obj244237: WorldHead): Natural =
+proc size(obj241237: WorldHead): Natural =
   result += 1
-  case obj244237.exists
+  case obj241237.exists
   of true:
     result += 4
     result += 4
@@ -2675,32 +2675,32 @@ proc size(obj244237: WorldHead): Natural =
     result += 0
   result += 0
 
-proc serialize(obj244238: WorldHead; thestream: Stream) =
+proc serialize(obj241238: WorldHead; thestream: Stream) =
   discard
-  var tmp244236 = obj244238.exists
-  thestream.writeData(tmp244236.unsafeAddr, 1)
-  case obj244238.exists
+  var tmp241236 = obj241238.exists
+  thestream.writeData(tmp241236.unsafeAddr, 1)
+  case obj241238.exists
   of true:
     discard
-    thestream.writeData(obj244238.tickIndex.unsafeAddr, 4)
-    thestream.writeData(obj244238.tickCount.unsafeAddr, 4)
-    thestream.writeData(obj244238.width.unsafeAddr, 8)
-    thestream.writeData(obj244238.height.unsafeAddr, 8)
+    thestream.writeData(obj241238.tickIndex.unsafeAddr, 4)
+    thestream.writeData(obj241238.tickCount.unsafeAddr, 4)
+    thestream.writeData(obj241238.width.unsafeAddr, 8)
+    thestream.writeData(obj241238.height.unsafeAddr, 8)
   else:
     discard
 
-proc serialize(obj244242: WorldHead): string =
-  let ss244244 = newStringStream()
-  serialize(obj244242, ss244244)
-  ss244244.data
+proc serialize(obj241242: WorldHead): string =
+  let ss241244 = newStringStream()
+  serialize(obj241242, ss241244)
+  ss241244.data
 
-proc deserialize(a244240: typedesc[WorldHead]; thestream: Stream): WorldHead =
+proc deserialize(a241240: typedesc[WorldHead]; thestream: Stream): WorldHead =
   discard
-  var tmp244236: type(result.exists)
+  var tmp241236: type(result.exists)
   assert(1 ==
-      thestream.readData(tmp244236.unsafeAddr, 1),
+      thestream.readData(tmp241236.unsafeAddr, 1),
          "Stream was not provided enough data")
-  result.exists = tmp244236
+  result.exists = tmp241236
   case result.exists
   of true:
     discard
@@ -2718,11 +2718,11 @@ proc deserialize(a244240: typedesc[WorldHead]; thestream: Stream): WorldHead =
            "Stream was not provided enough data")
   else:
     discard
-proc size(obj244360: WorldTail): Natural =
-  for index244357 in 0 ..<
-      (len(obj244360.newVehicles)):
+proc size(obj241360: WorldTail): Natural =
+  for index241357 in 0 ..<
+      (len(obj241360.newVehicles)):
     result += 1
-    case obj244360.newVehicles[index244357].exists
+    case obj241360.newVehicles[index241357].exists
     of true:
       result += 8
       result += 8
@@ -2749,16 +2749,16 @@ proc size(obj244360: WorldTail): Natural =
       result += 1
       result +=
           4 +
-          len(obj244360.newVehicles[index244357].groups) * 4
+          len(obj241360.newVehicles[index241357].groups) * 4
       result += 0
     else:
       result += 0
     result += 0
   result += 4
-  for index244359 in 0 ..<
-      (len(obj244360.vehicleUpdates)):
+  for index241359 in 0 ..<
+      (len(obj241360.vehicleUpdates)):
     result += 1
-    case obj244360.vehicleUpdates[index244359].exists
+    case obj241360.vehicleUpdates[index241359].exists
     of true:
       result += 8
       result += 8
@@ -2768,7 +2768,7 @@ proc size(obj244360: WorldTail): Natural =
       result += 1
       result +=
           4 +
-          len(obj244360.vehicleUpdates[index244359].groups) * 4
+          len(obj241360.vehicleUpdates[index241359].groups) * 4
       result += 0
     else:
       result += 0
@@ -2776,355 +2776,355 @@ proc size(obj244360: WorldTail): Natural =
   result += 4
   result += 0
 
-proc serialize(obj244361: WorldTail; thestream: Stream) =
+proc serialize(obj241361: WorldTail; thestream: Stream) =
   discard
-  var length244356 = len(obj244361.newVehicles)
-  thestream.writeData(length244356.unsafeAddr, 4)
-  for index244357 in 0 ..<
-      (len(obj244361.newVehicles)):
+  var length241356 = len(obj241361.newVehicles)
+  thestream.writeData(length241356.unsafeAddr, 4)
+  for index241357 in 0 ..<
+      (len(obj241361.newVehicles)):
     discard
-    var tmp239845 = obj244361.newVehicles[index244357].exists
-    thestream.writeData(tmp239845.unsafeAddr, 1)
-    case obj244361.newVehicles[index244357].exists
+    var tmp236845 = obj241361.newVehicles[index241357].exists
+    thestream.writeData(tmp236845.unsafeAddr, 1)
+    case obj241361.newVehicles[index241357].exists
     of true:
       discard
-      thestream.writeData(obj244361.newVehicles[index244357].id.unsafeAddr, 8)
-      thestream.writeData(obj244361.newVehicles[index244357].x.unsafeAddr, 8)
-      thestream.writeData(obj244361.newVehicles[index244357].y.unsafeAddr, 8)
-      thestream.writeData(obj244361.newVehicles[index244357].radius.unsafeAddr, 8)
-      thestream.writeData(obj244361.newVehicles[index244357].player_id.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].id.unsafeAddr, 8)
+      thestream.writeData(obj241361.newVehicles[index241357].x.unsafeAddr, 8)
+      thestream.writeData(obj241361.newVehicles[index241357].y.unsafeAddr, 8)
+      thestream.writeData(obj241361.newVehicles[index241357].radius.unsafeAddr, 8)
+      thestream.writeData(obj241361.newVehicles[index241357].player_id.unsafeAddr,
                           8)
-      thestream.writeData(obj244361.newVehicles[index244357].durability.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].durability.unsafeAddr,
                           4)
-      thestream.writeData(obj244361.newVehicles[index244357].maxDurability.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].maxDurability.unsafeAddr,
                           4)
-      thestream.writeData(obj244361.newVehicles[index244357].maxSpeed.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].maxSpeed.unsafeAddr,
                           8)
-      thestream.writeData(obj244361.newVehicles[index244357].visionRange.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].visionRange.unsafeAddr,
                           8)
-      thestream.writeData(obj244361.newVehicles[index244357].squaredVisionRange.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].squaredVisionRange.unsafeAddr,
                           8)
-      thestream.writeData(obj244361.newVehicles[index244357].groundAttackRange.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].groundAttackRange.unsafeAddr,
                           8)
-      thestream.writeData(obj244361.newVehicles[index244357].squaredGroundAttachRange.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].squaredGroundAttachRange.unsafeAddr,
                           8)
-      thestream.writeData(obj244361.newVehicles[index244357].aerialAttackRange.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].aerialAttackRange.unsafeAddr,
                           8)
-      thestream.writeData(obj244361.newVehicles[index244357].squaredAerialAttackRange.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].squaredAerialAttackRange.unsafeAddr,
                           8)
-      thestream.writeData(obj244361.newVehicles[index244357].groundDamage.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].groundDamage.unsafeAddr,
                           4)
-      thestream.writeData(obj244361.newVehicles[index244357].aerialDamage.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].aerialDamage.unsafeAddr,
                           4)
-      thestream.writeData(obj244361.newVehicles[index244357].groundDefence.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].groundDefence.unsafeAddr,
                           4)
-      thestream.writeData(obj244361.newVehicles[index244357].aerialDefence.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].aerialDefence.unsafeAddr,
                           4)
-      thestream.writeData(obj244361.newVehicles[index244357].attackCooldownTicks.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].attackCooldownTicks.unsafeAddr,
                           4)
-      thestream.writeData(obj244361.newVehicles[index244357].remainingAttackCooldownTicks.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].remainingAttackCooldownTicks.unsafeAddr,
                           4)
-      thestream.writeData(obj244361.newVehicles[index244357].thetype.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].thetype.unsafeAddr,
                           1)
-      thestream.writeData(obj244361.newVehicles[index244357].aerial.unsafeAddr, 1)
-      thestream.writeData(obj244361.newVehicles[index244357].selected.unsafeAddr,
+      thestream.writeData(obj241361.newVehicles[index241357].aerial.unsafeAddr, 1)
+      thestream.writeData(obj241361.newVehicles[index241357].selected.unsafeAddr,
                           1)
-      var length239846 = len(obj244361.newVehicles[index244357].groups)
-      thestream.writeData(length239846.unsafeAddr, 4)
-      if len(obj244361.newVehicles[index244357].groups) > 0:
-        thestream.writeData(obj244361.newVehicles[index244357].groups[0].unsafeAddr, len(
-            obj244361.newVehicles[index244357].groups) * 4)
+      var length236846 = len(obj241361.newVehicles[index241357].groups)
+      thestream.writeData(length236846.unsafeAddr, 4)
+      if len(obj241361.newVehicles[index241357].groups) > 0:
+        thestream.writeData(obj241361.newVehicles[index241357].groups[0].unsafeAddr, len(
+            obj241361.newVehicles[index241357].groups) * 4)
     else:
       discard
-  var length244358 = len(obj244361.vehicleUpdates)
-  thestream.writeData(length244358.unsafeAddr, 4)
-  for index244359 in 0 ..<
-      (len(obj244361.vehicleUpdates)):
+  var length241358 = len(obj241361.vehicleUpdates)
+  thestream.writeData(length241358.unsafeAddr, 4)
+  for index241359 in 0 ..<
+      (len(obj241361.vehicleUpdates)):
     discard
-    var tmp239651 = obj244361.vehicleUpdates[index244359].exists
-    thestream.writeData(tmp239651.unsafeAddr, 1)
-    case obj244361.vehicleUpdates[index244359].exists
+    var tmp236651 = obj241361.vehicleUpdates[index241359].exists
+    thestream.writeData(tmp236651.unsafeAddr, 1)
+    case obj241361.vehicleUpdates[index241359].exists
     of true:
       discard
-      thestream.writeData(obj244361.vehicleUpdates[index244359].id.unsafeAddr, 8)
-      thestream.writeData(obj244361.vehicleUpdates[index244359].x.unsafeAddr, 8)
-      thestream.writeData(obj244361.vehicleUpdates[index244359].y.unsafeAddr, 8)
-      thestream.writeData(obj244361.vehicleUpdates[index244359].durability.unsafeAddr,
+      thestream.writeData(obj241361.vehicleUpdates[index241359].id.unsafeAddr, 8)
+      thestream.writeData(obj241361.vehicleUpdates[index241359].x.unsafeAddr, 8)
+      thestream.writeData(obj241361.vehicleUpdates[index241359].y.unsafeAddr, 8)
+      thestream.writeData(obj241361.vehicleUpdates[index241359].durability.unsafeAddr,
                           4)
-      thestream.writeData(obj244361.vehicleUpdates[index244359].remainingAttackCooldownTicks.unsafeAddr,
+      thestream.writeData(obj241361.vehicleUpdates[index241359].remainingAttackCooldownTicks.unsafeAddr,
                           4)
-      thestream.writeData(obj244361.vehicleUpdates[index244359].selected.unsafeAddr,
+      thestream.writeData(obj241361.vehicleUpdates[index241359].selected.unsafeAddr,
                           1)
-      var length239652 = len(obj244361.vehicleUpdates[index244359].groups)
-      thestream.writeData(length239652.unsafeAddr, 4)
-      if len(obj244361.vehicleUpdates[index244359].groups) > 0:
-        thestream.writeData(obj244361.vehicleUpdates[index244359].groups[0].unsafeAddr, len(
-            obj244361.vehicleUpdates[index244359].groups) * 4)
+      var length236652 = len(obj241361.vehicleUpdates[index241359].groups)
+      thestream.writeData(length236652.unsafeAddr, 4)
+      if len(obj241361.vehicleUpdates[index241359].groups) > 0:
+        thestream.writeData(obj241361.vehicleUpdates[index241359].groups[0].unsafeAddr, len(
+            obj241361.vehicleUpdates[index241359].groups) * 4)
     else:
       discard
 
-proc serialize(obj244365: WorldTail): string =
-  let ss244367 = newStringStream()
-  serialize(obj244365, ss244367)
-  ss244367.data
+proc serialize(obj241365: WorldTail): string =
+  let ss241367 = newStringStream()
+  serialize(obj241365, ss241367)
+  ss241367.data
 
-proc deserialize(a244363: typedesc[WorldTail]; thestream: Stream): WorldTail =
+proc deserialize(a241363: typedesc[WorldTail]; thestream: Stream): WorldTail =
   discard
-  var length244356: int32
+  var length241356: int32
   assert(4 ==
-      thestream.readData(length244356.unsafeAddr, 4),
+      thestream.readData(length241356.unsafeAddr, 4),
          "Stream was not provided enough data")
-  result.newVehicles = newSeq[Vehicle](length244356)
-  for index244357 in 0 ..<
+  result.newVehicles = newSeq[Vehicle](length241356)
+  for index241357 in 0 ..<
       (len(result.newVehicles)):
     discard
-    var tmp239845: type(result.newVehicles[index244357].exists)
+    var tmp236845: type(result.newVehicles[index241357].exists)
     assert(1 ==
-        thestream.readData(tmp239845.unsafeAddr, 1),
+        thestream.readData(tmp236845.unsafeAddr, 1),
            "Stream was not provided enough data")
-    result.newVehicles[index244357].exists = tmp239845
-    case result.newVehicles[index244357].exists
+    result.newVehicles[index241357].exists = tmp236845
+    case result.newVehicles[index241357].exists
     of true:
       discard
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].id.unsafeAddr, 8),
+          thestream.readData(result.newVehicles[index241357].id.unsafeAddr, 8),
              "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].x.unsafeAddr, 8),
+          thestream.readData(result.newVehicles[index241357].x.unsafeAddr, 8),
              "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].y.unsafeAddr, 8),
+          thestream.readData(result.newVehicles[index241357].y.unsafeAddr, 8),
              "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].radius.unsafeAddr, 8),
+          thestream.readData(result.newVehicles[index241357].radius.unsafeAddr, 8),
              "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].player_id.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].player_id.unsafeAddr,
                              8), "Stream was not provided enough data")
       assert(4 ==
-          thestream.readData(result.newVehicles[index244357].durability.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].durability.unsafeAddr,
                              4), "Stream was not provided enough data")
       assert(4 ==
-          thestream.readData(result.newVehicles[index244357].maxDurability.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].maxDurability.unsafeAddr,
                              4), "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].maxSpeed.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].maxSpeed.unsafeAddr,
                              8), "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].visionRange.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].visionRange.unsafeAddr,
                              8), "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].squaredVisionRange.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].squaredVisionRange.unsafeAddr,
                              8), "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].groundAttackRange.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].groundAttackRange.unsafeAddr,
                              8), "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].squaredGroundAttachRange.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].squaredGroundAttachRange.unsafeAddr,
                              8), "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].aerialAttackRange.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].aerialAttackRange.unsafeAddr,
                              8), "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.newVehicles[index244357].squaredAerialAttackRange.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].squaredAerialAttackRange.unsafeAddr,
                              8), "Stream was not provided enough data")
       assert(4 ==
-          thestream.readData(result.newVehicles[index244357].groundDamage.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].groundDamage.unsafeAddr,
                              4), "Stream was not provided enough data")
       assert(4 ==
-          thestream.readData(result.newVehicles[index244357].aerialDamage.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].aerialDamage.unsafeAddr,
                              4), "Stream was not provided enough data")
       assert(4 ==
-          thestream.readData(result.newVehicles[index244357].groundDefence.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].groundDefence.unsafeAddr,
                              4), "Stream was not provided enough data")
       assert(4 ==
-          thestream.readData(result.newVehicles[index244357].aerialDefence.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].aerialDefence.unsafeAddr,
                              4), "Stream was not provided enough data")
       assert(4 ==
-          thestream.readData(result.newVehicles[index244357].attackCooldownTicks.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].attackCooldownTicks.unsafeAddr,
                              4), "Stream was not provided enough data")
       assert(4 ==
-          thestream.readData(result.newVehicles[index244357].remainingAttackCooldownTicks.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].remainingAttackCooldownTicks.unsafeAddr,
                              4), "Stream was not provided enough data")
       assert(1 ==
-          thestream.readData(result.newVehicles[index244357].thetype.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].thetype.unsafeAddr,
                              1), "Stream was not provided enough data")
-      if $(result.newVehicles[index244357].thetype) ==
-          $(ord(result.newVehicles[index244357].thetype)) &
+      if $(result.newVehicles[index241357].thetype) ==
+          $(ord(result.newVehicles[index241357].thetype)) &
           " (invalid data!)":
         raise newException(ValueError, "Enum value is out of range: " &
-            $(result.newVehicles[index244357].thetype) &
+            $(result.newVehicles[index241357].thetype) &
             "\x0ACorrect values are:\x0A" &
             "enum\x0A  ARRV = 0, FIGHTER = 1, HELICOPTER = 2, IFV = 3, TANK = 4, UNKNOWN = 255")
       assert(1 ==
-          thestream.readData(result.newVehicles[index244357].aerial.unsafeAddr, 1),
+          thestream.readData(result.newVehicles[index241357].aerial.unsafeAddr, 1),
              "Stream was not provided enough data")
       assert(1 ==
-          thestream.readData(result.newVehicles[index244357].selected.unsafeAddr,
+          thestream.readData(result.newVehicles[index241357].selected.unsafeAddr,
                              1), "Stream was not provided enough data")
-      var length239846: int32
+      var length236846: int32
       assert(4 ==
-          thestream.readData(length239846.unsafeAddr, 4),
+          thestream.readData(length236846.unsafeAddr, 4),
              "Stream was not provided enough data")
-      result.newVehicles[index244357].groups = newSeq[int32](length239846)
-      if len(result.newVehicles[index244357].groups) > 0:
-        assert(len(result.newVehicles[index244357].groups) * 4 ==
-            thestream.readData(result.newVehicles[index244357].groups[0].unsafeAddr, len(
-            result.newVehicles[index244357].groups) * 4),
+      result.newVehicles[index241357].groups = newSeq[int32](length236846)
+      if len(result.newVehicles[index241357].groups) > 0:
+        assert(len(result.newVehicles[index241357].groups) * 4 ==
+            thestream.readData(result.newVehicles[index241357].groups[0].unsafeAddr, len(
+            result.newVehicles[index241357].groups) * 4),
                "Stream was not provided enough data")
     else:
       discard
-  var length244358: int32
+  var length241358: int32
   assert(4 ==
-      thestream.readData(length244358.unsafeAddr, 4),
+      thestream.readData(length241358.unsafeAddr, 4),
          "Stream was not provided enough data")
-  result.vehicleUpdates = newSeq[VehicleUpdate](length244358)
-  for index244359 in 0 ..<
+  result.vehicleUpdates = newSeq[VehicleUpdate](length241358)
+  for index241359 in 0 ..<
       (len(result.vehicleUpdates)):
     discard
-    var tmp239651: type(result.vehicleUpdates[index244359].exists)
+    var tmp236651: type(result.vehicleUpdates[index241359].exists)
     assert(1 ==
-        thestream.readData(tmp239651.unsafeAddr, 1),
+        thestream.readData(tmp236651.unsafeAddr, 1),
            "Stream was not provided enough data")
-    result.vehicleUpdates[index244359].exists = tmp239651
-    case result.vehicleUpdates[index244359].exists
+    result.vehicleUpdates[index241359].exists = tmp236651
+    case result.vehicleUpdates[index241359].exists
     of true:
       discard
       assert(8 ==
-          thestream.readData(result.vehicleUpdates[index244359].id.unsafeAddr, 8),
+          thestream.readData(result.vehicleUpdates[index241359].id.unsafeAddr, 8),
              "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.vehicleUpdates[index244359].x.unsafeAddr, 8),
+          thestream.readData(result.vehicleUpdates[index241359].x.unsafeAddr, 8),
              "Stream was not provided enough data")
       assert(8 ==
-          thestream.readData(result.vehicleUpdates[index244359].y.unsafeAddr, 8),
+          thestream.readData(result.vehicleUpdates[index241359].y.unsafeAddr, 8),
              "Stream was not provided enough data")
       assert(4 ==
-          thestream.readData(result.vehicleUpdates[index244359].durability.unsafeAddr,
+          thestream.readData(result.vehicleUpdates[index241359].durability.unsafeAddr,
                              4), "Stream was not provided enough data")
       assert(4 ==
-          thestream.readData(result.vehicleUpdates[index244359].remainingAttackCooldownTicks.unsafeAddr,
+          thestream.readData(result.vehicleUpdates[index241359].remainingAttackCooldownTicks.unsafeAddr,
                              4), "Stream was not provided enough data")
       assert(1 ==
-          thestream.readData(result.vehicleUpdates[index244359].selected.unsafeAddr,
+          thestream.readData(result.vehicleUpdates[index241359].selected.unsafeAddr,
                              1), "Stream was not provided enough data")
-      var length239652: int32
+      var length236652: int32
       assert(4 ==
-          thestream.readData(length239652.unsafeAddr, 4),
+          thestream.readData(length236652.unsafeAddr, 4),
              "Stream was not provided enough data")
-      result.vehicleUpdates[index244359].groups = newSeq[int32](length239652)
-      if len(result.vehicleUpdates[index244359].groups) > 0:
-        assert(len(result.vehicleUpdates[index244359].groups) *
+      result.vehicleUpdates[index241359].groups = newSeq[int32](length236652)
+      if len(result.vehicleUpdates[index241359].groups) > 0:
+        assert(len(result.vehicleUpdates[index241359].groups) *
             4 ==
-            thestream.readData(result.vehicleUpdates[index244359].groups[0].unsafeAddr, len(
-            result.vehicleUpdates[index244359].groups) * 4),
+            thestream.readData(result.vehicleUpdates[index241359].groups[0].unsafeAddr, len(
+            result.vehicleUpdates[index241359].groups) * 4),
                "Stream was not provided enough data")
     else:
       discard
-proc size(obj245071: Terrains): Natural =
-  for index245070 in 0 ..< (len(obj245071)):
+proc size(obj242071: Terrains): Natural =
+  for index242070 in 0 ..< (len(obj242071)):
     result +=
         4 +
-        len(obj245071[index245070]) * 1
+        len(obj242071[index242070]) * 1
   result += 4
 
-proc serialize(obj245072: Terrains; thestream: Stream) =
-  var length245067 = len(obj245072)
-  thestream.writeData(length245067.unsafeAddr, 4)
-  for index245070 in 0 ..< (len(obj245072)):
-    var length245068 = len(obj245072[index245070])
-    thestream.writeData(length245068.unsafeAddr, 4)
-    for index245069 in 0 ..<
-        (len(obj245072[index245070])):
-      thestream.writeData(obj245072[index245070][index245069].unsafeAddr, 1)
+proc serialize(obj242072: Terrains; thestream: Stream) =
+  var length242067 = len(obj242072)
+  thestream.writeData(length242067.unsafeAddr, 4)
+  for index242070 in 0 ..< (len(obj242072)):
+    var length242068 = len(obj242072[index242070])
+    thestream.writeData(length242068.unsafeAddr, 4)
+    for index242069 in 0 ..<
+        (len(obj242072[index242070])):
+      thestream.writeData(obj242072[index242070][index242069].unsafeAddr, 1)
 
-proc serialize(obj245076: Terrains): string =
-  let ss245078 = newStringStream()
-  serialize(obj245076, ss245078)
-  ss245078.data
+proc serialize(obj242076: Terrains): string =
+  let ss242078 = newStringStream()
+  serialize(obj242076, ss242078)
+  ss242078.data
 
-proc deserialize(a245074: typedesc[Terrains]; thestream: Stream): Terrains =
-  var length245067: int32
+proc deserialize(a242074: typedesc[Terrains]; thestream: Stream): Terrains =
+  var length242067: int32
   assert(4 ==
-      thestream.readData(length245067.unsafeAddr, 4),
+      thestream.readData(length242067.unsafeAddr, 4),
          "Stream was not provided enough data")
-  result = newSeq[seq[TerrainType]](length245067)
-  for index245070 in 0 ..< (len(result)):
-    var length245068: int32
+  result = newSeq[seq[TerrainType]](length242067)
+  for index242070 in 0 ..< (len(result)):
+    var length242068: int32
     assert(4 ==
-        thestream.readData(length245068.unsafeAddr, 4),
+        thestream.readData(length242068.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result[index245070] = newSeq[TerrainType](length245068)
-    for index245069 in 0 ..<
-        (len(result[index245070])):
+    result[index242070] = newSeq[TerrainType](length242068)
+    for index242069 in 0 ..<
+        (len(result[index242070])):
       assert(1 ==
-          thestream.readData(result[index245070][index245069].unsafeAddr, 1),
+          thestream.readData(result[index242070][index242069].unsafeAddr, 1),
              "Stream was not provided enough data")
-      if $(result[index245070][index245069]) ==
-          $(ord(result[index245070][index245069])) &
+      if $(result[index242070][index242069]) ==
+          $(ord(result[index242070][index242069])) &
           " (invalid data!)":
         raise newException(ValueError, "Enum value is out of range: " &
-            $(result[index245070][index245069]) &
+            $(result[index242070][index242069]) &
             "\x0ACorrect values are:\x0A" &
             "enum\x0A  PLAIN = 0, SWAMP = 1, FOREST = 2, UNKNOWN = 255")
-proc size(obj245231: Weathers): Natural =
-  for index245230 in 0 ..< (len(obj245231)):
+proc size(obj242231: Weathers): Natural =
+  for index242230 in 0 ..< (len(obj242231)):
     result +=
         4 +
-        len(obj245231[index245230]) * 1
+        len(obj242231[index242230]) * 1
   result += 4
 
-proc serialize(obj245232: Weathers; thestream: Stream) =
-  var length245227 = len(obj245232)
-  thestream.writeData(length245227.unsafeAddr, 4)
-  for index245230 in 0 ..< (len(obj245232)):
-    var length245228 = len(obj245232[index245230])
-    thestream.writeData(length245228.unsafeAddr, 4)
-    for index245229 in 0 ..<
-        (len(obj245232[index245230])):
-      thestream.writeData(obj245232[index245230][index245229].unsafeAddr, 1)
+proc serialize(obj242232: Weathers; thestream: Stream) =
+  var length242227 = len(obj242232)
+  thestream.writeData(length242227.unsafeAddr, 4)
+  for index242230 in 0 ..< (len(obj242232)):
+    var length242228 = len(obj242232[index242230])
+    thestream.writeData(length242228.unsafeAddr, 4)
+    for index242229 in 0 ..<
+        (len(obj242232[index242230])):
+      thestream.writeData(obj242232[index242230][index242229].unsafeAddr, 1)
 
-proc serialize(obj245236: Weathers): string =
-  let ss245238 = newStringStream()
-  serialize(obj245236, ss245238)
-  ss245238.data
+proc serialize(obj242236: Weathers): string =
+  let ss242238 = newStringStream()
+  serialize(obj242236, ss242238)
+  ss242238.data
 
-proc deserialize(a245234: typedesc[Weathers]; thestream: Stream): Weathers =
-  var length245227: int32
+proc deserialize(a242234: typedesc[Weathers]; thestream: Stream): Weathers =
+  var length242227: int32
   assert(4 ==
-      thestream.readData(length245227.unsafeAddr, 4),
+      thestream.readData(length242227.unsafeAddr, 4),
          "Stream was not provided enough data")
-  result = newSeq[seq[WeatherType]](length245227)
-  for index245230 in 0 ..< (len(result)):
-    var length245228: int32
+  result = newSeq[seq[WeatherType]](length242227)
+  for index242230 in 0 ..< (len(result)):
+    var length242228: int32
     assert(4 ==
-        thestream.readData(length245228.unsafeAddr, 4),
+        thestream.readData(length242228.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result[index245230] = newSeq[WeatherType](length245228)
-    for index245229 in 0 ..<
-        (len(result[index245230])):
+    result[index242230] = newSeq[WeatherType](length242228)
+    for index242229 in 0 ..<
+        (len(result[index242230])):
       assert(1 ==
-          thestream.readData(result[index245230][index245229].unsafeAddr, 1),
+          thestream.readData(result[index242230][index242229].unsafeAddr, 1),
              "Stream was not provided enough data")
-      if $(result[index245230][index245229]) ==
-          $(ord(result[index245230][index245229])) &
+      if $(result[index242230][index242229]) ==
+          $(ord(result[index242230][index242229])) &
           " (invalid data!)":
         raise newException(ValueError, "Enum value is out of range: " &
-            $(result[index245230][index245229]) &
+            $(result[index242230][index242229]) &
             "\x0ACorrect values are:\x0A" &
             "enum\x0A  CLEAR = 0, CLOUD = 1, RAIN = 2, UNKNOWN = 255")
-proc size(obj245387: MessageType): Natural =
+proc size(obj242387: MessageType): Natural =
   1
 
-proc serialize(obj245388: MessageType; thestream: Stream) =
-  thestream.writeData(obj245388.unsafeAddr, 1)
+proc serialize(obj242388: MessageType; thestream: Stream) =
+  thestream.writeData(obj242388.unsafeAddr, 1)
 
-proc serialize(obj245392: MessageType): string =
-  let ss245394 = newStringStream()
-  serialize(obj245392, ss245394)
-  ss245394.data
+proc serialize(obj242392: MessageType): string =
+  let ss242394 = newStringStream()
+  serialize(obj242392, ss242394)
+  ss242394.data
 
-proc deserialize(a245390: typedesc[MessageType]; thestream: Stream): MessageType =
+proc deserialize(a242390: typedesc[MessageType]; thestream: Stream): MessageType =
   assert(1 ==
       thestream.readData(result.unsafeAddr, 1),
          "Stream was not provided enough data")
@@ -3133,11 +3133,11 @@ proc deserialize(a245390: typedesc[MessageType]; thestream: Stream): MessageType
     raise newException(ValueError, "Enum value is out of range: " &
         $(result) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  UNKNOWN = 0, GAME_OVER = 1, AUTHENTICATION_TOKEN = 2, TEAM_SIZE = 3, PROTOCOL_VERSION = 4,\x0A  GAME_CONTEXT = 5, PLAYER_CONTEXT = 6, MOVE = 7")
-proc size(obj245421: Message): Natural =
+proc size(obj242421: Message): Natural =
   result += 1
-  case obj245421.kind
+  case obj242421.kind
   of MessageType.AUTHENTICATION_TOKEN:
-    result += 4 + len(obj245421.token) * 1
+    result += 4 + len(obj242421.token) * 1
     result += 0
   of MessageType.PROTOCOL_VERSION:
     result += 4
@@ -3147,7 +3147,7 @@ proc size(obj245421: Message): Natural =
     result += 0
   of MessageType.GAME_CONTEXT:
     result += 1
-    case obj245421.game.exists
+    case obj242421.game.exists
     of true:
       result += 8
       result += 4
@@ -3250,7 +3250,7 @@ proc size(obj245421: Message): Natural =
     result += 0
   of MessageType.MOVE:
     result += 1
-    case obj245421.move.exists
+    case obj242421.move.exists
     of true:
       result += 1
       result += 4
@@ -3274,10 +3274,10 @@ proc size(obj245421: Message): Natural =
     result += 0
   of MessageType.PLAYER_CONTEXT:
     result += 1
-    case obj245421.playerContext.exists
+    case obj242421.playerContext.exists
     of true:
       result += 1
-      case obj245421.playerContext.player.flag
+      case obj242421.playerContext.player.flag
       of Exists:
         result += 8
         result += 1
@@ -3297,16 +3297,16 @@ proc size(obj245421: Message): Natural =
         result += 0
       result += 0
       result += 1
-      case obj245421.playerContext.world.exists
+      case obj242421.playerContext.world.exists
       of true:
         result += 4
         result += 4
         result += 8
         result += 8
-        for index240647 in 0 ..<
-            (len(obj245421.playerContext.world.players)):
+        for index237647 in 0 ..<
+            (len(obj242421.playerContext.world.players)):
           result += 1
-          case obj245421.playerContext.world.players[index240647].flag
+          case obj242421.playerContext.world.players[index237647].flag
           of Exists:
             result += 8
             result += 1
@@ -3326,10 +3326,10 @@ proc size(obj245421: Message): Natural =
             result += 0
           result += 0
         result += 4
-        for index240649 in 0 ..<
-            (len(obj245421.playerContext.world.newVehicles)):
+        for index237649 in 0 ..<
+            (len(obj242421.playerContext.world.newVehicles)):
           result += 1
-          case obj245421.playerContext.world.newVehicles[index240649].exists
+          case obj242421.playerContext.world.newVehicles[index237649].exists
           of true:
             result += 8
             result += 8
@@ -3356,17 +3356,17 @@ proc size(obj245421: Message): Natural =
             result += 1
             result +=
                 4 +
-                len(obj245421.playerContext.world.newVehicles[index240649].groups) *
+                len(obj242421.playerContext.world.newVehicles[index237649].groups) *
                 4
             result += 0
           else:
             result += 0
           result += 0
         result += 4
-        for index240651 in 0 ..<
-            (len(obj245421.playerContext.world.vehicleUpdates)):
+        for index237651 in 0 ..<
+            (len(obj242421.playerContext.world.vehicleUpdates)):
           result += 1
-          case obj245421.playerContext.world.vehicleUpdates[index240651].exists
+          case obj242421.playerContext.world.vehicleUpdates[index237651].exists
           of true:
             result += 8
             result += 8
@@ -3376,31 +3376,31 @@ proc size(obj245421: Message): Natural =
             result += 1
             result +=
                 4 +
-                len(obj245421.playerContext.world.vehicleUpdates[index240651].groups) *
+                len(obj242421.playerContext.world.vehicleUpdates[index237651].groups) *
                 4
             result += 0
           else:
             result += 0
           result += 0
         result += 4
-        for index240655 in 0 ..<
-            (len(obj245421.playerContext.world.terrainByCellXY)):
+        for index237655 in 0 ..<
+            (len(obj242421.playerContext.world.terrainByCellXY)):
           result +=
               4 +
-              len(obj245421.playerContext.world.terrainByCellXY[index240655]) *
+              len(obj242421.playerContext.world.terrainByCellXY[index237655]) *
               1
         result += 4
-        for index240659 in 0 ..<
-            (len(obj245421.playerContext.world.weatherByCellXY)):
+        for index237659 in 0 ..<
+            (len(obj242421.playerContext.world.weatherByCellXY)):
           result +=
               4 +
-              len(obj245421.playerContext.world.weatherByCellXY[index240659]) *
+              len(obj242421.playerContext.world.weatherByCellXY[index237659]) *
               1
         result += 4
-        for index240661 in 0 ..<
-            (len(obj245421.playerContext.world.facilities)):
+        for index237661 in 0 ..<
+            (len(obj242421.playerContext.world.facilities)):
           result += 1
-          case obj245421.playerContext.world.facilities[index240661].flag
+          case obj242421.playerContext.world.facilities[index237661].flag
           of FromId:
             result += 8
             result += 0
@@ -3431,394 +3431,394 @@ proc size(obj245421: Message): Natural =
     result += 0
   result += 0
 
-proc serialize(obj245422: Message; thestream: Stream) =
+proc serialize(obj242422: Message; thestream: Stream) =
   discard
-  var tmp245419 = obj245422.kind
-  thestream.writeData(tmp245419.unsafeAddr, 1)
-  case obj245422.kind
+  var tmp242419 = obj242422.kind
+  thestream.writeData(tmp242419.unsafeAddr, 1)
+  case obj242422.kind
   of MessageType.AUTHENTICATION_TOKEN:
     discard
-    var length245420 = len(obj245422.token)
-    thestream.writeData(length245420.unsafeAddr, 4)
-    if len(obj245422.token) > 0:
-      thestream.writeData(obj245422.token[0].unsafeAddr, len(obj245422.token) *
+    var length242420 = len(obj242422.token)
+    thestream.writeData(length242420.unsafeAddr, 4)
+    if len(obj242422.token) > 0:
+      thestream.writeData(obj242422.token[0].unsafeAddr, len(obj242422.token) *
           1)
   of MessageType.PROTOCOL_VERSION:
     discard
-    thestream.writeData(obj245422.version.unsafeAddr, 4)
+    thestream.writeData(obj242422.version.unsafeAddr, 4)
   of MessageType.TEAM_SIZE:
     discard
-    thestream.writeData(obj245422.size.unsafeAddr, 4)
+    thestream.writeData(obj242422.size.unsafeAddr, 4)
   of MessageType.GAME_CONTEXT:
     discard
     discard
-    var tmp238199 = obj245422.game.exists
-    thestream.writeData(tmp238199.unsafeAddr, 1)
-    case obj245422.game.exists
+    var tmp235199 = obj242422.game.exists
+    thestream.writeData(tmp235199.unsafeAddr, 1)
+    case obj242422.game.exists
     of true:
       discard
-      thestream.writeData(obj245422.game.randomSeed.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.tickCount.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.worldWidth.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.worldHeight.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.fogOfWarEnabled.unsafeAddr, 1)
-      thestream.writeData(obj245422.game.victoryScore.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.facilityCaptureScore.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.vehicleEliminationScore.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.actionDetectionInterval.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.baseActionCount.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.additionalActionCountPerControlCenter.unsafeAddr,
+      thestream.writeData(obj242422.game.randomSeed.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.tickCount.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.worldWidth.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.worldHeight.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.fogOfWarEnabled.unsafeAddr, 1)
+      thestream.writeData(obj242422.game.victoryScore.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.facilityCaptureScore.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.vehicleEliminationScore.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.actionDetectionInterval.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.baseActionCount.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.additionalActionCountPerControlCenter.unsafeAddr,
                           4)
-      thestream.writeData(obj245422.game.maxUnitGroup.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.terrainWeatherMapColumnCount.unsafeAddr,
+      thestream.writeData(obj242422.game.maxUnitGroup.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.terrainWeatherMapColumnCount.unsafeAddr,
                           4)
-      thestream.writeData(obj245422.game.terrainWeatherMapRowCount.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.plainTerrainVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.plainTerrainStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.plainTerrainSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.swampTerrainVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.swampTerrainStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.swampTerrainSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.forestTerrainVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.forestTerrainStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.forestTerrainSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.clearWeatherVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.clearWeatherStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.clearWeatherSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.cloudWeatherVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.cloudWeatherStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.cloudWeatherSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.rainWeatherVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.rainWeatherStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.rainWeatherSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.vehicleRadius.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.tankDurability.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.tankSpeed.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.tankVisionRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.tankGroundAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.tankAerialAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.tankGroundDamage.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.tankAerialDamage.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.tankGroundDefence.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.tankAerialDefence.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.tankAttackCooldownTicks.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.tankProductionCost.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.ifvDurability.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.ifvSpeed.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.ifvVisionRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.ifvGroundAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.ifvAerialAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.ifvGroundDamage.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.ifvAerialDamage.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.ifvGroundDefence.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.ifvAerialDefence.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.ifvAttackCooldownTicks.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.ifvProductionCost.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.arrvDurability.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.arrvSpeed.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.arrvVisionRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.arrvGroundDefence.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.arrvAerialDefence.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.arrvProductionCost.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.arrvRepairRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.arrvRepairSpeed.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.helicopterDurability.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.helicopterSpeed.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.helicopterVisionRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.helicopterGroundAttackRange.unsafeAddr,
+      thestream.writeData(obj242422.game.terrainWeatherMapRowCount.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.plainTerrainVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.plainTerrainStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.plainTerrainSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.swampTerrainVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.swampTerrainStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.swampTerrainSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.forestTerrainVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.forestTerrainStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.forestTerrainSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.clearWeatherVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.clearWeatherStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.clearWeatherSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.cloudWeatherVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.cloudWeatherStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.cloudWeatherSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.rainWeatherVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.rainWeatherStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.rainWeatherSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.vehicleRadius.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.tankDurability.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.tankSpeed.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.tankVisionRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.tankGroundAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.tankAerialAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.tankGroundDamage.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.tankAerialDamage.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.tankGroundDefence.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.tankAerialDefence.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.tankAttackCooldownTicks.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.tankProductionCost.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.ifvDurability.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.ifvSpeed.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.ifvVisionRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.ifvGroundAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.ifvAerialAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.ifvGroundDamage.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.ifvAerialDamage.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.ifvGroundDefence.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.ifvAerialDefence.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.ifvAttackCooldownTicks.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.ifvProductionCost.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.arrvDurability.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.arrvSpeed.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.arrvVisionRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.arrvGroundDefence.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.arrvAerialDefence.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.arrvProductionCost.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.arrvRepairRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.arrvRepairSpeed.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.helicopterDurability.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.helicopterSpeed.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.helicopterVisionRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.helicopterGroundAttackRange.unsafeAddr,
                           8)
-      thestream.writeData(obj245422.game.helicopterAerialAttackRange.unsafeAddr,
+      thestream.writeData(obj242422.game.helicopterAerialAttackRange.unsafeAddr,
                           8)
-      thestream.writeData(obj245422.game.helicopterGroundDamage.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.helicopterAerialDamage.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.helicopterGroundDefence.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.helicopterAerialDefence.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.helicopterAttackCooldownTicks.unsafeAddr,
+      thestream.writeData(obj242422.game.helicopterGroundDamage.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.helicopterAerialDamage.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.helicopterGroundDefence.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.helicopterAerialDefence.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.helicopterAttackCooldownTicks.unsafeAddr,
                           4)
-      thestream.writeData(obj245422.game.helicopterProductionCost.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.fighterDurability.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.fighterSpeed.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.fighterVisionRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.fighterGroundAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.fighterAerialAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.fighterGroundDamage.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.fighterAerialDamage.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.fighterGroundDefence.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.fighterAerialDefence.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.fighterAttackCooldownTicks.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.fighterProductionCost.unsafeAddr, 4)
-      thestream.writeData(obj245422.game.maxFacilityCapturePoint32s.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.facilityCapturePoint32sPerVehiclePerTick.unsafeAddr,
+      thestream.writeData(obj242422.game.helicopterProductionCost.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.fighterDurability.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.fighterSpeed.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.fighterVisionRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.fighterGroundAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.fighterAerialAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.fighterGroundDamage.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.fighterAerialDamage.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.fighterGroundDefence.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.fighterAerialDefence.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.fighterAttackCooldownTicks.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.fighterProductionCost.unsafeAddr, 4)
+      thestream.writeData(obj242422.game.maxFacilityCapturePoint32s.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.facilityCapturePoint32sPerVehiclePerTick.unsafeAddr,
                           8)
-      thestream.writeData(obj245422.game.facilityWidth.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.facilityHeight.unsafeAddr, 8)
-      thestream.writeData(obj245422.game.base_tactical_nuclear_strike_cooldown.unsafeAddr,
+      thestream.writeData(obj242422.game.facilityWidth.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.facilityHeight.unsafeAddr, 8)
+      thestream.writeData(obj242422.game.base_tactical_nuclear_strike_cooldown.unsafeAddr,
                           4)
-      thestream.writeData(obj245422.game.tactical_nuclear_strike_cooldown_decrease_per_control_center.unsafeAddr,
+      thestream.writeData(obj242422.game.tactical_nuclear_strike_cooldown_decrease_per_control_center.unsafeAddr,
                           4)
-      thestream.writeData(obj245422.game.max_tactical_nuclear_strike_damage.unsafeAddr,
+      thestream.writeData(obj242422.game.max_tactical_nuclear_strike_damage.unsafeAddr,
                           8)
-      thestream.writeData(obj245422.game.tactical_nuclear_strike_radius.unsafeAddr,
+      thestream.writeData(obj242422.game.tactical_nuclear_strike_radius.unsafeAddr,
                           8)
-      thestream.writeData(obj245422.game.tactical_nuclear_strike_delay.unsafeAddr,
+      thestream.writeData(obj242422.game.tactical_nuclear_strike_delay.unsafeAddr,
                           4)
     else:
       discard
   of MessageType.MOVE:
     discard
     discard
-    var tmp239399 = obj245422.move.exists
-    thestream.writeData(tmp239399.unsafeAddr, 1)
-    case obj245422.move.exists
+    var tmp236399 = obj242422.move.exists
+    thestream.writeData(tmp236399.unsafeAddr, 1)
+    case obj242422.move.exists
     of true:
       discard
-      thestream.writeData(obj245422.move.action.unsafeAddr, 1)
-      thestream.writeData(obj245422.move.group.unsafeAddr, 4)
-      thestream.writeData(obj245422.move.left.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.top.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.right.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.bottom.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.x.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.y.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.angle.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.factor.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.maxSpeed.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.maxAngularSpeed.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.vehicleType.unsafeAddr, 1)
-      thestream.writeData(obj245422.move.facilityId.unsafeAddr, 8)
-      thestream.writeData(obj245422.move.vehicleId.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.action.unsafeAddr, 1)
+      thestream.writeData(obj242422.move.group.unsafeAddr, 4)
+      thestream.writeData(obj242422.move.left.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.top.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.right.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.bottom.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.x.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.y.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.angle.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.factor.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.maxSpeed.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.maxAngularSpeed.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.vehicleType.unsafeAddr, 1)
+      thestream.writeData(obj242422.move.facilityId.unsafeAddr, 8)
+      thestream.writeData(obj242422.move.vehicleId.unsafeAddr, 8)
     else:
       discard
   of MessageType.PLAYER_CONTEXT:
     discard
     discard
-    var tmp242278 = obj245422.playerContext.exists
-    thestream.writeData(tmp242278.unsafeAddr, 1)
-    case obj245422.playerContext.exists
+    var tmp239278 = obj242422.playerContext.exists
+    thestream.writeData(tmp239278.unsafeAddr, 1)
+    case obj242422.playerContext.exists
     of true:
       discard
       discard
-      var tmp240432 = obj245422.playerContext.player.flag
-      thestream.writeData(tmp240432.unsafeAddr, 1)
-      case obj245422.playerContext.player.flag
+      var tmp237432 = obj242422.playerContext.player.flag
+      thestream.writeData(tmp237432.unsafeAddr, 1)
+      case obj242422.playerContext.player.flag
       of Exists:
         discard
-        thestream.writeData(obj245422.playerContext.player.id.unsafeAddr, 8)
-        thestream.writeData(obj245422.playerContext.player.me.unsafeAddr, 1)
-        thestream.writeData(obj245422.playerContext.player.strategyCrashed.unsafeAddr,
+        thestream.writeData(obj242422.playerContext.player.id.unsafeAddr, 8)
+        thestream.writeData(obj242422.playerContext.player.me.unsafeAddr, 1)
+        thestream.writeData(obj242422.playerContext.player.strategyCrashed.unsafeAddr,
                             1)
-        thestream.writeData(obj245422.playerContext.player.score.unsafeAddr, 4)
-        thestream.writeData(obj245422.playerContext.player.remainingActionCooldownTicks.unsafeAddr,
+        thestream.writeData(obj242422.playerContext.player.score.unsafeAddr, 4)
+        thestream.writeData(obj242422.playerContext.player.remainingActionCooldownTicks.unsafeAddr,
                             4)
-        thestream.writeData(obj245422.playerContext.player.remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+        thestream.writeData(obj242422.playerContext.player.remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                             4)
-        thestream.writeData(obj245422.playerContext.player.next_nuclear_strike_vehicle_id.unsafeAddr,
+        thestream.writeData(obj242422.playerContext.player.next_nuclear_strike_vehicle_id.unsafeAddr,
                             8)
-        thestream.writeData(obj245422.playerContext.player.next_nuclear_strike_tick_index.unsafeAddr,
+        thestream.writeData(obj242422.playerContext.player.next_nuclear_strike_tick_index.unsafeAddr,
                             4)
-        thestream.writeData(obj245422.playerContext.player.next_nuclear_strike_x.unsafeAddr,
+        thestream.writeData(obj242422.playerContext.player.next_nuclear_strike_x.unsafeAddr,
                             8)
-        thestream.writeData(obj245422.playerContext.player.next_nuclear_strike_y.unsafeAddr,
+        thestream.writeData(obj242422.playerContext.player.next_nuclear_strike_y.unsafeAddr,
                             8)
       of FromId:
         discard
-        thestream.writeData(obj245422.playerContext.player.sourceId.unsafeAddr, 8)
+        thestream.writeData(obj242422.playerContext.player.sourceId.unsafeAddr, 8)
       else:
         discard
       discard
-      var tmp240645 = obj245422.playerContext.world.exists
-      thestream.writeData(tmp240645.unsafeAddr, 1)
-      case obj245422.playerContext.world.exists
+      var tmp237645 = obj242422.playerContext.world.exists
+      thestream.writeData(tmp237645.unsafeAddr, 1)
+      case obj242422.playerContext.world.exists
       of true:
         discard
-        thestream.writeData(obj245422.playerContext.world.tickIndex.unsafeAddr, 4)
-        thestream.writeData(obj245422.playerContext.world.tickCount.unsafeAddr, 4)
-        thestream.writeData(obj245422.playerContext.world.width.unsafeAddr, 8)
-        thestream.writeData(obj245422.playerContext.world.height.unsafeAddr, 8)
-        var length240646 = len(obj245422.playerContext.world.players)
-        thestream.writeData(length240646.unsafeAddr, 4)
-        for index240647 in 0 ..<
-            (len(obj245422.playerContext.world.players)):
+        thestream.writeData(obj242422.playerContext.world.tickIndex.unsafeAddr, 4)
+        thestream.writeData(obj242422.playerContext.world.tickCount.unsafeAddr, 4)
+        thestream.writeData(obj242422.playerContext.world.width.unsafeAddr, 8)
+        thestream.writeData(obj242422.playerContext.world.height.unsafeAddr, 8)
+        var length237646 = len(obj242422.playerContext.world.players)
+        thestream.writeData(length237646.unsafeAddr, 4)
+        for index237647 in 0 ..<
+            (len(obj242422.playerContext.world.players)):
           discard
-          var tmp240432 = obj245422.playerContext.world.players[index240647].flag
-          thestream.writeData(tmp240432.unsafeAddr, 1)
-          case obj245422.playerContext.world.players[index240647].flag
+          var tmp237432 = obj242422.playerContext.world.players[index237647].flag
+          thestream.writeData(tmp237432.unsafeAddr, 1)
+          case obj242422.playerContext.world.players[index237647].flag
           of Exists:
             discard
-            thestream.writeData(obj245422.playerContext.world.players[index240647].id.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].id.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.players[index240647].me.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].me.unsafeAddr,
                                 1)
-            thestream.writeData(obj245422.playerContext.world.players[index240647].strategyCrashed.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].strategyCrashed.unsafeAddr,
                                 1)
-            thestream.writeData(obj245422.playerContext.world.players[index240647].score.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].score.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.players[index240647].remainingActionCooldownTicks.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].remainingActionCooldownTicks.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.players[index240647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.players[index240647].next_nuclear_strike_vehicle_id.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].next_nuclear_strike_vehicle_id.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.players[index240647].next_nuclear_strike_tick_index.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].next_nuclear_strike_tick_index.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.players[index240647].next_nuclear_strike_x.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].next_nuclear_strike_x.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.players[index240647].next_nuclear_strike_y.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].next_nuclear_strike_y.unsafeAddr,
                                 8)
           of FromId:
             discard
-            thestream.writeData(obj245422.playerContext.world.players[index240647].sourceId.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.players[index237647].sourceId.unsafeAddr,
                                 8)
           else:
             discard
-        var length240648 = len(obj245422.playerContext.world.newVehicles)
-        thestream.writeData(length240648.unsafeAddr, 4)
-        for index240649 in 0 ..<
-            (len(obj245422.playerContext.world.newVehicles)):
+        var length237648 = len(obj242422.playerContext.world.newVehicles)
+        thestream.writeData(length237648.unsafeAddr, 4)
+        for index237649 in 0 ..<
+            (len(obj242422.playerContext.world.newVehicles)):
           discard
-          var tmp239845 = obj245422.playerContext.world.newVehicles[index240649].exists
-          thestream.writeData(tmp239845.unsafeAddr, 1)
-          case obj245422.playerContext.world.newVehicles[index240649].exists
+          var tmp236845 = obj242422.playerContext.world.newVehicles[index237649].exists
+          thestream.writeData(tmp236845.unsafeAddr, 1)
+          case obj242422.playerContext.world.newVehicles[index237649].exists
           of true:
             discard
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].id.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].id.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].x.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].x.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].y.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].y.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].radius.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].radius.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].player_id.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].player_id.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].durability.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].durability.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].maxDurability.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].maxDurability.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].maxSpeed.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].maxSpeed.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].visionRange.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].visionRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].squaredVisionRange.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].squaredVisionRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].groundAttackRange.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].groundAttackRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].squaredGroundAttachRange.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].squaredGroundAttachRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].aerialAttackRange.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].aerialAttackRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].squaredAerialAttackRange.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].squaredAerialAttackRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].groundDamage.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].groundDamage.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].aerialDamage.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].aerialDamage.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].groundDefence.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].groundDefence.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].aerialDefence.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].aerialDefence.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].attackCooldownTicks.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].attackCooldownTicks.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].remainingAttackCooldownTicks.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].remainingAttackCooldownTicks.unsafeAddr,
                                 4)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].thetype.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].thetype.unsafeAddr,
                                 1)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].aerial.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].aerial.unsafeAddr,
                                 1)
-            thestream.writeData(obj245422.playerContext.world.newVehicles[index240649].selected.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].selected.unsafeAddr,
                                 1)
-            var length239846 = len(obj245422.playerContext.world.newVehicles[index240649].groups)
-            thestream.writeData(length239846.unsafeAddr, 4)
-            if len(obj245422.playerContext.world.newVehicles[index240649].groups) >
+            var length236846 = len(obj242422.playerContext.world.newVehicles[index237649].groups)
+            thestream.writeData(length236846.unsafeAddr, 4)
+            if len(obj242422.playerContext.world.newVehicles[index237649].groups) >
                 0:
-              thestream.writeData(obj245422.playerContext.world.newVehicles[
-                  index240649].groups[0].unsafeAddr, len(obj245422.playerContext.world.newVehicles[
-                  index240649].groups) * 4)
+              thestream.writeData(obj242422.playerContext.world.newVehicles[
+                  index237649].groups[0].unsafeAddr, len(obj242422.playerContext.world.newVehicles[
+                  index237649].groups) * 4)
           else:
             discard
-        var length240650 = len(obj245422.playerContext.world.vehicleUpdates)
-        thestream.writeData(length240650.unsafeAddr, 4)
-        for index240651 in 0 ..<
-            (len(obj245422.playerContext.world.vehicleUpdates)):
+        var length237650 = len(obj242422.playerContext.world.vehicleUpdates)
+        thestream.writeData(length237650.unsafeAddr, 4)
+        for index237651 in 0 ..<
+            (len(obj242422.playerContext.world.vehicleUpdates)):
           discard
-          var tmp239651 = obj245422.playerContext.world.vehicleUpdates[index240651].exists
-          thestream.writeData(tmp239651.unsafeAddr, 1)
-          case obj245422.playerContext.world.vehicleUpdates[index240651].exists
+          var tmp236651 = obj242422.playerContext.world.vehicleUpdates[index237651].exists
+          thestream.writeData(tmp236651.unsafeAddr, 1)
+          case obj242422.playerContext.world.vehicleUpdates[index237651].exists
           of true:
             discard
-            thestream.writeData(obj245422.playerContext.world.vehicleUpdates[
-                index240651].id.unsafeAddr, 8)
-            thestream.writeData(obj245422.playerContext.world.vehicleUpdates[
-                index240651].x.unsafeAddr, 8)
-            thestream.writeData(obj245422.playerContext.world.vehicleUpdates[
-                index240651].y.unsafeAddr, 8)
-            thestream.writeData(obj245422.playerContext.world.vehicleUpdates[
-                index240651].durability.unsafeAddr, 4)
-            thestream.writeData(obj245422.playerContext.world.vehicleUpdates[
-                index240651].remainingAttackCooldownTicks.unsafeAddr, 4)
-            thestream.writeData(obj245422.playerContext.world.vehicleUpdates[
-                index240651].selected.unsafeAddr, 1)
-            var length239652 = len(obj245422.playerContext.world.vehicleUpdates[
-                index240651].groups)
-            thestream.writeData(length239652.unsafeAddr, 4)
-            if len(obj245422.playerContext.world.vehicleUpdates[index240651].groups) >
+            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+                index237651].id.unsafeAddr, 8)
+            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+                index237651].x.unsafeAddr, 8)
+            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+                index237651].y.unsafeAddr, 8)
+            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+                index237651].durability.unsafeAddr, 4)
+            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+                index237651].remainingAttackCooldownTicks.unsafeAddr, 4)
+            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+                index237651].selected.unsafeAddr, 1)
+            var length236652 = len(obj242422.playerContext.world.vehicleUpdates[
+                index237651].groups)
+            thestream.writeData(length236652.unsafeAddr, 4)
+            if len(obj242422.playerContext.world.vehicleUpdates[index237651].groups) >
                 0:
-              thestream.writeData(obj245422.playerContext.world.vehicleUpdates[
-                  index240651].groups[0].unsafeAddr, len(obj245422.playerContext.world.vehicleUpdates[
-                  index240651].groups) * 4)
+              thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+                  index237651].groups[0].unsafeAddr, len(obj242422.playerContext.world.vehicleUpdates[
+                  index237651].groups) * 4)
           else:
             discard
-        var length240652 = len(obj245422.playerContext.world.terrainByCellXY)
-        thestream.writeData(length240652.unsafeAddr, 4)
-        for index240655 in 0 ..<
-            (len(obj245422.playerContext.world.terrainByCellXY)):
-          var length240653 = len(obj245422.playerContext.world.terrainByCellXY[
-              index240655])
-          thestream.writeData(length240653.unsafeAddr, 4)
-          for index240654 in 0 ..<
-              (len(obj245422.playerContext.world.terrainByCellXY[index240655])):
-            thestream.writeData(obj245422.playerContext.world.terrainByCellXY[
-                index240655][index240654].unsafeAddr, 1)
-        var length240656 = len(obj245422.playerContext.world.weatherByCellXY)
-        thestream.writeData(length240656.unsafeAddr, 4)
-        for index240659 in 0 ..<
-            (len(obj245422.playerContext.world.weatherByCellXY)):
-          var length240657 = len(obj245422.playerContext.world.weatherByCellXY[
-              index240659])
-          thestream.writeData(length240657.unsafeAddr, 4)
-          for index240658 in 0 ..<
-              (len(obj245422.playerContext.world.weatherByCellXY[index240659])):
-            thestream.writeData(obj245422.playerContext.world.weatherByCellXY[
-                index240659][index240658].unsafeAddr, 1)
-        var length240660 = len(obj245422.playerContext.world.facilities)
-        thestream.writeData(length240660.unsafeAddr, 4)
-        for index240661 in 0 ..<
-            (len(obj245422.playerContext.world.facilities)):
+        var length237652 = len(obj242422.playerContext.world.terrainByCellXY)
+        thestream.writeData(length237652.unsafeAddr, 4)
+        for index237655 in 0 ..<
+            (len(obj242422.playerContext.world.terrainByCellXY)):
+          var length237653 = len(obj242422.playerContext.world.terrainByCellXY[
+              index237655])
+          thestream.writeData(length237653.unsafeAddr, 4)
+          for index237654 in 0 ..<
+              (len(obj242422.playerContext.world.terrainByCellXY[index237655])):
+            thestream.writeData(obj242422.playerContext.world.terrainByCellXY[
+                index237655][index237654].unsafeAddr, 1)
+        var length237656 = len(obj242422.playerContext.world.weatherByCellXY)
+        thestream.writeData(length237656.unsafeAddr, 4)
+        for index237659 in 0 ..<
+            (len(obj242422.playerContext.world.weatherByCellXY)):
+          var length237657 = len(obj242422.playerContext.world.weatherByCellXY[
+              index237659])
+          thestream.writeData(length237657.unsafeAddr, 4)
+          for index237658 in 0 ..<
+              (len(obj242422.playerContext.world.weatherByCellXY[index237659])):
+            thestream.writeData(obj242422.playerContext.world.weatherByCellXY[
+                index237659][index237658].unsafeAddr, 1)
+        var length237660 = len(obj242422.playerContext.world.facilities)
+        thestream.writeData(length237660.unsafeAddr, 4)
+        for index237661 in 0 ..<
+            (len(obj242422.playerContext.world.facilities)):
           discard
-          var tmp240243 = obj245422.playerContext.world.facilities[index240661].flag
-          thestream.writeData(tmp240243.unsafeAddr, 1)
-          case obj245422.playerContext.world.facilities[index240661].flag
+          var tmp237243 = obj242422.playerContext.world.facilities[index237661].flag
+          thestream.writeData(tmp237243.unsafeAddr, 1)
+          case obj242422.playerContext.world.facilities[index237661].flag
           of FromId:
             discard
-            thestream.writeData(obj245422.playerContext.world.facilities[index240661].sourceId.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.facilities[index237661].sourceId.unsafeAddr,
                                 8)
           of Exists:
             discard
-            thestream.writeData(obj245422.playerContext.world.facilities[index240661].id.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.facilities[index237661].id.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.facilities[index240661].theType.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.facilities[index237661].theType.unsafeAddr,
                                 1)
-            thestream.writeData(obj245422.playerContext.world.facilities[index240661].ownerPlayerId.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.facilities[index237661].ownerPlayerId.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.facilities[index240661].left.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.facilities[index237661].left.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.facilities[index240661].top.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.facilities[index237661].top.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.facilities[index240661].capturePoints.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.facilities[index237661].capturePoints.unsafeAddr,
                                 8)
-            thestream.writeData(obj245422.playerContext.world.facilities[index240661].vehicleType.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.facilities[index237661].vehicleType.unsafeAddr,
                                 1)
-            thestream.writeData(obj245422.playerContext.world.facilities[index240661].productionProgress.unsafeAddr,
+            thestream.writeData(obj242422.playerContext.world.facilities[index237661].productionProgress.unsafeAddr,
                                 4)
           else:
             discard
@@ -3829,31 +3829,31 @@ proc serialize(obj245422: Message; thestream: Stream) =
   else:
     discard
 
-proc serialize(obj245426: Message): string =
-  let ss245428 = newStringStream()
-  serialize(obj245426, ss245428)
-  ss245428.data
+proc serialize(obj242426: Message): string =
+  let ss242428 = newStringStream()
+  serialize(obj242426, ss242428)
+  ss242428.data
 
-proc deserialize(a245424: typedesc[Message]; thestream: Stream): Message =
+proc deserialize(a242424: typedesc[Message]; thestream: Stream): Message =
   discard
-  var tmp245419: type(result.kind)
+  var tmp242419: type(result.kind)
   assert(1 ==
-      thestream.readData(tmp245419.unsafeAddr, 1),
+      thestream.readData(tmp242419.unsafeAddr, 1),
          "Stream was not provided enough data")
-  if $(tmp245419) ==
-      $(ord(tmp245419)) & " (invalid data!)":
+  if $(tmp242419) ==
+      $(ord(tmp242419)) & " (invalid data!)":
     raise newException(ValueError, "Enum value is out of range: " &
-        $(tmp245419) & "\x0ACorrect values are:\x0A" &
+        $(tmp242419) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  UNKNOWN = 0, GAME_OVER = 1, AUTHENTICATION_TOKEN = 2, TEAM_SIZE = 3, PROTOCOL_VERSION = 4,\x0A  GAME_CONTEXT = 5, PLAYER_CONTEXT = 6, MOVE = 7")
-  result.kind = tmp245419
+  result.kind = tmp242419
   case result.kind
   of MessageType.AUTHENTICATION_TOKEN:
     discard
-    var length245420: int32
+    var length242420: int32
     assert(4 ==
-        thestream.readData(length245420.unsafeAddr, 4),
+        thestream.readData(length242420.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result.token = newString(length245420)
+    result.token = newString(length242420)
     if len(result.token) > 0:
       assert(len(result.token) * 1 ==
           thestream.readData(result.token[0].unsafeAddr, len(result.token) *
@@ -3871,11 +3871,11 @@ proc deserialize(a245424: typedesc[Message]; thestream: Stream): Message =
   of MessageType.GAME_CONTEXT:
     discard
     discard
-    var tmp238199: type(result.game.exists)
+    var tmp235199: type(result.game.exists)
     assert(1 ==
-        thestream.readData(tmp238199.unsafeAddr, 1),
+        thestream.readData(tmp235199.unsafeAddr, 1),
            "Stream was not provided enough data")
-    result.game.exists = tmp238199
+    result.game.exists = tmp235199
     case result.game.exists
     of true:
       discard
@@ -4166,11 +4166,11 @@ proc deserialize(a245424: typedesc[Message]; thestream: Stream): Message =
   of MessageType.MOVE:
     discard
     discard
-    var tmp239399: type(result.move.exists)
+    var tmp236399: type(result.move.exists)
     assert(1 ==
-        thestream.readData(tmp239399.unsafeAddr, 1),
+        thestream.readData(tmp236399.unsafeAddr, 1),
            "Stream was not provided enough data")
-    result.move.exists = tmp239399
+    result.move.exists = tmp236399
     case result.move.exists
     of true:
       discard
@@ -4235,25 +4235,25 @@ proc deserialize(a245424: typedesc[Message]; thestream: Stream): Message =
   of MessageType.PLAYER_CONTEXT:
     discard
     discard
-    var tmp242278: type(result.playerContext.exists)
+    var tmp239278: type(result.playerContext.exists)
     assert(1 ==
-        thestream.readData(tmp242278.unsafeAddr, 1),
+        thestream.readData(tmp239278.unsafeAddr, 1),
            "Stream was not provided enough data")
-    result.playerContext.exists = tmp242278
+    result.playerContext.exists = tmp239278
     case result.playerContext.exists
     of true:
       discard
       discard
-      var tmp240432: type(result.playerContext.player.flag)
+      var tmp237432: type(result.playerContext.player.flag)
       assert(1 ==
-          thestream.readData(tmp240432.unsafeAddr, 1),
+          thestream.readData(tmp237432.unsafeAddr, 1),
              "Stream was not provided enough data")
-      if $(tmp240432) ==
-          $(ord(tmp240432)) & " (invalid data!)":
+      if $(tmp237432) ==
+          $(ord(tmp237432)) & " (invalid data!)":
         raise newException(ValueError, "Enum value is out of range: " &
-            $(tmp240432) & "\x0ACorrect values are:\x0A" &
+            $(tmp237432) & "\x0ACorrect values are:\x0A" &
             "enum\x0A  None = 0, Exists = 1, FromId = 127")
-      result.playerContext.player.flag = tmp240432
+      result.playerContext.player.flag = tmp237432
       case result.playerContext.player.flag
       of Exists:
         discard
@@ -4295,11 +4295,11 @@ proc deserialize(a245424: typedesc[Message]; thestream: Stream): Message =
       else:
         discard
       discard
-      var tmp240645: type(result.playerContext.world.exists)
+      var tmp237645: type(result.playerContext.world.exists)
       assert(1 ==
-          thestream.readData(tmp240645.unsafeAddr, 1),
+          thestream.readData(tmp237645.unsafeAddr, 1),
              "Stream was not provided enough data")
-      result.playerContext.world.exists = tmp240645
+      result.playerContext.world.exists = tmp237645
       case result.playerContext.world.exists
       of true:
         discard
@@ -4315,343 +4315,343 @@ proc deserialize(a245424: typedesc[Message]; thestream: Stream): Message =
         assert(8 ==
             thestream.readData(result.playerContext.world.height.unsafeAddr, 8),
                "Stream was not provided enough data")
-        var length240646: int32
+        var length237646: int32
         assert(4 ==
-            thestream.readData(length240646.unsafeAddr, 4),
+            thestream.readData(length237646.unsafeAddr, 4),
                "Stream was not provided enough data")
-        result.playerContext.world.players = newSeq[Player](length240646)
-        for index240647 in 0 ..<
+        result.playerContext.world.players = newSeq[Player](length237646)
+        for index237647 in 0 ..<
             (len(result.playerContext.world.players)):
           discard
-          var tmp240432: type(result.playerContext.world.players[index240647].flag)
+          var tmp237432: type(result.playerContext.world.players[index237647].flag)
           assert(1 ==
-              thestream.readData(tmp240432.unsafeAddr, 1),
+              thestream.readData(tmp237432.unsafeAddr, 1),
                  "Stream was not provided enough data")
-          if $(tmp240432) ==
-              $(ord(tmp240432)) & " (invalid data!)":
+          if $(tmp237432) ==
+              $(ord(tmp237432)) & " (invalid data!)":
             raise newException(ValueError, "Enum value is out of range: " &
-                $(tmp240432) & "\x0ACorrect values are:\x0A" &
+                $(tmp237432) & "\x0ACorrect values are:\x0A" &
                 "enum\x0A  None = 0, Exists = 1, FromId = 127")
-          result.playerContext.world.players[index240647].flag = tmp240432
-          case result.playerContext.world.players[index240647].flag
+          result.playerContext.world.players[index237647].flag = tmp237432
+          case result.playerContext.world.players[index237647].flag
           of Exists:
             discard
             assert(8 ==
-                thestream.readData(result.playerContext.world.players[index240647].id.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].id.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(1 ==
-                thestream.readData(result.playerContext.world.players[index240647].me.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].me.unsafeAddr,
                                    1), "Stream was not provided enough data")
             assert(1 ==
-                thestream.readData(result.playerContext.world.players[index240647].strategyCrashed.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].strategyCrashed.unsafeAddr,
                                    1), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.players[index240647].score.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].score.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.players[index240647].remainingActionCooldownTicks.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].remainingActionCooldownTicks.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.players[index240647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.players[index240647].next_nuclear_strike_vehicle_id.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].next_nuclear_strike_vehicle_id.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.players[index240647].next_nuclear_strike_tick_index.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].next_nuclear_strike_tick_index.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.players[index240647].next_nuclear_strike_x.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].next_nuclear_strike_x.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.players[index240647].next_nuclear_strike_y.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].next_nuclear_strike_y.unsafeAddr,
                                    8), "Stream was not provided enough data")
           of FromId:
             discard
             assert(8 ==
-                thestream.readData(result.playerContext.world.players[index240647].sourceId.unsafeAddr,
+                thestream.readData(result.playerContext.world.players[index237647].sourceId.unsafeAddr,
                                    8), "Stream was not provided enough data")
           else:
             discard
-        var length240648: int32
+        var length237648: int32
         assert(4 ==
-            thestream.readData(length240648.unsafeAddr, 4),
+            thestream.readData(length237648.unsafeAddr, 4),
                "Stream was not provided enough data")
-        result.playerContext.world.newVehicles = newSeq[Vehicle](length240648)
-        for index240649 in 0 ..<
+        result.playerContext.world.newVehicles = newSeq[Vehicle](length237648)
+        for index237649 in 0 ..<
             (len(result.playerContext.world.newVehicles)):
           discard
-          var tmp239845: type(result.playerContext.world.newVehicles[index240649].exists)
+          var tmp236845: type(result.playerContext.world.newVehicles[index237649].exists)
           assert(1 ==
-              thestream.readData(tmp239845.unsafeAddr, 1),
+              thestream.readData(tmp236845.unsafeAddr, 1),
                  "Stream was not provided enough data")
-          result.playerContext.world.newVehicles[index240649].exists = tmp239845
-          case result.playerContext.world.newVehicles[index240649].exists
+          result.playerContext.world.newVehicles[index237649].exists = tmp236845
+          case result.playerContext.world.newVehicles[index237649].exists
           of true:
             discard
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].id.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].id.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].x.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].x.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].y.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].y.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].radius.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].radius.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].player_id.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].player_id.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].durability.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].durability.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].maxDurability.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].maxDurability.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].maxSpeed.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].maxSpeed.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].visionRange.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].visionRange.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].squaredVisionRange.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].squaredVisionRange.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].groundAttackRange.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].groundAttackRange.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].squaredGroundAttachRange.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].squaredGroundAttachRange.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].aerialAttackRange.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].aerialAttackRange.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].squaredAerialAttackRange.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].squaredAerialAttackRange.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].groundDamage.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].groundDamage.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].aerialDamage.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].aerialDamage.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].groundDefence.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].groundDefence.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].aerialDefence.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].aerialDefence.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].attackCooldownTicks.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].attackCooldownTicks.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(4 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].remainingAttackCooldownTicks.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].remainingAttackCooldownTicks.unsafeAddr,
                                    4), "Stream was not provided enough data")
             assert(1 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].thetype.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].thetype.unsafeAddr,
                                    1), "Stream was not provided enough data")
-            if $(result.playerContext.world.newVehicles[index240649].thetype) ==
-                $(ord(result.playerContext.world.newVehicles[index240649].thetype)) &
+            if $(result.playerContext.world.newVehicles[index237649].thetype) ==
+                $(ord(result.playerContext.world.newVehicles[index237649].thetype)) &
                 " (invalid data!)":
               raise newException(ValueError, "Enum value is out of range: " &
-                  $(result.playerContext.world.newVehicles[index240649].thetype) &
+                  $(result.playerContext.world.newVehicles[index237649].thetype) &
                   "\x0ACorrect values are:\x0A" &
                   "enum\x0A  ARRV = 0, FIGHTER = 1, HELICOPTER = 2, IFV = 3, TANK = 4, UNKNOWN = 255")
             assert(1 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].aerial.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].aerial.unsafeAddr,
                                    1), "Stream was not provided enough data")
             assert(1 ==
-                thestream.readData(result.playerContext.world.newVehicles[index240649].selected.unsafeAddr,
+                thestream.readData(result.playerContext.world.newVehicles[index237649].selected.unsafeAddr,
                                    1), "Stream was not provided enough data")
-            var length239846: int32
+            var length236846: int32
             assert(4 ==
-                thestream.readData(length239846.unsafeAddr, 4),
+                thestream.readData(length236846.unsafeAddr, 4),
                    "Stream was not provided enough data")
-            result.playerContext.world.newVehicles[index240649].groups = newSeq[
-                int32](length239846)
-            if len(result.playerContext.world.newVehicles[index240649].groups) >
+            result.playerContext.world.newVehicles[index237649].groups = newSeq[
+                int32](length236846)
+            if len(result.playerContext.world.newVehicles[index237649].groups) >
                 0:
-              assert(len(result.playerContext.world.newVehicles[index240649].groups) *
+              assert(len(result.playerContext.world.newVehicles[index237649].groups) *
                   4 ==
                   thestream.readData(result.playerContext.world.newVehicles[
-                  index240649].groups[0].unsafeAddr, len(result.playerContext.world.newVehicles[
-                  index240649].groups) * 4), "Stream was not provided enough data")
+                  index237649].groups[0].unsafeAddr, len(result.playerContext.world.newVehicles[
+                  index237649].groups) * 4), "Stream was not provided enough data")
           else:
             discard
-        var length240650: int32
+        var length237650: int32
         assert(4 ==
-            thestream.readData(length240650.unsafeAddr, 4),
+            thestream.readData(length237650.unsafeAddr, 4),
                "Stream was not provided enough data")
-        result.playerContext.world.vehicleUpdates = newSeq[VehicleUpdate](length240650)
-        for index240651 in 0 ..<
+        result.playerContext.world.vehicleUpdates = newSeq[VehicleUpdate](length237650)
+        for index237651 in 0 ..<
             (len(result.playerContext.world.vehicleUpdates)):
           discard
-          var tmp239651: type(result.playerContext.world.vehicleUpdates[index240651].exists)
+          var tmp236651: type(result.playerContext.world.vehicleUpdates[index237651].exists)
           assert(1 ==
-              thestream.readData(tmp239651.unsafeAddr, 1),
+              thestream.readData(tmp236651.unsafeAddr, 1),
                  "Stream was not provided enough data")
-          result.playerContext.world.vehicleUpdates[index240651].exists = tmp239651
-          case result.playerContext.world.vehicleUpdates[index240651].exists
+          result.playerContext.world.vehicleUpdates[index237651].exists = tmp236651
+          case result.playerContext.world.vehicleUpdates[index237651].exists
           of true:
             discard
             assert(8 ==
                 thestream.readData(result.playerContext.world.vehicleUpdates[
-                index240651].id.unsafeAddr, 8),
+                index237651].id.unsafeAddr, 8),
                    "Stream was not provided enough data")
             assert(8 ==
                 thestream.readData(result.playerContext.world.vehicleUpdates[
-                index240651].x.unsafeAddr, 8),
+                index237651].x.unsafeAddr, 8),
                    "Stream was not provided enough data")
             assert(8 ==
                 thestream.readData(result.playerContext.world.vehicleUpdates[
-                index240651].y.unsafeAddr, 8),
+                index237651].y.unsafeAddr, 8),
                    "Stream was not provided enough data")
             assert(4 ==
                 thestream.readData(result.playerContext.world.vehicleUpdates[
-                index240651].durability.unsafeAddr, 4),
+                index237651].durability.unsafeAddr, 4),
                    "Stream was not provided enough data")
             assert(4 ==
                 thestream.readData(result.playerContext.world.vehicleUpdates[
-                index240651].remainingAttackCooldownTicks.unsafeAddr, 4),
+                index237651].remainingAttackCooldownTicks.unsafeAddr, 4),
                    "Stream was not provided enough data")
             assert(1 ==
                 thestream.readData(result.playerContext.world.vehicleUpdates[
-                index240651].selected.unsafeAddr, 1),
+                index237651].selected.unsafeAddr, 1),
                    "Stream was not provided enough data")
-            var length239652: int32
+            var length236652: int32
             assert(4 ==
-                thestream.readData(length239652.unsafeAddr, 4),
+                thestream.readData(length236652.unsafeAddr, 4),
                    "Stream was not provided enough data")
-            result.playerContext.world.vehicleUpdates[index240651].groups = newSeq[
-                int32](length239652)
-            if len(result.playerContext.world.vehicleUpdates[index240651].groups) >
+            result.playerContext.world.vehicleUpdates[index237651].groups = newSeq[
+                int32](length236652)
+            if len(result.playerContext.world.vehicleUpdates[index237651].groups) >
                 0:
-              assert(len(result.playerContext.world.vehicleUpdates[index240651].groups) *
+              assert(len(result.playerContext.world.vehicleUpdates[index237651].groups) *
                   4 ==
                   thestream.readData(result.playerContext.world.vehicleUpdates[
-                  index240651].groups[0].unsafeAddr, len(result.playerContext.world.vehicleUpdates[
-                  index240651].groups) * 4), "Stream was not provided enough data")
+                  index237651].groups[0].unsafeAddr, len(result.playerContext.world.vehicleUpdates[
+                  index237651].groups) * 4), "Stream was not provided enough data")
           else:
             discard
-        var length240652: int32
+        var length237652: int32
         assert(4 ==
-            thestream.readData(length240652.unsafeAddr, 4),
+            thestream.readData(length237652.unsafeAddr, 4),
                "Stream was not provided enough data")
         result.playerContext.world.terrainByCellXY = newSeq[seq[TerrainType]](
-            length240652)
-        for index240655 in 0 ..<
+            length237652)
+        for index237655 in 0 ..<
             (len(result.playerContext.world.terrainByCellXY)):
-          var length240653: int32
+          var length237653: int32
           assert(4 ==
-              thestream.readData(length240653.unsafeAddr, 4),
+              thestream.readData(length237653.unsafeAddr, 4),
                  "Stream was not provided enough data")
-          result.playerContext.world.terrainByCellXY[index240655] = newSeq[
-              TerrainType](length240653)
-          for index240654 in 0 ..<
-              (len(result.playerContext.world.terrainByCellXY[index240655])):
+          result.playerContext.world.terrainByCellXY[index237655] = newSeq[
+              TerrainType](length237653)
+          for index237654 in 0 ..<
+              (len(result.playerContext.world.terrainByCellXY[index237655])):
             assert(1 ==
                 thestream.readData(result.playerContext.world.terrainByCellXY[
-                index240655][index240654].unsafeAddr, 1),
+                index237655][index237654].unsafeAddr, 1),
                    "Stream was not provided enough data")
-            if $(result.playerContext.world.terrainByCellXY[index240655][index240654]) ==
-                $(ord(result.playerContext.world.terrainByCellXY[index240655][
-                index240654])) & " (invalid data!)":
+            if $(result.playerContext.world.terrainByCellXY[index237655][index237654]) ==
+                $(ord(result.playerContext.world.terrainByCellXY[index237655][
+                index237654])) & " (invalid data!)":
               raise newException(ValueError, "Enum value is out of range: " &
-                  $(result.playerContext.world.terrainByCellXY[index240655][
-                  index240654]) & "\x0ACorrect values are:\x0A" &
+                  $(result.playerContext.world.terrainByCellXY[index237655][
+                  index237654]) & "\x0ACorrect values are:\x0A" &
                   "enum\x0A  PLAIN = 0, SWAMP = 1, FOREST = 2, UNKNOWN = 255")
-        var length240656: int32
+        var length237656: int32
         assert(4 ==
-            thestream.readData(length240656.unsafeAddr, 4),
+            thestream.readData(length237656.unsafeAddr, 4),
                "Stream was not provided enough data")
         result.playerContext.world.weatherByCellXY = newSeq[seq[WeatherType]](
-            length240656)
-        for index240659 in 0 ..<
+            length237656)
+        for index237659 in 0 ..<
             (len(result.playerContext.world.weatherByCellXY)):
-          var length240657: int32
+          var length237657: int32
           assert(4 ==
-              thestream.readData(length240657.unsafeAddr, 4),
+              thestream.readData(length237657.unsafeAddr, 4),
                  "Stream was not provided enough data")
-          result.playerContext.world.weatherByCellXY[index240659] = newSeq[
-              WeatherType](length240657)
-          for index240658 in 0 ..<
-              (len(result.playerContext.world.weatherByCellXY[index240659])):
+          result.playerContext.world.weatherByCellXY[index237659] = newSeq[
+              WeatherType](length237657)
+          for index237658 in 0 ..<
+              (len(result.playerContext.world.weatherByCellXY[index237659])):
             assert(1 ==
                 thestream.readData(result.playerContext.world.weatherByCellXY[
-                index240659][index240658].unsafeAddr, 1),
+                index237659][index237658].unsafeAddr, 1),
                    "Stream was not provided enough data")
-            if $(result.playerContext.world.weatherByCellXY[index240659][index240658]) ==
-                $(ord(result.playerContext.world.weatherByCellXY[index240659][
-                index240658])) & " (invalid data!)":
+            if $(result.playerContext.world.weatherByCellXY[index237659][index237658]) ==
+                $(ord(result.playerContext.world.weatherByCellXY[index237659][
+                index237658])) & " (invalid data!)":
               raise newException(ValueError, "Enum value is out of range: " &
-                  $(result.playerContext.world.weatherByCellXY[index240659][
-                  index240658]) & "\x0ACorrect values are:\x0A" &
+                  $(result.playerContext.world.weatherByCellXY[index237659][
+                  index237658]) & "\x0ACorrect values are:\x0A" &
                   "enum\x0A  CLEAR = 0, CLOUD = 1, RAIN = 2, UNKNOWN = 255")
-        var length240660: int32
+        var length237660: int32
         assert(4 ==
-            thestream.readData(length240660.unsafeAddr, 4),
+            thestream.readData(length237660.unsafeAddr, 4),
                "Stream was not provided enough data")
-        result.playerContext.world.facilities = newSeq[Facility](length240660)
-        for index240661 in 0 ..<
+        result.playerContext.world.facilities = newSeq[Facility](length237660)
+        for index237661 in 0 ..<
             (len(result.playerContext.world.facilities)):
           discard
-          var tmp240243: type(result.playerContext.world.facilities[index240661].flag)
+          var tmp237243: type(result.playerContext.world.facilities[index237661].flag)
           assert(1 ==
-              thestream.readData(tmp240243.unsafeAddr, 1),
+              thestream.readData(tmp237243.unsafeAddr, 1),
                  "Stream was not provided enough data")
-          if $(tmp240243) ==
-              $(ord(tmp240243)) & " (invalid data!)":
+          if $(tmp237243) ==
+              $(ord(tmp237243)) & " (invalid data!)":
             raise newException(ValueError, "Enum value is out of range: " &
-                $(tmp240243) & "\x0ACorrect values are:\x0A" &
+                $(tmp237243) & "\x0ACorrect values are:\x0A" &
                 "enum\x0A  None = 0, Exists = 1, FromId = 127")
-          result.playerContext.world.facilities[index240661].flag = tmp240243
-          case result.playerContext.world.facilities[index240661].flag
+          result.playerContext.world.facilities[index237661].flag = tmp237243
+          case result.playerContext.world.facilities[index237661].flag
           of FromId:
             discard
             assert(8 ==
-                thestream.readData(result.playerContext.world.facilities[index240661].sourceId.unsafeAddr,
+                thestream.readData(result.playerContext.world.facilities[index237661].sourceId.unsafeAddr,
                                    8), "Stream was not provided enough data")
           of Exists:
             discard
             assert(8 ==
-                thestream.readData(result.playerContext.world.facilities[index240661].id.unsafeAddr,
+                thestream.readData(result.playerContext.world.facilities[index237661].id.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(1 ==
-                thestream.readData(result.playerContext.world.facilities[index240661].theType.unsafeAddr,
+                thestream.readData(result.playerContext.world.facilities[index237661].theType.unsafeAddr,
                                    1), "Stream was not provided enough data")
-            if $(result.playerContext.world.facilities[index240661].theType) ==
-                $(ord(result.playerContext.world.facilities[index240661].theType)) &
+            if $(result.playerContext.world.facilities[index237661].theType) ==
+                $(ord(result.playerContext.world.facilities[index237661].theType)) &
                 " (invalid data!)":
               raise newException(ValueError, "Enum value is out of range: " &
-                  $(result.playerContext.world.facilities[index240661].theType) &
+                  $(result.playerContext.world.facilities[index237661].theType) &
                   "\x0ACorrect values are:\x0A" &
                   "enum\x0A  CONTROL_CENTER = 0, VEHICLE_FACTORY = 1, UNKNOWN = 255")
             assert(8 ==
-                thestream.readData(result.playerContext.world.facilities[index240661].ownerPlayerId.unsafeAddr,
+                thestream.readData(result.playerContext.world.facilities[index237661].ownerPlayerId.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.facilities[index240661].left.unsafeAddr,
+                thestream.readData(result.playerContext.world.facilities[index237661].left.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.facilities[index240661].top.unsafeAddr,
+                thestream.readData(result.playerContext.world.facilities[index237661].top.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(8 ==
-                thestream.readData(result.playerContext.world.facilities[index240661].capturePoints.unsafeAddr,
+                thestream.readData(result.playerContext.world.facilities[index237661].capturePoints.unsafeAddr,
                                    8), "Stream was not provided enough data")
             assert(1 ==
-                thestream.readData(result.playerContext.world.facilities[index240661].vehicleType.unsafeAddr,
+                thestream.readData(result.playerContext.world.facilities[index237661].vehicleType.unsafeAddr,
                                    1), "Stream was not provided enough data")
-            if $(result.playerContext.world.facilities[index240661].vehicleType) ==
-                $(ord(result.playerContext.world.facilities[index240661].vehicleType)) &
+            if $(result.playerContext.world.facilities[index237661].vehicleType) ==
+                $(ord(result.playerContext.world.facilities[index237661].vehicleType)) &
                 " (invalid data!)":
               raise newException(ValueError, "Enum value is out of range: " &
-                  $(result.playerContext.world.facilities[index240661].vehicleType) &
+                  $(result.playerContext.world.facilities[index237661].vehicleType) &
                   "\x0ACorrect values are:\x0A" &
                   "enum\x0A  ARRV = 0, FIGHTER = 1, HELICOPTER = 2, IFV = 3, TANK = 4, UNKNOWN = 255")
             assert(4 ==
-                thestream.readData(result.playerContext.world.facilities[index240661].productionProgress.unsafeAddr,
+                thestream.readData(result.playerContext.world.facilities[index237661].productionProgress.unsafeAddr,
                                    4), "Stream was not provided enough data")
           else:
             discard
@@ -4661,18 +4661,18 @@ proc deserialize(a245424: typedesc[Message]; thestream: Stream): Message =
       discard
   else:
     discard
-proc size(obj249154: OptionalLen): Natural =
+proc size(obj246154: OptionalLen): Natural =
   4
 
-proc serialize(obj249155: OptionalLen; thestream: Stream) =
-  thestream.writeData(obj249155.unsafeAddr, 4)
+proc serialize(obj246155: OptionalLen; thestream: Stream) =
+  thestream.writeData(obj246155.unsafeAddr, 4)
 
-proc serialize(obj249159: OptionalLen): string =
-  let ss249161 = newStringStream()
-  serialize(obj249159, ss249161)
-  ss249161.data
+proc serialize(obj246159: OptionalLen): string =
+  let ss246161 = newStringStream()
+  serialize(obj246159, ss246161)
+  ss246161.data
 
-proc deserialize(a249157: typedesc[OptionalLen]; thestream: Stream): OptionalLen =
+proc deserialize(a246157: typedesc[OptionalLen]; thestream: Stream): OptionalLen =
   assert(4 ==
       thestream.readData(result.unsafeAddr, 4),
          "Stream was not provided enough data")

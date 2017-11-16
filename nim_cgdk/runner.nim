@@ -1,21 +1,26 @@
-from client import Client, newClient, startConversation, getPlayerContext,
-                   doMove, close
+from remote_process_client import RemoteProcessClient, newRemoteProcessClient,
+                                  startConversation, getPlayerContext, doMove,
+                                  close
 from os import paramCount, paramStr
 from strutils import parseInt
-from model import Move, CachedFlag, ActionType, VehicleType
-from mystrategy import move
+from model.move import Move
+from model.game import CachedFlag
+from model.action_type import ActionType
+from model.vehicle_type import VehicleType
+from my_strategy import move, MyStrategy
 
-var rpClient: Client
+var rpClient: RemoteProcessClient
 var token: string
 
 (rpClient, token) =
   if paramCount() == 4:
-    (newClient(paramStr(1), parseInt(paramStr(2))), paramStr(3))
+    (newRemoteProcessClient(paramStr(1), parseInt(paramStr(2))), paramStr(3))
   else:
-    (newClient("127.0.0.1", 31001), "0000000000000000")
+    (newRemoteProcessClient("127.0.0.1", 31001), "0000000000000000")
 
 try:
   let game = rpClient.startConversation(token, 3)
+  var strategy = MyStrategy()
   while true:
     let context = rpClient.getPlayerContext()
     if not context.exists:
@@ -28,7 +33,7 @@ try:
                        factor: 0, maxSpeed: 0, maxAngularSpeed: 0,
                        vehicleType: VehicleType.UNKNOWN, facilityId: -1,
                        vehicleId: -1)
-    move(player, context.world, game, themove)
+    move(strategy, player, context.world, game, themove)
     rpClient.doMove(themove)
 finally:
   rpClient.close()

@@ -9,9 +9,20 @@ else:
   # Temporary workaroud since nims stdlib has no such a constants
   const TCP_NODELAY = 1
   const IPPROTO_TCP = 6
-from model import ActionType, Facility, FacilityType, Game, Move, Player,
-                  PlayerContext, TerrainType, Vehicle, VehicleType,
-                  VehicleUpdate, WeatherType, World, CachedFlag
+from model.action_type import ActionType
+from model.facility import Facility
+from model.facility_type import FacilityType
+from model.game import Game, CachedFlag
+from model.move import Move
+from model.player import Player
+from model.player_context import PlayerContext
+from model.terrain_type import TerrainType
+from model.vehicle import Vehicle
+from model.vehicle_type import VehicleType
+from model.vehicle_update import VehicleUpdate
+from model.weather_type import WeatherType
+from model.world import World
+
 type
   MessageType {.pure.} = enum
     UNKNOWN = 0
@@ -85,7 +96,7 @@ else:
   toSerializable(OptionalLen, size: 1)
 
 type
-  Client* = tuple
+  RemoteProcessClient* = tuple
     socket: Socket
     stream: SocketStream
     playersCache: Table[int64, Player]
@@ -93,7 +104,8 @@ type
     weatherCache: seq[seq[WeatherType]]
     facilitiesCache: Table[int64, Facility]
 
-proc newClient*(address: string, port: Natural): Client =
+proc newRemoteProcessClient*(address: string,
+                             port: Natural): RemoteProcessClient =
   result.socket = newSocket()
   result.socket.getFd().setSockOptInt(IPPROTO_TCP, TCP_NODELAY, 1)
   result.socket.connect(address, Port(port), 1000)
@@ -101,7 +113,7 @@ proc newClient*(address: string, port: Natural): Client =
   result.playersCache = initTable[int64, Player](16)
   result.facilitiesCache = initTable[int64, Facility](16)
 
-proc startConversation*(self: Client, token: string,
+proc startConversation*(self: RemoteProcessClient, token: string,
                         protoVer: int32): Game =
   let tokenMessage = Message(kind: MessageType.AUTHENTICATION_TOKEN,
                              token: token)
@@ -144,7 +156,7 @@ proc readSeq[T](stream: Stream, cache: seq[T] = nil): seq[T] =
     for i in 0..<oplen:
       result[i] = T.deserialize(stream)
 
-proc getPlayerContext*(self: var Client): PlayerContext =
+proc getPlayerContext*(self: var RemoteProcessClient): PlayerContext =
   let kind = MessageType.deserialize(self.stream)
   if kind == MessageType.GAME_OVER:
     return PlayerContext(exists: false)
@@ -170,10 +182,10 @@ proc getPlayerContext*(self: var Client): PlayerContext =
     result.world.terrainByCellXY = self.terrainCache
     result.world.facilities = readCachedObjSeq(self.stream, self.facilitiesCache)
 
-proc doMove*(self: Client, move: Move) =
+proc doMove*(self: RemoteProcessClient, move: Move) =
   let moveMessage = Message(kind: MessageType.MOVE, move: move)
   moveMessage.serialize(self.stream)
 
-proc close*(self: Client) =
+proc close*(self: RemoteProcessClient) =
   self.socket.close()
 
