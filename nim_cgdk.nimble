@@ -32,8 +32,8 @@ task make, "Compile the strategy":
     echo("Trying to generate code via nesm...")
     exec("nimble generateCode")
   withDir(srcDirName):
-    exec("nim c --hint[XDeclaredButNotUsed]:off -d:nodeps -o:" &
-         toExe(curdir / "MyStrategy") & " runner.nim")
+    exec("nim c --hint[XDeclaredButNotUsed]:off -d:release -d:nodeps -o:" &
+         toExe(curdir / "MyStrategy") & " --deadCodeElim:on runner.nim")
 
 task clean, "Wipe compilation data":
   rmDir(thisDir() / srcDirName / nimcacheDir())
