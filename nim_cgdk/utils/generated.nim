@@ -2718,413 +2718,110 @@ proc deserialize(a241240: typedesc[WorldHead]; thestream: Stream): WorldHead =
            "Stream was not provided enough data")
   else:
     discard
-proc size(obj241360: WorldTail): Natural =
-  for index241357 in 0 ..<
-      (len(obj241360.newVehicles)):
-    result += 1
-    case obj241360.newVehicles[index241357].exists
-    of true:
-      result += 8
-      result += 8
-      result += 8
-      result += 8
-      result += 8
-      result += 4
-      result += 4
-      result += 8
-      result += 8
-      result += 8
-      result += 8
-      result += 8
-      result += 8
-      result += 8
-      result += 4
-      result += 4
-      result += 4
-      result += 4
-      result += 4
-      result += 4
-      result += 1
-      result += 1
-      result += 1
-      result +=
-          4 +
-          len(obj241360.newVehicles[index241357].groups) * 4
-      result += 0
-    else:
-      result += 0
-    result += 0
+proc size(obj241360: Terrains): Natural =
+  for index241359 in 0 ..< (len(obj241360)):
+    result +=
+        4 +
+        len(obj241360[index241359]) * 1
   result += 4
-  for index241359 in 0 ..<
-      (len(obj241360.vehicleUpdates)):
-    result += 1
-    case obj241360.vehicleUpdates[index241359].exists
-    of true:
-      result += 8
-      result += 8
-      result += 8
-      result += 4
-      result += 4
-      result += 1
-      result +=
-          4 +
-          len(obj241360.vehicleUpdates[index241359].groups) * 4
-      result += 0
-    else:
-      result += 0
-    result += 0
-  result += 4
-  result += 0
 
-proc serialize(obj241361: WorldTail; thestream: Stream) =
-  discard
-  var length241356 = len(obj241361.newVehicles)
+proc serialize(obj241361: Terrains; thestream: Stream) =
+  var length241356 = len(obj241361)
   thestream.writeData(length241356.unsafeAddr, 4)
-  for index241357 in 0 ..<
-      (len(obj241361.newVehicles)):
-    discard
-    var tmp236845 = obj241361.newVehicles[index241357].exists
-    thestream.writeData(tmp236845.unsafeAddr, 1)
-    case obj241361.newVehicles[index241357].exists
-    of true:
-      discard
-      thestream.writeData(obj241361.newVehicles[index241357].id.unsafeAddr, 8)
-      thestream.writeData(obj241361.newVehicles[index241357].x.unsafeAddr, 8)
-      thestream.writeData(obj241361.newVehicles[index241357].y.unsafeAddr, 8)
-      thestream.writeData(obj241361.newVehicles[index241357].radius.unsafeAddr, 8)
-      thestream.writeData(obj241361.newVehicles[index241357].player_id.unsafeAddr,
-                          8)
-      thestream.writeData(obj241361.newVehicles[index241357].durability.unsafeAddr,
-                          4)
-      thestream.writeData(obj241361.newVehicles[index241357].maxDurability.unsafeAddr,
-                          4)
-      thestream.writeData(obj241361.newVehicles[index241357].maxSpeed.unsafeAddr,
-                          8)
-      thestream.writeData(obj241361.newVehicles[index241357].visionRange.unsafeAddr,
-                          8)
-      thestream.writeData(obj241361.newVehicles[index241357].squaredVisionRange.unsafeAddr,
-                          8)
-      thestream.writeData(obj241361.newVehicles[index241357].groundAttackRange.unsafeAddr,
-                          8)
-      thestream.writeData(obj241361.newVehicles[index241357].squaredGroundAttachRange.unsafeAddr,
-                          8)
-      thestream.writeData(obj241361.newVehicles[index241357].aerialAttackRange.unsafeAddr,
-                          8)
-      thestream.writeData(obj241361.newVehicles[index241357].squaredAerialAttackRange.unsafeAddr,
-                          8)
-      thestream.writeData(obj241361.newVehicles[index241357].groundDamage.unsafeAddr,
-                          4)
-      thestream.writeData(obj241361.newVehicles[index241357].aerialDamage.unsafeAddr,
-                          4)
-      thestream.writeData(obj241361.newVehicles[index241357].groundDefence.unsafeAddr,
-                          4)
-      thestream.writeData(obj241361.newVehicles[index241357].aerialDefence.unsafeAddr,
-                          4)
-      thestream.writeData(obj241361.newVehicles[index241357].attackCooldownTicks.unsafeAddr,
-                          4)
-      thestream.writeData(obj241361.newVehicles[index241357].remainingAttackCooldownTicks.unsafeAddr,
-                          4)
-      thestream.writeData(obj241361.newVehicles[index241357].thetype.unsafeAddr,
-                          1)
-      thestream.writeData(obj241361.newVehicles[index241357].aerial.unsafeAddr, 1)
-      thestream.writeData(obj241361.newVehicles[index241357].selected.unsafeAddr,
-                          1)
-      var length236846 = len(obj241361.newVehicles[index241357].groups)
-      thestream.writeData(length236846.unsafeAddr, 4)
-      if len(obj241361.newVehicles[index241357].groups) > 0:
-        thestream.writeData(obj241361.newVehicles[index241357].groups[0].unsafeAddr, len(
-            obj241361.newVehicles[index241357].groups) * 4)
-    else:
-      discard
-  var length241358 = len(obj241361.vehicleUpdates)
-  thestream.writeData(length241358.unsafeAddr, 4)
-  for index241359 in 0 ..<
-      (len(obj241361.vehicleUpdates)):
-    discard
-    var tmp236651 = obj241361.vehicleUpdates[index241359].exists
-    thestream.writeData(tmp236651.unsafeAddr, 1)
-    case obj241361.vehicleUpdates[index241359].exists
-    of true:
-      discard
-      thestream.writeData(obj241361.vehicleUpdates[index241359].id.unsafeAddr, 8)
-      thestream.writeData(obj241361.vehicleUpdates[index241359].x.unsafeAddr, 8)
-      thestream.writeData(obj241361.vehicleUpdates[index241359].y.unsafeAddr, 8)
-      thestream.writeData(obj241361.vehicleUpdates[index241359].durability.unsafeAddr,
-                          4)
-      thestream.writeData(obj241361.vehicleUpdates[index241359].remainingAttackCooldownTicks.unsafeAddr,
-                          4)
-      thestream.writeData(obj241361.vehicleUpdates[index241359].selected.unsafeAddr,
-                          1)
-      var length236652 = len(obj241361.vehicleUpdates[index241359].groups)
-      thestream.writeData(length236652.unsafeAddr, 4)
-      if len(obj241361.vehicleUpdates[index241359].groups) > 0:
-        thestream.writeData(obj241361.vehicleUpdates[index241359].groups[0].unsafeAddr, len(
-            obj241361.vehicleUpdates[index241359].groups) * 4)
-    else:
-      discard
+  for index241359 in 0 ..< (len(obj241361)):
+    var length241357 = len(obj241361[index241359])
+    thestream.writeData(length241357.unsafeAddr, 4)
+    for index241358 in 0 ..<
+        (len(obj241361[index241359])):
+      thestream.writeData(obj241361[index241359][index241358].unsafeAddr, 1)
 
-proc serialize(obj241365: WorldTail): string =
+proc serialize(obj241365: Terrains): string =
   let ss241367 = newStringStream()
   serialize(obj241365, ss241367)
   ss241367.data
 
-proc deserialize(a241363: typedesc[WorldTail]; thestream: Stream): WorldTail =
-  discard
+proc deserialize(a241363: typedesc[Terrains]; thestream: Stream): Terrains =
   var length241356: int32
   assert(4 ==
       thestream.readData(length241356.unsafeAddr, 4),
          "Stream was not provided enough data")
-  result.newVehicles = newSeq[Vehicle](length241356)
-  for index241357 in 0 ..<
-      (len(result.newVehicles)):
-    discard
-    var tmp236845: type(result.newVehicles[index241357].exists)
-    assert(1 ==
-        thestream.readData(tmp236845.unsafeAddr, 1),
-           "Stream was not provided enough data")
-    result.newVehicles[index241357].exists = tmp236845
-    case result.newVehicles[index241357].exists
-    of true:
-      discard
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].id.unsafeAddr, 8),
-             "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].x.unsafeAddr, 8),
-             "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].y.unsafeAddr, 8),
-             "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].radius.unsafeAddr, 8),
-             "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].player_id.unsafeAddr,
-                             8), "Stream was not provided enough data")
-      assert(4 ==
-          thestream.readData(result.newVehicles[index241357].durability.unsafeAddr,
-                             4), "Stream was not provided enough data")
-      assert(4 ==
-          thestream.readData(result.newVehicles[index241357].maxDurability.unsafeAddr,
-                             4), "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].maxSpeed.unsafeAddr,
-                             8), "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].visionRange.unsafeAddr,
-                             8), "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].squaredVisionRange.unsafeAddr,
-                             8), "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].groundAttackRange.unsafeAddr,
-                             8), "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].squaredGroundAttachRange.unsafeAddr,
-                             8), "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].aerialAttackRange.unsafeAddr,
-                             8), "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.newVehicles[index241357].squaredAerialAttackRange.unsafeAddr,
-                             8), "Stream was not provided enough data")
-      assert(4 ==
-          thestream.readData(result.newVehicles[index241357].groundDamage.unsafeAddr,
-                             4), "Stream was not provided enough data")
-      assert(4 ==
-          thestream.readData(result.newVehicles[index241357].aerialDamage.unsafeAddr,
-                             4), "Stream was not provided enough data")
-      assert(4 ==
-          thestream.readData(result.newVehicles[index241357].groundDefence.unsafeAddr,
-                             4), "Stream was not provided enough data")
-      assert(4 ==
-          thestream.readData(result.newVehicles[index241357].aerialDefence.unsafeAddr,
-                             4), "Stream was not provided enough data")
-      assert(4 ==
-          thestream.readData(result.newVehicles[index241357].attackCooldownTicks.unsafeAddr,
-                             4), "Stream was not provided enough data")
-      assert(4 ==
-          thestream.readData(result.newVehicles[index241357].remainingAttackCooldownTicks.unsafeAddr,
-                             4), "Stream was not provided enough data")
-      assert(1 ==
-          thestream.readData(result.newVehicles[index241357].thetype.unsafeAddr,
-                             1), "Stream was not provided enough data")
-      if $(result.newVehicles[index241357].thetype) ==
-          $(ord(result.newVehicles[index241357].thetype)) &
-          " (invalid data!)":
-        raise newException(ValueError, "Enum value is out of range: " &
-            $(result.newVehicles[index241357].thetype) &
-            "\x0ACorrect values are:\x0A" &
-            "enum\x0A  ARRV = 0, FIGHTER = 1, HELICOPTER = 2, IFV = 3, TANK = 4, UNKNOWN = 255")
-      assert(1 ==
-          thestream.readData(result.newVehicles[index241357].aerial.unsafeAddr, 1),
-             "Stream was not provided enough data")
-      assert(1 ==
-          thestream.readData(result.newVehicles[index241357].selected.unsafeAddr,
-                             1), "Stream was not provided enough data")
-      var length236846: int32
-      assert(4 ==
-          thestream.readData(length236846.unsafeAddr, 4),
-             "Stream was not provided enough data")
-      result.newVehicles[index241357].groups = newSeq[int32](length236846)
-      if len(result.newVehicles[index241357].groups) > 0:
-        assert(len(result.newVehicles[index241357].groups) * 4 ==
-            thestream.readData(result.newVehicles[index241357].groups[0].unsafeAddr, len(
-            result.newVehicles[index241357].groups) * 4),
-               "Stream was not provided enough data")
-    else:
-      discard
-  var length241358: int32
-  assert(4 ==
-      thestream.readData(length241358.unsafeAddr, 4),
-         "Stream was not provided enough data")
-  result.vehicleUpdates = newSeq[VehicleUpdate](length241358)
-  for index241359 in 0 ..<
-      (len(result.vehicleUpdates)):
-    discard
-    var tmp236651: type(result.vehicleUpdates[index241359].exists)
-    assert(1 ==
-        thestream.readData(tmp236651.unsafeAddr, 1),
-           "Stream was not provided enough data")
-    result.vehicleUpdates[index241359].exists = tmp236651
-    case result.vehicleUpdates[index241359].exists
-    of true:
-      discard
-      assert(8 ==
-          thestream.readData(result.vehicleUpdates[index241359].id.unsafeAddr, 8),
-             "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.vehicleUpdates[index241359].x.unsafeAddr, 8),
-             "Stream was not provided enough data")
-      assert(8 ==
-          thestream.readData(result.vehicleUpdates[index241359].y.unsafeAddr, 8),
-             "Stream was not provided enough data")
-      assert(4 ==
-          thestream.readData(result.vehicleUpdates[index241359].durability.unsafeAddr,
-                             4), "Stream was not provided enough data")
-      assert(4 ==
-          thestream.readData(result.vehicleUpdates[index241359].remainingAttackCooldownTicks.unsafeAddr,
-                             4), "Stream was not provided enough data")
-      assert(1 ==
-          thestream.readData(result.vehicleUpdates[index241359].selected.unsafeAddr,
-                             1), "Stream was not provided enough data")
-      var length236652: int32
-      assert(4 ==
-          thestream.readData(length236652.unsafeAddr, 4),
-             "Stream was not provided enough data")
-      result.vehicleUpdates[index241359].groups = newSeq[int32](length236652)
-      if len(result.vehicleUpdates[index241359].groups) > 0:
-        assert(len(result.vehicleUpdates[index241359].groups) *
-            4 ==
-            thestream.readData(result.vehicleUpdates[index241359].groups[0].unsafeAddr, len(
-            result.vehicleUpdates[index241359].groups) * 4),
-               "Stream was not provided enough data")
-    else:
-      discard
-proc size(obj242071: Terrains): Natural =
-  for index242070 in 0 ..< (len(obj242071)):
-    result +=
-        4 +
-        len(obj242071[index242070]) * 1
-  result += 4
-
-proc serialize(obj242072: Terrains; thestream: Stream) =
-  var length242067 = len(obj242072)
-  thestream.writeData(length242067.unsafeAddr, 4)
-  for index242070 in 0 ..< (len(obj242072)):
-    var length242068 = len(obj242072[index242070])
-    thestream.writeData(length242068.unsafeAddr, 4)
-    for index242069 in 0 ..<
-        (len(obj242072[index242070])):
-      thestream.writeData(obj242072[index242070][index242069].unsafeAddr, 1)
-
-proc serialize(obj242076: Terrains): string =
-  let ss242078 = newStringStream()
-  serialize(obj242076, ss242078)
-  ss242078.data
-
-proc deserialize(a242074: typedesc[Terrains]; thestream: Stream): Terrains =
-  var length242067: int32
-  assert(4 ==
-      thestream.readData(length242067.unsafeAddr, 4),
-         "Stream was not provided enough data")
-  result = newSeq[seq[TerrainType]](length242067)
-  for index242070 in 0 ..< (len(result)):
-    var length242068: int32
+  result = newSeq[seq[TerrainType]](length241356)
+  for index241359 in 0 ..< (len(result)):
+    var length241357: int32
     assert(4 ==
-        thestream.readData(length242068.unsafeAddr, 4),
+        thestream.readData(length241357.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result[index242070] = newSeq[TerrainType](length242068)
-    for index242069 in 0 ..<
-        (len(result[index242070])):
+    result[index241359] = newSeq[TerrainType](length241357)
+    for index241358 in 0 ..<
+        (len(result[index241359])):
       assert(1 ==
-          thestream.readData(result[index242070][index242069].unsafeAddr, 1),
+          thestream.readData(result[index241359][index241358].unsafeAddr, 1),
              "Stream was not provided enough data")
-      if $(result[index242070][index242069]) ==
-          $(ord(result[index242070][index242069])) &
+      if $(result[index241359][index241358]) ==
+          $(ord(result[index241359][index241358])) &
           " (invalid data!)":
         raise newException(ValueError, "Enum value is out of range: " &
-            $(result[index242070][index242069]) &
+            $(result[index241359][index241358]) &
             "\x0ACorrect values are:\x0A" &
             "enum\x0A  PLAIN = 0, SWAMP = 1, FOREST = 2, UNKNOWN = 255")
-proc size(obj242231: Weathers): Natural =
-  for index242230 in 0 ..< (len(obj242231)):
+proc size(obj241520: Weathers): Natural =
+  for index241519 in 0 ..< (len(obj241520)):
     result +=
         4 +
-        len(obj242231[index242230]) * 1
+        len(obj241520[index241519]) * 1
   result += 4
 
-proc serialize(obj242232: Weathers; thestream: Stream) =
-  var length242227 = len(obj242232)
-  thestream.writeData(length242227.unsafeAddr, 4)
-  for index242230 in 0 ..< (len(obj242232)):
-    var length242228 = len(obj242232[index242230])
-    thestream.writeData(length242228.unsafeAddr, 4)
-    for index242229 in 0 ..<
-        (len(obj242232[index242230])):
-      thestream.writeData(obj242232[index242230][index242229].unsafeAddr, 1)
+proc serialize(obj241521: Weathers; thestream: Stream) =
+  var length241516 = len(obj241521)
+  thestream.writeData(length241516.unsafeAddr, 4)
+  for index241519 in 0 ..< (len(obj241521)):
+    var length241517 = len(obj241521[index241519])
+    thestream.writeData(length241517.unsafeAddr, 4)
+    for index241518 in 0 ..<
+        (len(obj241521[index241519])):
+      thestream.writeData(obj241521[index241519][index241518].unsafeAddr, 1)
 
-proc serialize(obj242236: Weathers): string =
-  let ss242238 = newStringStream()
-  serialize(obj242236, ss242238)
-  ss242238.data
+proc serialize(obj241525: Weathers): string =
+  let ss241527 = newStringStream()
+  serialize(obj241525, ss241527)
+  ss241527.data
 
-proc deserialize(a242234: typedesc[Weathers]; thestream: Stream): Weathers =
-  var length242227: int32
+proc deserialize(a241523: typedesc[Weathers]; thestream: Stream): Weathers =
+  var length241516: int32
   assert(4 ==
-      thestream.readData(length242227.unsafeAddr, 4),
+      thestream.readData(length241516.unsafeAddr, 4),
          "Stream was not provided enough data")
-  result = newSeq[seq[WeatherType]](length242227)
-  for index242230 in 0 ..< (len(result)):
-    var length242228: int32
+  result = newSeq[seq[WeatherType]](length241516)
+  for index241519 in 0 ..< (len(result)):
+    var length241517: int32
     assert(4 ==
-        thestream.readData(length242228.unsafeAddr, 4),
+        thestream.readData(length241517.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result[index242230] = newSeq[WeatherType](length242228)
-    for index242229 in 0 ..<
-        (len(result[index242230])):
+    result[index241519] = newSeq[WeatherType](length241517)
+    for index241518 in 0 ..<
+        (len(result[index241519])):
       assert(1 ==
-          thestream.readData(result[index242230][index242229].unsafeAddr, 1),
+          thestream.readData(result[index241519][index241518].unsafeAddr, 1),
              "Stream was not provided enough data")
-      if $(result[index242230][index242229]) ==
-          $(ord(result[index242230][index242229])) &
+      if $(result[index241519][index241518]) ==
+          $(ord(result[index241519][index241518])) &
           " (invalid data!)":
         raise newException(ValueError, "Enum value is out of range: " &
-            $(result[index242230][index242229]) &
+            $(result[index241519][index241518]) &
             "\x0ACorrect values are:\x0A" &
             "enum\x0A  CLEAR = 0, CLOUD = 1, RAIN = 2, UNKNOWN = 255")
-proc size(obj242387: MessageType): Natural =
+proc size(obj241676: MessageType): Natural =
   1
 
-proc serialize(obj242388: MessageType; thestream: Stream) =
-  thestream.writeData(obj242388.unsafeAddr, 1)
+proc serialize(obj241677: MessageType; thestream: Stream) =
+  thestream.writeData(obj241677.unsafeAddr, 1)
 
-proc serialize(obj242392: MessageType): string =
-  let ss242394 = newStringStream()
-  serialize(obj242392, ss242394)
-  ss242394.data
+proc serialize(obj241681: MessageType): string =
+  let ss241683 = newStringStream()
+  serialize(obj241681, ss241683)
+  ss241683.data
 
-proc deserialize(a242390: typedesc[MessageType]; thestream: Stream): MessageType =
+proc deserialize(a241679: typedesc[MessageType]; thestream: Stream): MessageType =
   assert(1 ==
       thestream.readData(result.unsafeAddr, 1),
          "Stream was not provided enough data")
@@ -3133,11 +2830,11 @@ proc deserialize(a242390: typedesc[MessageType]; thestream: Stream): MessageType
     raise newException(ValueError, "Enum value is out of range: " &
         $(result) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  UNKNOWN = 0, GAME_OVER = 1, AUTHENTICATION_TOKEN = 2, TEAM_SIZE = 3, PROTOCOL_VERSION = 4,\x0A  GAME_CONTEXT = 5, PLAYER_CONTEXT = 6, MOVE = 7")
-proc size(obj242421: Message): Natural =
+proc size(obj241710: Message): Natural =
   result += 1
-  case obj242421.kind
+  case obj241710.kind
   of MessageType.AUTHENTICATION_TOKEN:
-    result += 4 + len(obj242421.token) * 1
+    result += 4 + len(obj241710.token) * 1
     result += 0
   of MessageType.PROTOCOL_VERSION:
     result += 4
@@ -3147,7 +2844,7 @@ proc size(obj242421: Message): Natural =
     result += 0
   of MessageType.GAME_CONTEXT:
     result += 1
-    case obj242421.game.exists
+    case obj241710.game.exists
     of true:
       result += 8
       result += 4
@@ -3250,7 +2947,7 @@ proc size(obj242421: Message): Natural =
     result += 0
   of MessageType.MOVE:
     result += 1
-    case obj242421.move.exists
+    case obj241710.move.exists
     of true:
       result += 1
       result += 4
@@ -3274,10 +2971,10 @@ proc size(obj242421: Message): Natural =
     result += 0
   of MessageType.PLAYER_CONTEXT:
     result += 1
-    case obj242421.playerContext.exists
+    case obj241710.playerContext.exists
     of true:
       result += 1
-      case obj242421.playerContext.player.flag
+      case obj241710.playerContext.player.flag
       of Exists:
         result += 8
         result += 1
@@ -3297,16 +2994,16 @@ proc size(obj242421: Message): Natural =
         result += 0
       result += 0
       result += 1
-      case obj242421.playerContext.world.exists
+      case obj241710.playerContext.world.exists
       of true:
         result += 4
         result += 4
         result += 8
         result += 8
         for index237647 in 0 ..<
-            (len(obj242421.playerContext.world.players)):
+            (len(obj241710.playerContext.world.players)):
           result += 1
-          case obj242421.playerContext.world.players[index237647].flag
+          case obj241710.playerContext.world.players[index237647].flag
           of Exists:
             result += 8
             result += 1
@@ -3327,9 +3024,9 @@ proc size(obj242421: Message): Natural =
           result += 0
         result += 4
         for index237649 in 0 ..<
-            (len(obj242421.playerContext.world.newVehicles)):
+            (len(obj241710.playerContext.world.newVehicles)):
           result += 1
-          case obj242421.playerContext.world.newVehicles[index237649].exists
+          case obj241710.playerContext.world.newVehicles[index237649].exists
           of true:
             result += 8
             result += 8
@@ -3356,7 +3053,7 @@ proc size(obj242421: Message): Natural =
             result += 1
             result +=
                 4 +
-                len(obj242421.playerContext.world.newVehicles[index237649].groups) *
+                len(obj241710.playerContext.world.newVehicles[index237649].groups) *
                 4
             result += 0
           else:
@@ -3364,9 +3061,9 @@ proc size(obj242421: Message): Natural =
           result += 0
         result += 4
         for index237651 in 0 ..<
-            (len(obj242421.playerContext.world.vehicleUpdates)):
+            (len(obj241710.playerContext.world.vehicleUpdates)):
           result += 1
-          case obj242421.playerContext.world.vehicleUpdates[index237651].exists
+          case obj241710.playerContext.world.vehicleUpdates[index237651].exists
           of true:
             result += 8
             result += 8
@@ -3376,7 +3073,7 @@ proc size(obj242421: Message): Natural =
             result += 1
             result +=
                 4 +
-                len(obj242421.playerContext.world.vehicleUpdates[index237651].groups) *
+                len(obj241710.playerContext.world.vehicleUpdates[index237651].groups) *
                 4
             result += 0
           else:
@@ -3384,23 +3081,23 @@ proc size(obj242421: Message): Natural =
           result += 0
         result += 4
         for index237655 in 0 ..<
-            (len(obj242421.playerContext.world.terrainByCellXY)):
+            (len(obj241710.playerContext.world.terrainByCellXY)):
           result +=
               4 +
-              len(obj242421.playerContext.world.terrainByCellXY[index237655]) *
+              len(obj241710.playerContext.world.terrainByCellXY[index237655]) *
               1
         result += 4
         for index237659 in 0 ..<
-            (len(obj242421.playerContext.world.weatherByCellXY)):
+            (len(obj241710.playerContext.world.weatherByCellXY)):
           result +=
               4 +
-              len(obj242421.playerContext.world.weatherByCellXY[index237659]) *
+              len(obj241710.playerContext.world.weatherByCellXY[index237659]) *
               1
         result += 4
         for index237661 in 0 ..<
-            (len(obj242421.playerContext.world.facilities)):
+            (len(obj241710.playerContext.world.facilities)):
           result += 1
-          case obj242421.playerContext.world.facilities[index237661].flag
+          case obj241710.playerContext.world.facilities[index237661].flag
           of FromId:
             result += 8
             result += 0
@@ -3431,394 +3128,394 @@ proc size(obj242421: Message): Natural =
     result += 0
   result += 0
 
-proc serialize(obj242422: Message; thestream: Stream) =
+proc serialize(obj241711: Message; thestream: Stream) =
   discard
-  var tmp242419 = obj242422.kind
-  thestream.writeData(tmp242419.unsafeAddr, 1)
-  case obj242422.kind
+  var tmp241708 = obj241711.kind
+  thestream.writeData(tmp241708.unsafeAddr, 1)
+  case obj241711.kind
   of MessageType.AUTHENTICATION_TOKEN:
     discard
-    var length242420 = len(obj242422.token)
-    thestream.writeData(length242420.unsafeAddr, 4)
-    if len(obj242422.token) > 0:
-      thestream.writeData(obj242422.token[0].unsafeAddr, len(obj242422.token) *
+    var length241709 = len(obj241711.token)
+    thestream.writeData(length241709.unsafeAddr, 4)
+    if len(obj241711.token) > 0:
+      thestream.writeData(obj241711.token[0].unsafeAddr, len(obj241711.token) *
           1)
   of MessageType.PROTOCOL_VERSION:
     discard
-    thestream.writeData(obj242422.version.unsafeAddr, 4)
+    thestream.writeData(obj241711.version.unsafeAddr, 4)
   of MessageType.TEAM_SIZE:
     discard
-    thestream.writeData(obj242422.size.unsafeAddr, 4)
+    thestream.writeData(obj241711.size.unsafeAddr, 4)
   of MessageType.GAME_CONTEXT:
     discard
     discard
-    var tmp235199 = obj242422.game.exists
+    var tmp235199 = obj241711.game.exists
     thestream.writeData(tmp235199.unsafeAddr, 1)
-    case obj242422.game.exists
+    case obj241711.game.exists
     of true:
       discard
-      thestream.writeData(obj242422.game.randomSeed.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.tickCount.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.worldWidth.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.worldHeight.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.fogOfWarEnabled.unsafeAddr, 1)
-      thestream.writeData(obj242422.game.victoryScore.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.facilityCaptureScore.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.vehicleEliminationScore.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.actionDetectionInterval.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.baseActionCount.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.additionalActionCountPerControlCenter.unsafeAddr,
+      thestream.writeData(obj241711.game.randomSeed.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.tickCount.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.worldWidth.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.worldHeight.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.fogOfWarEnabled.unsafeAddr, 1)
+      thestream.writeData(obj241711.game.victoryScore.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.facilityCaptureScore.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.vehicleEliminationScore.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.actionDetectionInterval.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.baseActionCount.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.additionalActionCountPerControlCenter.unsafeAddr,
                           4)
-      thestream.writeData(obj242422.game.maxUnitGroup.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.terrainWeatherMapColumnCount.unsafeAddr,
+      thestream.writeData(obj241711.game.maxUnitGroup.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.terrainWeatherMapColumnCount.unsafeAddr,
                           4)
-      thestream.writeData(obj242422.game.terrainWeatherMapRowCount.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.plainTerrainVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.plainTerrainStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.plainTerrainSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.swampTerrainVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.swampTerrainStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.swampTerrainSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.forestTerrainVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.forestTerrainStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.forestTerrainSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.clearWeatherVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.clearWeatherStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.clearWeatherSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.cloudWeatherVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.cloudWeatherStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.cloudWeatherSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.rainWeatherVisionFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.rainWeatherStealthFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.rainWeatherSpeedFactor.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.vehicleRadius.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.tankDurability.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.tankSpeed.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.tankVisionRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.tankGroundAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.tankAerialAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.tankGroundDamage.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.tankAerialDamage.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.tankGroundDefence.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.tankAerialDefence.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.tankAttackCooldownTicks.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.tankProductionCost.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.ifvDurability.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.ifvSpeed.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.ifvVisionRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.ifvGroundAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.ifvAerialAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.ifvGroundDamage.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.ifvAerialDamage.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.ifvGroundDefence.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.ifvAerialDefence.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.ifvAttackCooldownTicks.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.ifvProductionCost.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.arrvDurability.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.arrvSpeed.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.arrvVisionRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.arrvGroundDefence.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.arrvAerialDefence.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.arrvProductionCost.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.arrvRepairRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.arrvRepairSpeed.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.helicopterDurability.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.helicopterSpeed.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.helicopterVisionRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.helicopterGroundAttackRange.unsafeAddr,
+      thestream.writeData(obj241711.game.terrainWeatherMapRowCount.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.plainTerrainVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.plainTerrainStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.plainTerrainSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.swampTerrainVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.swampTerrainStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.swampTerrainSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.forestTerrainVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.forestTerrainStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.forestTerrainSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.clearWeatherVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.clearWeatherStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.clearWeatherSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.cloudWeatherVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.cloudWeatherStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.cloudWeatherSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.rainWeatherVisionFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.rainWeatherStealthFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.rainWeatherSpeedFactor.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.vehicleRadius.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.tankDurability.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.tankSpeed.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.tankVisionRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.tankGroundAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.tankAerialAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.tankGroundDamage.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.tankAerialDamage.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.tankGroundDefence.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.tankAerialDefence.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.tankAttackCooldownTicks.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.tankProductionCost.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.ifvDurability.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.ifvSpeed.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.ifvVisionRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.ifvGroundAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.ifvAerialAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.ifvGroundDamage.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.ifvAerialDamage.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.ifvGroundDefence.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.ifvAerialDefence.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.ifvAttackCooldownTicks.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.ifvProductionCost.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.arrvDurability.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.arrvSpeed.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.arrvVisionRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.arrvGroundDefence.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.arrvAerialDefence.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.arrvProductionCost.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.arrvRepairRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.arrvRepairSpeed.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.helicopterDurability.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.helicopterSpeed.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.helicopterVisionRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.helicopterGroundAttackRange.unsafeAddr,
                           8)
-      thestream.writeData(obj242422.game.helicopterAerialAttackRange.unsafeAddr,
+      thestream.writeData(obj241711.game.helicopterAerialAttackRange.unsafeAddr,
                           8)
-      thestream.writeData(obj242422.game.helicopterGroundDamage.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.helicopterAerialDamage.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.helicopterGroundDefence.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.helicopterAerialDefence.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.helicopterAttackCooldownTicks.unsafeAddr,
+      thestream.writeData(obj241711.game.helicopterGroundDamage.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.helicopterAerialDamage.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.helicopterGroundDefence.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.helicopterAerialDefence.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.helicopterAttackCooldownTicks.unsafeAddr,
                           4)
-      thestream.writeData(obj242422.game.helicopterProductionCost.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.fighterDurability.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.fighterSpeed.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.fighterVisionRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.fighterGroundAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.fighterAerialAttackRange.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.fighterGroundDamage.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.fighterAerialDamage.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.fighterGroundDefence.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.fighterAerialDefence.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.fighterAttackCooldownTicks.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.fighterProductionCost.unsafeAddr, 4)
-      thestream.writeData(obj242422.game.maxFacilityCapturePoint32s.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.facilityCapturePoint32sPerVehiclePerTick.unsafeAddr,
+      thestream.writeData(obj241711.game.helicopterProductionCost.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.fighterDurability.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.fighterSpeed.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.fighterVisionRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.fighterGroundAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.fighterAerialAttackRange.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.fighterGroundDamage.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.fighterAerialDamage.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.fighterGroundDefence.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.fighterAerialDefence.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.fighterAttackCooldownTicks.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.fighterProductionCost.unsafeAddr, 4)
+      thestream.writeData(obj241711.game.maxFacilityCapturePoint32s.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.facilityCapturePoint32sPerVehiclePerTick.unsafeAddr,
                           8)
-      thestream.writeData(obj242422.game.facilityWidth.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.facilityHeight.unsafeAddr, 8)
-      thestream.writeData(obj242422.game.base_tactical_nuclear_strike_cooldown.unsafeAddr,
+      thestream.writeData(obj241711.game.facilityWidth.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.facilityHeight.unsafeAddr, 8)
+      thestream.writeData(obj241711.game.base_tactical_nuclear_strike_cooldown.unsafeAddr,
                           4)
-      thestream.writeData(obj242422.game.tactical_nuclear_strike_cooldown_decrease_per_control_center.unsafeAddr,
+      thestream.writeData(obj241711.game.tactical_nuclear_strike_cooldown_decrease_per_control_center.unsafeAddr,
                           4)
-      thestream.writeData(obj242422.game.max_tactical_nuclear_strike_damage.unsafeAddr,
+      thestream.writeData(obj241711.game.max_tactical_nuclear_strike_damage.unsafeAddr,
                           8)
-      thestream.writeData(obj242422.game.tactical_nuclear_strike_radius.unsafeAddr,
+      thestream.writeData(obj241711.game.tactical_nuclear_strike_radius.unsafeAddr,
                           8)
-      thestream.writeData(obj242422.game.tactical_nuclear_strike_delay.unsafeAddr,
+      thestream.writeData(obj241711.game.tactical_nuclear_strike_delay.unsafeAddr,
                           4)
     else:
       discard
   of MessageType.MOVE:
     discard
     discard
-    var tmp236399 = obj242422.move.exists
+    var tmp236399 = obj241711.move.exists
     thestream.writeData(tmp236399.unsafeAddr, 1)
-    case obj242422.move.exists
+    case obj241711.move.exists
     of true:
       discard
-      thestream.writeData(obj242422.move.action.unsafeAddr, 1)
-      thestream.writeData(obj242422.move.group.unsafeAddr, 4)
-      thestream.writeData(obj242422.move.left.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.top.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.right.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.bottom.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.x.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.y.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.angle.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.factor.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.maxSpeed.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.maxAngularSpeed.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.vehicleType.unsafeAddr, 1)
-      thestream.writeData(obj242422.move.facilityId.unsafeAddr, 8)
-      thestream.writeData(obj242422.move.vehicleId.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.action.unsafeAddr, 1)
+      thestream.writeData(obj241711.move.group.unsafeAddr, 4)
+      thestream.writeData(obj241711.move.left.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.top.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.right.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.bottom.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.x.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.y.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.angle.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.factor.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.maxSpeed.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.maxAngularSpeed.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.vehicleType.unsafeAddr, 1)
+      thestream.writeData(obj241711.move.facilityId.unsafeAddr, 8)
+      thestream.writeData(obj241711.move.vehicleId.unsafeAddr, 8)
     else:
       discard
   of MessageType.PLAYER_CONTEXT:
     discard
     discard
-    var tmp239278 = obj242422.playerContext.exists
+    var tmp239278 = obj241711.playerContext.exists
     thestream.writeData(tmp239278.unsafeAddr, 1)
-    case obj242422.playerContext.exists
+    case obj241711.playerContext.exists
     of true:
       discard
       discard
-      var tmp237432 = obj242422.playerContext.player.flag
+      var tmp237432 = obj241711.playerContext.player.flag
       thestream.writeData(tmp237432.unsafeAddr, 1)
-      case obj242422.playerContext.player.flag
+      case obj241711.playerContext.player.flag
       of Exists:
         discard
-        thestream.writeData(obj242422.playerContext.player.id.unsafeAddr, 8)
-        thestream.writeData(obj242422.playerContext.player.me.unsafeAddr, 1)
-        thestream.writeData(obj242422.playerContext.player.strategyCrashed.unsafeAddr,
+        thestream.writeData(obj241711.playerContext.player.id.unsafeAddr, 8)
+        thestream.writeData(obj241711.playerContext.player.me.unsafeAddr, 1)
+        thestream.writeData(obj241711.playerContext.player.strategyCrashed.unsafeAddr,
                             1)
-        thestream.writeData(obj242422.playerContext.player.score.unsafeAddr, 4)
-        thestream.writeData(obj242422.playerContext.player.remainingActionCooldownTicks.unsafeAddr,
+        thestream.writeData(obj241711.playerContext.player.score.unsafeAddr, 4)
+        thestream.writeData(obj241711.playerContext.player.remainingActionCooldownTicks.unsafeAddr,
                             4)
-        thestream.writeData(obj242422.playerContext.player.remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+        thestream.writeData(obj241711.playerContext.player.remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                             4)
-        thestream.writeData(obj242422.playerContext.player.next_nuclear_strike_vehicle_id.unsafeAddr,
+        thestream.writeData(obj241711.playerContext.player.next_nuclear_strike_vehicle_id.unsafeAddr,
                             8)
-        thestream.writeData(obj242422.playerContext.player.next_nuclear_strike_tick_index.unsafeAddr,
+        thestream.writeData(obj241711.playerContext.player.next_nuclear_strike_tick_index.unsafeAddr,
                             4)
-        thestream.writeData(obj242422.playerContext.player.next_nuclear_strike_x.unsafeAddr,
+        thestream.writeData(obj241711.playerContext.player.next_nuclear_strike_x.unsafeAddr,
                             8)
-        thestream.writeData(obj242422.playerContext.player.next_nuclear_strike_y.unsafeAddr,
+        thestream.writeData(obj241711.playerContext.player.next_nuclear_strike_y.unsafeAddr,
                             8)
       of FromId:
         discard
-        thestream.writeData(obj242422.playerContext.player.sourceId.unsafeAddr, 8)
+        thestream.writeData(obj241711.playerContext.player.sourceId.unsafeAddr, 8)
       else:
         discard
       discard
-      var tmp237645 = obj242422.playerContext.world.exists
+      var tmp237645 = obj241711.playerContext.world.exists
       thestream.writeData(tmp237645.unsafeAddr, 1)
-      case obj242422.playerContext.world.exists
+      case obj241711.playerContext.world.exists
       of true:
         discard
-        thestream.writeData(obj242422.playerContext.world.tickIndex.unsafeAddr, 4)
-        thestream.writeData(obj242422.playerContext.world.tickCount.unsafeAddr, 4)
-        thestream.writeData(obj242422.playerContext.world.width.unsafeAddr, 8)
-        thestream.writeData(obj242422.playerContext.world.height.unsafeAddr, 8)
-        var length237646 = len(obj242422.playerContext.world.players)
+        thestream.writeData(obj241711.playerContext.world.tickIndex.unsafeAddr, 4)
+        thestream.writeData(obj241711.playerContext.world.tickCount.unsafeAddr, 4)
+        thestream.writeData(obj241711.playerContext.world.width.unsafeAddr, 8)
+        thestream.writeData(obj241711.playerContext.world.height.unsafeAddr, 8)
+        var length237646 = len(obj241711.playerContext.world.players)
         thestream.writeData(length237646.unsafeAddr, 4)
         for index237647 in 0 ..<
-            (len(obj242422.playerContext.world.players)):
+            (len(obj241711.playerContext.world.players)):
           discard
-          var tmp237432 = obj242422.playerContext.world.players[index237647].flag
+          var tmp237432 = obj241711.playerContext.world.players[index237647].flag
           thestream.writeData(tmp237432.unsafeAddr, 1)
-          case obj242422.playerContext.world.players[index237647].flag
+          case obj241711.playerContext.world.players[index237647].flag
           of Exists:
             discard
-            thestream.writeData(obj242422.playerContext.world.players[index237647].id.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].id.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.players[index237647].me.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].me.unsafeAddr,
                                 1)
-            thestream.writeData(obj242422.playerContext.world.players[index237647].strategyCrashed.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].strategyCrashed.unsafeAddr,
                                 1)
-            thestream.writeData(obj242422.playerContext.world.players[index237647].score.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].score.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.players[index237647].remainingActionCooldownTicks.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].remainingActionCooldownTicks.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.players[index237647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].remaining_nuclear_strike_cooldown_ticks.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.players[index237647].next_nuclear_strike_vehicle_id.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].next_nuclear_strike_vehicle_id.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.players[index237647].next_nuclear_strike_tick_index.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].next_nuclear_strike_tick_index.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.players[index237647].next_nuclear_strike_x.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].next_nuclear_strike_x.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.players[index237647].next_nuclear_strike_y.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].next_nuclear_strike_y.unsafeAddr,
                                 8)
           of FromId:
             discard
-            thestream.writeData(obj242422.playerContext.world.players[index237647].sourceId.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.players[index237647].sourceId.unsafeAddr,
                                 8)
           else:
             discard
-        var length237648 = len(obj242422.playerContext.world.newVehicles)
+        var length237648 = len(obj241711.playerContext.world.newVehicles)
         thestream.writeData(length237648.unsafeAddr, 4)
         for index237649 in 0 ..<
-            (len(obj242422.playerContext.world.newVehicles)):
+            (len(obj241711.playerContext.world.newVehicles)):
           discard
-          var tmp236845 = obj242422.playerContext.world.newVehicles[index237649].exists
+          var tmp236845 = obj241711.playerContext.world.newVehicles[index237649].exists
           thestream.writeData(tmp236845.unsafeAddr, 1)
-          case obj242422.playerContext.world.newVehicles[index237649].exists
+          case obj241711.playerContext.world.newVehicles[index237649].exists
           of true:
             discard
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].id.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].id.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].x.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].x.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].y.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].y.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].radius.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].radius.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].player_id.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].player_id.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].durability.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].durability.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].maxDurability.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].maxDurability.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].maxSpeed.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].maxSpeed.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].visionRange.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].visionRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].squaredVisionRange.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].squaredVisionRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].groundAttackRange.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].groundAttackRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].squaredGroundAttachRange.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].squaredGroundAttachRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].aerialAttackRange.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].aerialAttackRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].squaredAerialAttackRange.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].squaredAerialAttackRange.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].groundDamage.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].groundDamage.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].aerialDamage.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].aerialDamage.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].groundDefence.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].groundDefence.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].aerialDefence.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].aerialDefence.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].attackCooldownTicks.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].attackCooldownTicks.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].remainingAttackCooldownTicks.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].remainingAttackCooldownTicks.unsafeAddr,
                                 4)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].thetype.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].thetype.unsafeAddr,
                                 1)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].aerial.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].aerial.unsafeAddr,
                                 1)
-            thestream.writeData(obj242422.playerContext.world.newVehicles[index237649].selected.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.newVehicles[index237649].selected.unsafeAddr,
                                 1)
-            var length236846 = len(obj242422.playerContext.world.newVehicles[index237649].groups)
+            var length236846 = len(obj241711.playerContext.world.newVehicles[index237649].groups)
             thestream.writeData(length236846.unsafeAddr, 4)
-            if len(obj242422.playerContext.world.newVehicles[index237649].groups) >
+            if len(obj241711.playerContext.world.newVehicles[index237649].groups) >
                 0:
-              thestream.writeData(obj242422.playerContext.world.newVehicles[
-                  index237649].groups[0].unsafeAddr, len(obj242422.playerContext.world.newVehicles[
+              thestream.writeData(obj241711.playerContext.world.newVehicles[
+                  index237649].groups[0].unsafeAddr, len(obj241711.playerContext.world.newVehicles[
                   index237649].groups) * 4)
           else:
             discard
-        var length237650 = len(obj242422.playerContext.world.vehicleUpdates)
+        var length237650 = len(obj241711.playerContext.world.vehicleUpdates)
         thestream.writeData(length237650.unsafeAddr, 4)
         for index237651 in 0 ..<
-            (len(obj242422.playerContext.world.vehicleUpdates)):
+            (len(obj241711.playerContext.world.vehicleUpdates)):
           discard
-          var tmp236651 = obj242422.playerContext.world.vehicleUpdates[index237651].exists
+          var tmp236651 = obj241711.playerContext.world.vehicleUpdates[index237651].exists
           thestream.writeData(tmp236651.unsafeAddr, 1)
-          case obj242422.playerContext.world.vehicleUpdates[index237651].exists
+          case obj241711.playerContext.world.vehicleUpdates[index237651].exists
           of true:
             discard
-            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+            thestream.writeData(obj241711.playerContext.world.vehicleUpdates[
                 index237651].id.unsafeAddr, 8)
-            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+            thestream.writeData(obj241711.playerContext.world.vehicleUpdates[
                 index237651].x.unsafeAddr, 8)
-            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+            thestream.writeData(obj241711.playerContext.world.vehicleUpdates[
                 index237651].y.unsafeAddr, 8)
-            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+            thestream.writeData(obj241711.playerContext.world.vehicleUpdates[
                 index237651].durability.unsafeAddr, 4)
-            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+            thestream.writeData(obj241711.playerContext.world.vehicleUpdates[
                 index237651].remainingAttackCooldownTicks.unsafeAddr, 4)
-            thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
+            thestream.writeData(obj241711.playerContext.world.vehicleUpdates[
                 index237651].selected.unsafeAddr, 1)
-            var length236652 = len(obj242422.playerContext.world.vehicleUpdates[
+            var length236652 = len(obj241711.playerContext.world.vehicleUpdates[
                 index237651].groups)
             thestream.writeData(length236652.unsafeAddr, 4)
-            if len(obj242422.playerContext.world.vehicleUpdates[index237651].groups) >
+            if len(obj241711.playerContext.world.vehicleUpdates[index237651].groups) >
                 0:
-              thestream.writeData(obj242422.playerContext.world.vehicleUpdates[
-                  index237651].groups[0].unsafeAddr, len(obj242422.playerContext.world.vehicleUpdates[
+              thestream.writeData(obj241711.playerContext.world.vehicleUpdates[
+                  index237651].groups[0].unsafeAddr, len(obj241711.playerContext.world.vehicleUpdates[
                   index237651].groups) * 4)
           else:
             discard
-        var length237652 = len(obj242422.playerContext.world.terrainByCellXY)
+        var length237652 = len(obj241711.playerContext.world.terrainByCellXY)
         thestream.writeData(length237652.unsafeAddr, 4)
         for index237655 in 0 ..<
-            (len(obj242422.playerContext.world.terrainByCellXY)):
-          var length237653 = len(obj242422.playerContext.world.terrainByCellXY[
+            (len(obj241711.playerContext.world.terrainByCellXY)):
+          var length237653 = len(obj241711.playerContext.world.terrainByCellXY[
               index237655])
           thestream.writeData(length237653.unsafeAddr, 4)
           for index237654 in 0 ..<
-              (len(obj242422.playerContext.world.terrainByCellXY[index237655])):
-            thestream.writeData(obj242422.playerContext.world.terrainByCellXY[
+              (len(obj241711.playerContext.world.terrainByCellXY[index237655])):
+            thestream.writeData(obj241711.playerContext.world.terrainByCellXY[
                 index237655][index237654].unsafeAddr, 1)
-        var length237656 = len(obj242422.playerContext.world.weatherByCellXY)
+        var length237656 = len(obj241711.playerContext.world.weatherByCellXY)
         thestream.writeData(length237656.unsafeAddr, 4)
         for index237659 in 0 ..<
-            (len(obj242422.playerContext.world.weatherByCellXY)):
-          var length237657 = len(obj242422.playerContext.world.weatherByCellXY[
+            (len(obj241711.playerContext.world.weatherByCellXY)):
+          var length237657 = len(obj241711.playerContext.world.weatherByCellXY[
               index237659])
           thestream.writeData(length237657.unsafeAddr, 4)
           for index237658 in 0 ..<
-              (len(obj242422.playerContext.world.weatherByCellXY[index237659])):
-            thestream.writeData(obj242422.playerContext.world.weatherByCellXY[
+              (len(obj241711.playerContext.world.weatherByCellXY[index237659])):
+            thestream.writeData(obj241711.playerContext.world.weatherByCellXY[
                 index237659][index237658].unsafeAddr, 1)
-        var length237660 = len(obj242422.playerContext.world.facilities)
+        var length237660 = len(obj241711.playerContext.world.facilities)
         thestream.writeData(length237660.unsafeAddr, 4)
         for index237661 in 0 ..<
-            (len(obj242422.playerContext.world.facilities)):
+            (len(obj241711.playerContext.world.facilities)):
           discard
-          var tmp237243 = obj242422.playerContext.world.facilities[index237661].flag
+          var tmp237243 = obj241711.playerContext.world.facilities[index237661].flag
           thestream.writeData(tmp237243.unsafeAddr, 1)
-          case obj242422.playerContext.world.facilities[index237661].flag
+          case obj241711.playerContext.world.facilities[index237661].flag
           of FromId:
             discard
-            thestream.writeData(obj242422.playerContext.world.facilities[index237661].sourceId.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.facilities[index237661].sourceId.unsafeAddr,
                                 8)
           of Exists:
             discard
-            thestream.writeData(obj242422.playerContext.world.facilities[index237661].id.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.facilities[index237661].id.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.facilities[index237661].theType.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.facilities[index237661].theType.unsafeAddr,
                                 1)
-            thestream.writeData(obj242422.playerContext.world.facilities[index237661].ownerPlayerId.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.facilities[index237661].ownerPlayerId.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.facilities[index237661].left.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.facilities[index237661].left.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.facilities[index237661].top.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.facilities[index237661].top.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.facilities[index237661].capturePoints.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.facilities[index237661].capturePoints.unsafeAddr,
                                 8)
-            thestream.writeData(obj242422.playerContext.world.facilities[index237661].vehicleType.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.facilities[index237661].vehicleType.unsafeAddr,
                                 1)
-            thestream.writeData(obj242422.playerContext.world.facilities[index237661].productionProgress.unsafeAddr,
+            thestream.writeData(obj241711.playerContext.world.facilities[index237661].productionProgress.unsafeAddr,
                                 4)
           else:
             discard
@@ -3829,31 +3526,31 @@ proc serialize(obj242422: Message; thestream: Stream) =
   else:
     discard
 
-proc serialize(obj242426: Message): string =
-  let ss242428 = newStringStream()
-  serialize(obj242426, ss242428)
-  ss242428.data
+proc serialize(obj241715: Message): string =
+  let ss241717 = newStringStream()
+  serialize(obj241715, ss241717)
+  ss241717.data
 
-proc deserialize(a242424: typedesc[Message]; thestream: Stream): Message =
+proc deserialize(a241713: typedesc[Message]; thestream: Stream): Message =
   discard
-  var tmp242419: type(result.kind)
+  var tmp241708: type(result.kind)
   assert(1 ==
-      thestream.readData(tmp242419.unsafeAddr, 1),
+      thestream.readData(tmp241708.unsafeAddr, 1),
          "Stream was not provided enough data")
-  if $(tmp242419) ==
-      $(ord(tmp242419)) & " (invalid data!)":
+  if $(tmp241708) ==
+      $(ord(tmp241708)) & " (invalid data!)":
     raise newException(ValueError, "Enum value is out of range: " &
-        $(tmp242419) & "\x0ACorrect values are:\x0A" &
+        $(tmp241708) & "\x0ACorrect values are:\x0A" &
         "enum\x0A  UNKNOWN = 0, GAME_OVER = 1, AUTHENTICATION_TOKEN = 2, TEAM_SIZE = 3, PROTOCOL_VERSION = 4,\x0A  GAME_CONTEXT = 5, PLAYER_CONTEXT = 6, MOVE = 7")
-  result.kind = tmp242419
+  result.kind = tmp241708
   case result.kind
   of MessageType.AUTHENTICATION_TOKEN:
     discard
-    var length242420: int32
+    var length241709: int32
     assert(4 ==
-        thestream.readData(length242420.unsafeAddr, 4),
+        thestream.readData(length241709.unsafeAddr, 4),
            "Stream was not provided enough data")
-    result.token = newString(length242420)
+    result.token = newString(length241709)
     if len(result.token) > 0:
       assert(len(result.token) * 1 ==
           thestream.readData(result.token[0].unsafeAddr, len(result.token) *
@@ -4661,18 +4358,18 @@ proc deserialize(a242424: typedesc[Message]; thestream: Stream): Message =
       discard
   else:
     discard
-proc size(obj246154: OptionalLen): Natural =
+proc size(obj245443: OptionalLen): Natural =
   4
 
-proc serialize(obj246155: OptionalLen; thestream: Stream) =
-  thestream.writeData(obj246155.unsafeAddr, 4)
+proc serialize(obj245444: OptionalLen; thestream: Stream) =
+  thestream.writeData(obj245444.unsafeAddr, 4)
 
-proc serialize(obj246159: OptionalLen): string =
-  let ss246161 = newStringStream()
-  serialize(obj246159, ss246161)
-  ss246161.data
+proc serialize(obj245448: OptionalLen): string =
+  let ss245450 = newStringStream()
+  serialize(obj245448, ss245450)
+  ss245450.data
 
-proc deserialize(a246157: typedesc[OptionalLen]; thestream: Stream): OptionalLen =
+proc deserialize(a245446: typedesc[OptionalLen]; thestream: Stream): OptionalLen =
   assert(4 ==
       thestream.readData(result.unsafeAddr, 4),
          "Stream was not provided enough data")

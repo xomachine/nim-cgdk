@@ -57,12 +57,6 @@ type
       width: float64
       height: float64
     else: discard
-  WorldTail = object
-    newVehicles: seq[Vehicle]
-    vehicleUpdates: seq[VehicleUpdate]
-    #terrainByCellXY: seq[seq[TerrainType]]
-    #weatherByCellXY: seq[seq[WeatherType]]
-    #facilities: seq[Facility]
   Terrains = seq[seq[TerrainType]]
   Weathers = seq[seq[WeatherType]]
   OptionalLen = int32
@@ -88,7 +82,6 @@ else:
   toSerializable(World)
   toSerializable(PlayerContext)
   toSerializable(WorldHead)
-  toSerializable(WorldTail)
   toSerializable(Terrains)
   toSerializable(Weathers)
   toSerializable(MessageType)
