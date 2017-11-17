@@ -1,9 +1,12 @@
 from math import hypot
+from vehicle import Vehicle
 
-type GenericUnit* = concept c
-  c.id is int64
-  c.x is float64
-  c.y is float64
+type
+  UnitConcept = concept c
+    c.id is int64
+    c.x is float64
+    c.y is float64
+  GenericUnit = UnitConcept | Vehicle
 
 type Unit* = object
   id*: int64
@@ -13,7 +16,7 @@ type Unit* = object
 proc getDistanceTo*(self: GenericUnit, x, y: BiggestFloat): BiggestFloat =
   hypot(x - self.x, y - self.y)
 
-proc getDistanceToUnit*(self: GenericUnit, target: Unit): BiggestFloat =
+proc getDistanceToUnit*(self: GenericUnit, target: GenericUnit): BiggestFloat =
   self.getDistanceTo(target.x, target.y)
 
 proc getSquaredDistanceTo*(self: GenericUnit, x, y: BiggestFloat): BiggestFloat =
