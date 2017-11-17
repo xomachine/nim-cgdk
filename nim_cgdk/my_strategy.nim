@@ -7,6 +7,10 @@ from model.game import Game
 type MyStrategy* = object
   # put your custom fields here
 
+proc initMyStrategy*(): MyStrategy =
+  # put your initialization code here
+  discard
+
 proc move*(self: var MyStrategy, player: Player, world: World, game: Game,
            move: var Move) =
   if world.tick_index == 0:

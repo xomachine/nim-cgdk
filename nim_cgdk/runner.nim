@@ -7,7 +7,7 @@ from model.move import Move
 from model.game import CachedFlag
 from model.action_type import ActionType
 from model.vehicle_type import VehicleType
-from my_strategy import move, MyStrategy
+from my_strategy import move, MyStrategy, initMyStrategy
 
 var rpClient: RemoteProcessClient
 var token: string
@@ -20,7 +20,7 @@ var token: string
 
 try:
   let game = rpClient.startConversation(token, 3)
-  var strategy = MyStrategy()
+  var strategy = initMyStrategy()
   while true:
     let context = rpClient.getPlayerContext()
     if not context.exists:
