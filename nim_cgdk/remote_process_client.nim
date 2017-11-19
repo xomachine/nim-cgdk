@@ -1,8 +1,6 @@
-from streams import writeData, readData, Stream
 from sequtils import toSeq
 from tables import Table, `[]`, `[]=`, initTable, len, values
-from utils.socketstream import newSocketStream, SocketStream
-from net import Port, Socket, newSocket, connect, getFd, close
+from net import Port, Socket, newSocket, connect, getFd, close, recv, send
 from nativesockets import setSockOptInt
 from macros import `!`, quote
 from typetraits import name
@@ -61,17 +59,18 @@ type
 type
   RemoteProcessClient* = tuple
     socket: Socket
-    stream: SocketStream
     PlayerCache: Table[int64, Player]
     TerrainTypeCache: seq[seq[TerrainType]]
     WeatherTypeCache: seq[seq[WeatherType]]
     FacilityCache: Table[int64, Facility]
 
 proc read[T: PlainType](rpc: var RemoteProcessClient, a: typedesc[T]): T =
-  assert(T.sizeof() == rpc.stream.readData(result.addr, T.sizeof()))
+  let received = rpc.socket.recv(result.addr, T.sizeof())
+  assert(T.sizeof() == received)
 
 proc read[T: enum](rpc: var RemoteProcessClient, a: typedesc[T]): T =
-  assert(T.sizeof() == rpc.stream.readData(result.addr, T.sizeof()))
+  let received = rpc.socket.recv(result.addr, T.sizeof())
+  assert(T.sizeof() == received)
   #assert($result != $(ord(result)) & " (invalid data!)") # bounds check
   # In general case the following check is not enough due to possible
   # holes inside the enum. But enums in model have no holes, so
@@ -124,7 +123,8 @@ proc read[T: CachedEnum](rpc: var RemoteProcessClient,
 proc read[T: string](rpc: var RemoteProcessClient, a: typedesc[T]): T =
   let strlen = rpc.read(int32)
   result = newString(strlen)
-  assert(strlen == rpc.stream.readData(result[0].addr, strlen))
+  let received = rpc.socket.recv(result[0].addr, strlen)
+  assert(strlen == received)
 
 proc read[T](rpc: var RemoteProcessClient, a: typedesc[seq[T]]): seq[T] =
   let seqlen = rpc.read(int32)
@@ -143,7 +143,8 @@ proc read[T](rpc: var RemoteProcessClient, a: typedesc[seq[T]]): seq[T] =
 
 
 proc write[T: PlainOrEnum](rpc: RemoteProcessClient, data: T) =
-  rpc.stream.writeData(data.unsafeAddr, T.sizeof())
+  let sent = rpc.socket.send(data.unsafeAddr, T.sizeof())
+  assert(sent == T.sizeof())
 
 proc write[T: object](rpc: RemoteProcessClient, data: T) =
   for k, v in data.fieldPairs():
@@ -151,7 +152,8 @@ proc write[T: object](rpc: RemoteProcessClient, data: T) =
 
 proc write[T: string](rpc: RemoteProcessClient, data: T) =
   rpc.write(int32(data.len))
-  rpc.stream.writeData(data[0].unsafeAddr, data.len)
+  let sent = rpc.socket.send(data[0].unsafeAddr, data.len)
+  assert(sent == data.len)
 
 proc write[T: ref object](rpc: RemoteProcessClient, data: T) =
   rpc.write(not data.isNil)
@@ -170,8 +172,7 @@ proc newRemoteProcessClient*(address: string,
                              port: Natural): RemoteProcessClient =
   result.socket = newSocket()
   result.socket.getFd().setSockOptInt(IPPROTO_TCP, TCP_NODELAY, 1)
-  result.socket.connect(address, Port(port), 1000)
-  result.stream = newSocketStream(result.socket)
+  result.socket.connect(address, Port(port))
   result.PlayerCache = initTable[int64, Player](16)
   result.FacilityCache = initTable[int64, Facility](16)
 
