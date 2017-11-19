@@ -12,7 +12,7 @@ var rpClient: RemoteProcessClient
 var token: string
 
 (rpClient, token) =
-  if paramCount() == 4:
+  if paramCount() == 3: # $0 is not counted by paramCount
     (newRemoteProcessClient(paramStr(1), parseInt(paramStr(2))), paramStr(3))
   else:
     (newRemoteProcessClient("127.0.0.1", 31001), "0000000000000000")
