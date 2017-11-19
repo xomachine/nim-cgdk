@@ -4,7 +4,6 @@ from remote_process_client import RemoteProcessClient, newRemoteProcessClient,
 from os import paramCount, paramStr
 from strutils import parseInt
 from model.move import Move
-from model.game import CachedFlag
 from model.action_type import ActionType
 from model.vehicle_type import VehicleType
 from my_strategy import move, MyStrategy, initMyStrategy
@@ -23,12 +22,12 @@ try:
   var strategy = initMyStrategy()
   while true:
     let context = rpClient.getPlayerContext()
-    if not context.exists:
+    if context.isNil:
       break
     let player = context.player
-    if player.flag == None:
+    if player.isNil:
       break
-    var themove = Move(exists: true, action: ActionType.NONE, group:0, left:0,
+    var themove = Move(action: ActionType.NONE, group:0, left:0,
                        top: 0, right: 0, bottom: 0, x: 0, y: 0, angle: 0,
                        factor: 0, maxSpeed: 0, maxAngularSpeed: 0,
                        vehicleType: VehicleType.UNKNOWN, facilityId: -1,
