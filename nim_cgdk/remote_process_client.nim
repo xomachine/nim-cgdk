@@ -192,8 +192,13 @@ proc startConversation*(self: var RemoteProcessClient, token: string,
 
 proc getPlayerContext*(self: var RemoteProcessClient): PlayerContext =
   let message = self.read(Message)
-  assert(message.kind == MessageType.PLAYER_CONTEXT)
-  message.playerContext
+  case message.kind
+  of MessageType.GAME_OVER:
+    return nil
+  of MessageType.PLAYER_CONTEXT:
+    return message.playerContext
+  else:
+    raise newException(ValueError, "Got incorrect message of type " & $message.kind & ", but expected GAME_OVER or PLAYER_CONTEXT")
 
 proc doMove*(self: RemoteProcessClient, move: Move) =
   let moveMessage = Message(kind: MessageType.MOVE, move: move)
